@@ -41,19 +41,56 @@ namespace Basic
 
         }
 
-        //public static double[] Assignment4(bool asc, params double[] nums)
-        //{
-        //    /*
-        //     * TODO: Write code here
-        //     */
-        //}
+        public static int[] Assignment4(int asc, params int[] nums)
+        {
+            int[] newArr = nums;
+            int temp = 0;
+            {
+                for (int i = 0; i < nums.Length; i++)
+                {
+                    for (int j = i + 1; j < nums.Length; j++)
+                    {
+                        switch (asc)
+                        {
+                            case 0:
+                                if (newArr[i] > newArr[j])
+                                {
+                                    temp = newArr[i];
+                                    newArr[i] = newArr[j];
+                                    newArr[j] = temp;
+                                }
+                                break;
+                            case 1:
+                                if (newArr[i] < newArr[j])
+                                {
+                                    temp = newArr[i];
+                                    newArr[i] = newArr[j];
+                                    newArr[j] = temp;
+                                }
+                                break;
+                        }
+                    }
+                }
+            }
+            return newArr;
+        }
 
-        //public static void Assignment5(string str, char[] letters)
-        //{
-        //    /*
-        //     * TODO: Write code here
-        //     */
-        //}
+        public static string Assignment5(string str, char[] letters)
+        {
+            char[] strChars = str.ToCharArray();
+
+            for (int i = 0; i < strChars.Length; i++)
+            {
+                for (int j = 0; j < letters.Length; j++)
+                {
+                    if (strChars[i] == letters[j])
+                    {
+                        strChars[i] = (char)(strChars[i] + 10);
+                    }
+                }
+            }
+            return new string(strChars);
+        }
 
         //public static bool Assignment6(string str)
         //{

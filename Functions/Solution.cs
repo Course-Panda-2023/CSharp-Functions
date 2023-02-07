@@ -81,9 +81,14 @@ namespace Basic
 
         public static int Assignment7(int[] nums)
         {
-            /*
-             * TODO: Write code here
-             */
+            int singleNumber = nums[0];
+
+            for (int arrIndex = 1; arrIndex < nums.Length; arrIndex++)
+            {
+                singleNumber ^= nums[arrIndex];
+            }
+
+            return singleNumber;
         }
 
         public static void Assignment8(bool[,] board, int rows, int cols)

@@ -118,7 +118,7 @@ namespace Basic
         public static bool IsSign(char ch)
         {
             //numbers are according to the question and
-            //the ascci value of signs to take into account.
+            //the ascci value of signs to take into account (spaces and so).
             if (ch <= 64 || (ch >= 91 && ch <= 96) || ch > 123)
             {
                 return true;

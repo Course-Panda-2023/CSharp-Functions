@@ -45,12 +45,33 @@ namespace Basic
             return Helper.ReverseArr(nums);
         }
 
-        //public static void Assignment5(string str, char[] letters)
-        //{
-        //    /*
-        //     * TODO: Write code here
-        //     */
-        //}
+        public static void Assignment5(ref string str, char[] letters)
+        {
+            const int TenLettersBeforeLowerCaseZ = 113;
+            const int LowerCaseZ = 122;
+            const int LowerCaseA = 97;
+
+            char[] c = str.ToCharArray();
+            for (int i = 0; i < c.Length; i++)
+            {
+                for (int j = 0; j < letters.Length; j++)
+                {
+                    if (c[i] == letters[j])
+                    {
+                        int temp = Convert.ToInt32(c[i]);
+                        if (temp < TenLettersBeforeLowerCaseZ)
+                            temp = temp + 10;
+                        else
+                        {
+                            int difference = LowerCaseZ - temp + 9;
+                            temp = LowerCaseA + difference;
+                        }
+                        c[i] = Convert.ToChar(temp);
+                    }
+                }
+            }
+            str = new string(c);
+        }
 
         //public static bool Assignment6(string str)
         //{
@@ -99,8 +120,14 @@ namespace Basic
 
         static void Main(string[] args)
         {
-            Helper.PrintArr(Assignment4(false, 87, 0, 3, 67));
+            char[] c = { 'a', 'p' };
+            string str = "apple";
+            Console.WriteLine(str);
+            Assignment5(ref str, c);
+            Console.WriteLine(str);
+
         }
         #endregion
     }
 }
+    

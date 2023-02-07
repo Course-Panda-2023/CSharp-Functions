@@ -38,11 +38,20 @@ namespace Basic
             
         }
 
-        public static void Assignment5(string str, char[] letters)
+        public static void Assignment5(ref string str, char[] letters)
         {
-            /*
-             * TODO: Write code here
-             */
+            string shiftedString = "";
+            for (int letterIndex = 0; letterIndex < str.Length; letterIndex++)
+            {
+                if (Helper.DoesCharExistInArr(str[letterIndex], letters))
+                {
+                    shiftedString += (char) str[letterIndex]+10;
+                }
+                else
+                {
+                    shiftedString += str[letterIndex];
+                }
+            }
         }
 
         public static bool Assignment6(string str)

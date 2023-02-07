@@ -78,5 +78,17 @@ namespace Basic
                 Console.Write($"{number}, ");
             }
         }
+
+        public static bool DoesCharExistInArr(char ch, char[] letters)
+        {
+            foreach (char letter in letters)
+            {
+                if (letter == ch)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -103,7 +104,8 @@ namespace Basic
 
         public static bool Assignment6(string str)
         {
-            return true;
+            string lowercase = Helper.ToLowerCase(str);
+            return (lowercase == Helper.Reverse(lowercase));
         }
 
         public static int Assignment7(int[] nums)
@@ -145,7 +147,7 @@ namespace Basic
             string str = "hello world";
             char[] letters = { 'i', 'o' };
 
-            Assignment5(str, letters);
+            Console.WriteLine(Assignment6("ba--aaab"));
            // Console.WriteLine(Helper.SiftLetter('z'));
             Helper.WaitForEnter();
 

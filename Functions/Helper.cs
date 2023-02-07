@@ -71,6 +71,44 @@ namespace Basic
             char result = newChar;
             return result;
         }
+        public static string ToLowerCase(string str)
+        {
+            string lowercase = "";
+            foreach (char c in str)
+            {
+                if (Char.IsLetter(c))
+                {
+                    lowercase += c.ToString().ToLower();
+                }
+            }
+            return lowercase;
+        }
+        public static string Reverse(string s)
+        {
+            char[] charArray = s.ToCharArray();
+            Array.Reverse(charArray);
+            return new string(charArray);
+        }
+        /*
+        public static string FirstLetter(string str)
+        {
+            foreach (char c in str) 
+            {
+                if (Char.IsLetter(c))
+                {
+                    return c.ToString().ToLower()
+                }
+            }
+            return null;
+        }
+        public static string LastLetter(string str)
+        {
+            str = Reverse(str);
+            return FirstLetter(str);
+        }
+        */
+
+
 
     }
 }

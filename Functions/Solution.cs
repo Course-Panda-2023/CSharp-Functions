@@ -366,10 +366,20 @@ namespace Basic
 
         public static int Bonus2(uint[] hightMap)
         {
-            /*
-             * TODO: Write code here
-             */
-            return 5;
+            int rain = 0;
+            for (int i = 2; i < hightMap.Length; i++)
+            {
+                int newInd = 0;
+                while (newInd < i)
+                {
+                    if (hightMap[i] - hightMap[newInd] > 0)
+                    {
+                        rain += i - newInd;
+                    }
+                    newInd++;
+                }
+            }
+            return rain;
         }
         #endregion
     }

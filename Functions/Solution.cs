@@ -78,14 +78,20 @@ namespace Basic
             return str.Equals(reversedStr);
         }
 
-        #endregion
-
-        /*
         public static int Assignment7(int[] nums)
         {
-
+            foreach (int num in nums)
+            {
+                if (nums.Count(iterNum => iterNum == num) == 1)
+                {
+                    return num;
+                }
+            }
+            return -1;
         }
 
+        #endregion
+        /*
         public static void Assignment8(bool[,] board, int rows, int cols)
         {
 

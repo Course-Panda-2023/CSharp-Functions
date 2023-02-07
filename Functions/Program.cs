@@ -16,6 +16,10 @@ Console.WriteLine("Assignment 5:");
 string str = "hello and fuck my life";
 char[] chars = {'h', 'y', 'u', 'e'};
 Solution.Assignment5(str, chars);
-*/
+
 Console.WriteLine("Assignment 6:");
 Console.WriteLine(Solution.Assignment6("aab''cBa"));
+*/
+Console.WriteLine("Assignment 7:");
+int[] nums = { 1, 2, 3, 3, 2, 1, 10 };
+Console.WriteLine(Solution.Assignment7(nums));

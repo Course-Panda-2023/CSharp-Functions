@@ -143,6 +143,30 @@ namespace Basic
             return (char)asciValue;
         }
         //Assignment5
+
+        //Assignment6
+        public static String formatStrLowerCase(String str)
+        {
+            int asciInt = 0;
+            String s = "";
+            char cFixed;
+            foreach (char c in str)
+            {
+                asciInt = (int)c;
+                if (asciInt <= 90 && asciInt >= 65)
+                {
+                    asciInt = asciInt + 97 - 65;
+                    cFixed = (char)asciInt;
+                    s = s + cFixed;
+                } else if (asciInt <= 122 && asciInt >= 97)
+                {
+                    s += c;
+                }
+            }
+            return s;
+        }
+        //Assignment6
+
     }
 
 }

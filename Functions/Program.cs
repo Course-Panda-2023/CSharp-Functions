@@ -31,11 +31,17 @@ namespace MyApp // Note: actual namespace depends on the project name.
             //Solution.Assignment4(true, arr);
             ////Assignment4
 
-            //Assignment5
-            char[] chars = { 'a', 'b', 'c', 'z' };
-            Solution.Assignment5("aaabbbcccfgrshhkhmgzzzzzzzz", chars);
+            ////Assignment5
+            //char[] chars = { 'a', 'b', 'c', 'z' };
+            //Solution.Assignment5("aaabbbcccfgrshhkhmgzzzzzzzz", chars);
+            //Console.ReadLine();
+            ////Assignment5
+            ///
+
+            //Assignment6
+            Console.WriteLine(Solution.Assignment6("abbA----"));
             Console.ReadLine();
-            //Assignment5
+            //Assignment6
         }
     }
 }

@@ -72,12 +72,25 @@ namespace Basic
             Console.WriteLine(s);
         }
 
-        //    public static bool Assignment6(string str)
-        //    {
-        //        /*
-        //         * TODO: Write code here
-        //         */
-        //    }
+        public static bool Assignment6(string str)
+        {
+            String formattedStr = Helper.formatStrLowerCase(str);
+            //Console.WriteLine(formattedStr);
+            //Console.ReadLine();
+            int len = formattedStr.Length;
+            if (len == 0)
+            {
+                return true;
+            }
+            for (int i = 0; i < len; i++)
+            {
+                if (formattedStr[i] != formattedStr[len - 1 - i])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
 
         //    public static int Assignment7(int[] nums)
         //    {

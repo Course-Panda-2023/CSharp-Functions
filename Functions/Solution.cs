@@ -93,12 +93,33 @@ namespace Basic
                 return arr;
         }
 
-        // public static void Assignment5(string str, char[] letters)
-        // {
-        //     /*
-        //      * TODO: Write code here
-        //      */
-        // }
+        public static void Assignment5(string str, char[] letters)
+        {
+            var newStr = new StringBuilder();
+            foreach (char c in str)
+            {
+                bool charInLetters = false;
+                Console.WriteLine();
+                foreach (char letter in letters)
+                {
+                    if (c == letter)
+                    {
+                        charInLetters = true;
+                        if (c + 10 > 'z')
+                            {
+                                newStr.Append((char)('a' + 'z' - c));
+                                break;
+                            }
+                        else
+                            newStr.Append((char)(c+10));
+                    }
+                }
+                if (!charInLetters)
+                    newStr.Append(c);
+            }
+            string changedStr = newStr.ToString();
+            Console.WriteLine(changedStr);
+        }
 
         // public static bool Assignment6(string str)
         // {

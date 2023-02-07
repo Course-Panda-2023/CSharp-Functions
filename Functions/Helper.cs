@@ -31,5 +31,12 @@ namespace Basic
                 Console.Write($"{sortedArr[i]} ");
             }
         }
+
+        public static void ManageAssignment5()
+        {
+            char[] letters = {'a', 'p'};
+            string str = "apple";
+            Solution.Assignment5(str, letters);
+        }
     }
 }

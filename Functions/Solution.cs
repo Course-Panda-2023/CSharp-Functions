@@ -191,7 +191,7 @@ namespace Basic
 
         public static int Assignment9()
         {
-            int specialCnt = 0, currNumber = 0;
+            int specialCnt = Convert.ToInt32(BouncingNumbers.IsNumberBouncing(1)), currNumber = 1;
             double targetPct = 99;
 
             while ((Convert.ToDouble(specialCnt) / Convert.ToDouble(currNumber)) * 100 != targetPct)
@@ -207,9 +207,44 @@ namespace Basic
         #region Bonus solutions
         public static int Bonus1()
         {
-            /*
-             * TODO: Write code here
-             */
+            int cnt = 0;
+            
+            string[] digits = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+            string[] underTwenty =
+            {
+                "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen",
+                "sixteen", "seventeen", "eighteen", "nineteen"
+            };
+            string[] dozens =
+            {
+                "twenty",
+                "thirty",
+                "forty",
+                "fifty",
+                "sixty",
+                "seventy",
+                "eighty",
+                "ninety"
+            };
+
+            string hunderd = "hundred";
+
+            foreach (string str in digits.Concat(underTwenty))
+            {
+                cnt += str.Length;
+            }
+
+            foreach (string dozen in dozens)
+            {
+                foreach (string digit in digits)
+                {
+                    cnt += dozen.Length + digit.Length;
+                }
+            }
+
+            cnt += hunderd.Length;
+
+            return cnt;
         }
 
         public static int Bonus2(uint[] hightMap)

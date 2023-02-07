@@ -2,8 +2,8 @@
 {
 	public enum RPS
 	{
-		/*
-		 * TODO: Implement enum
-		 */
+		ROCK,
+		PAPER,
+		SCISSORS
 	}
 }

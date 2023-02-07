@@ -12,13 +12,4 @@ namespace Basic
          * TODO: Add any needed helper functions
          */
     }
-
-    public enum Operation
-    {
-        PLUS,
-        MINUS, 
-        MULTIPLACTION, 
-        DIVISION,
-        POWER
-    }
 }

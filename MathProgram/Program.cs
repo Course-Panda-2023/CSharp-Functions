@@ -36,3 +36,5 @@ void calculator(double firstNum, char op, double secondNum)
     }
     Console.WriteLine($"{firstNum} {op} {secondNum} = {num}");
 }
+Console.WriteLine(calculator(10,'+',12))
+Console.ReadLine();

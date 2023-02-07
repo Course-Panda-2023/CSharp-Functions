@@ -19,7 +19,10 @@ Solution.Assignment5(str, chars);
 
 Console.WriteLine("Assignment 6:");
 Console.WriteLine(Solution.Assignment6("aab''cBa"));
-*/
+
 Console.WriteLine("Assignment 7:");
 int[] nums = { 1, 2, 3, 3, 2, 1, 10 };
 Console.WriteLine(Solution.Assignment7(nums));
+*/
+Console.WriteLine("Assignment 9:");
+Console.WriteLine(Solution.Assignment9());

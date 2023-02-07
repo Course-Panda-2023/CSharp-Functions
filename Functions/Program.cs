@@ -22,15 +22,13 @@ Solution.Assignment5(str, letters);*/
 /****************************/
 
 /*********Assignment6********/
-string str = Console.ReadLine();
-//Solution.Assignment6(str);
-Console.WriteLine($"{Solution.Assignment6(str)}");
+/*string str = Console.ReadLine();
+Console.WriteLine($"Assignment 6 output: {Solution.Assignment6(str)}");*/
 /****************************/
 
 
-/*********Assignment5********/
-/*char[] letters = { 'a', 'b' }
-string str = "hello, world!";
-Solution.Assignment5();*/
+/*********Assignment7********/
+int[] nums = { 10, 2, 2, 3, 3, 3, 1, 200 };
+Console.WriteLine($"Assignment 7 output: {Solution.Assignment7(nums)}");
 /****************************/
 Console.ReadLine();

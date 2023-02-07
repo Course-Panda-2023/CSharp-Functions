@@ -95,9 +95,33 @@ namespace Basic
 
         public static int Assignment7(int[] nums)
         {
-            /*
-             * TODO: Write code here
-             */
+            if (nums.Length == 0)
+            {
+                Console.WriteLine($"The input array is empty!");
+                return -1;
+            }
+            //A little bit shooting a cannon at sparrows:)
+            Dictionary<int, int> hist = new Dictionary<int, int>();
+            foreach(int i in nums)
+            {
+                if (hist.ContainsKey(i))
+                {
+                    hist[i]++;
+                }
+                else
+                {
+                    hist[i] = 1;
+                }
+            }
+            foreach (KeyValuePair<int, int> entry in hist)
+            {
+                
+                if (entry.Value == 1)
+                {
+                    //Console.WriteLine($"{entry.Key}");
+                    return entry.Key;
+                }
+            }
             return 0;
         }
 

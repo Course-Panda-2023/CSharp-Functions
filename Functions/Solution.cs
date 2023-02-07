@@ -77,7 +77,7 @@ namespace Basic
             foreach (Char c in letters)
             {
                 int temp = c + 10;
-                temp = temp > 122 ? temp - 122 + 'a' - 1 - 32 : temp;
+                temp = temp > 122 ? temp - 122 + 'a' - 1 - 32 : temp;//Changes the letter to the appropriate capital letter
                 str = str.Replace(c, (char)(temp));
             }
             str = str.ToLower();

@@ -55,7 +55,7 @@ namespace Basic
                 else
                     Console.WriteLine("Player 1 wins.");
             }
-            catch (System.Collections.Generic.KeyNotFoundException e)
+            catch (System.Collections.Generic.KeyNotFoundException)
             {
                 Console.WriteLine("Not a legal move.");
             }
@@ -207,13 +207,22 @@ namespace Basic
         }
             
 
-        // public static int Assignment9()
-        // {
-        //     /*
-        //      * TODO: Write code here
-        //      */
-        // }
-        // #endregion
+        public static int Assignment9()
+        {
+            double density = 0;
+            int currNum = 0;
+            int jumpingCount = 0;
+            while (density < 0.99)
+            {
+                currNum += 1;
+                if (Helper.IsJumpingNumber(currNum))
+                    jumpingCount++;
+                density = (double)jumpingCount / currNum;
+            }
+            return currNum;
+                
+        }
+        #endregion
 
         // #region Bonus solutions
         // public static int Bonus1()
@@ -229,6 +238,6 @@ namespace Basic
         //      * TODO: Write code here
         //      */
         // }
-        #endregion
+        // #endregion
     }
 }

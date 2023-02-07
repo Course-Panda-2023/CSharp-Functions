@@ -25,4 +25,29 @@ public class GameOfLife
         }
         return aliveCounter;
     }
+
+    public static int CellNewState(int[,] board, int rowIndex, int colIndex)
+    {
+        int aliveCounter = CountNeighbors(board, rowIndex, colIndex);
+        if (board[rowIndex,colIndex] == 1)
+        {
+            if (aliveCounter <2)
+            {
+                return 0;
+            }
+            if ( aliveCounter == 2 || aliveCounter == 3)
+            {
+                return 1;
+            }
+            if (aliveCounter > 3)
+            {
+                return 0
+            }
+        }
+        if (board[rowIndex,colIndex] == 0 && aliveCounter == 3)
+        {
+            return 1;
+        }
+        return 0;
+    }
 }

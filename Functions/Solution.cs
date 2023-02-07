@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,10 +15,23 @@ namespace Basic
 
         #region Assignment solutions
         public static void Assignment1(int low, int high, out int res)
-        {
-            /*
-             * TODO: Write code here
-             */
+        {   
+            if(low<0 || high < 0)
+            {
+                int failFlag = -1;
+                res = failFlag;
+            }
+            else if (low <= high)
+            {
+                Random ran = new Random();
+                res = ran.Next(low,high);
+            }
+            else
+            {
+                Random ran = new Random();
+                res = ran.Next(high,low);
+            }
+
         }
 
         public static void Assignment3()

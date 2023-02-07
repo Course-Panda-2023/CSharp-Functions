@@ -44,5 +44,63 @@ namespace Basic
             } 
         }
 
+        public static List<(int, int)> indexTOCheck(int rows, int cols, int bordRos, int bordCol)
+        {
+            //Gets the index of the neighbors
+            List<(int, int)> list = new List<(int, int)>();
+            for (int j = -1; j < 2 && rows + j < bordRos; j++)
+            {
+                for (int i = -1; i < 2 && cols + i < bordCol; i++)
+                {
+                    if ((rows + j >= 0) && (cols + i >= 0))
+                    {
+                        list.Add((rows + j, cols + i));
+                    }
+                }
+            }
+            list.Remove((rows, cols));
+            return list;
+        }
+
+        public static int numberOfLive(int[,] board, List<(int, int)> list)
+        {
+            //Count how many neighbors there are in life
+            int count = 0;
+            for (int i = 0; i < list.Count; i++)
+            {
+                count += board[list[i].Item1, list[i].Item2];
+            }
+            return count;
+        }
+
+        public static int isAlive(int[,] board, int rows, int cols)
+        {
+            // Returns whether the indexed cell (board[rows,cols]) is alive
+            List<(int, int)> listOfN = indexTOCheck(rows, cols, board.GetLength(0), board.GetLength(1));
+            int numOfLiveN = numberOfLive(board, listOfN);
+            int isAliveTemp = 0;
+            if (board[rows, cols] == 1)
+            {
+                if (numOfLiveN < 2)
+                {
+                    isAliveTemp = 0;
+                }
+                else if (numOfLiveN == 2 || numOfLiveN == 3)
+                {
+                    isAliveTemp = 1;
+                }
+                else
+                {
+                    isAliveTemp = 0;
+                }
+            }
+            else
+            {
+                isAliveTemp = numOfLiveN == 3 ? 1 : 0;
+            }
+            return isAliveTemp;
+        }
+
+
     }
 }

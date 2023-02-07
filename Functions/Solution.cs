@@ -100,9 +100,16 @@ namespace Basic
             return i;
         }
 
-        public static void Assignment8(bool[,] board, int rows, int cols)
+        public static void Assignment8(int[,] board, int rows, int cols)
         {
-            
+            int[,] ints = (int[,])board.Clone();
+            for (int row = 0; row < rows; row++)
+            {
+                for (int col = 0; col < cols; col++)
+                {
+                    board[row, col] = isAlive(ints, row, col);
+                }
+            }
         }
 
         //public static int Assignment9()

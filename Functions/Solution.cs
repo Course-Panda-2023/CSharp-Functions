@@ -28,9 +28,7 @@ namespace Basic
 
         public static void Assignment3()
         {
-            /*
-             * TODO: Write code here
-             */
+            RockPaperScissors.runGame();
         }
 
         public static double[] Assignment4(bool asc, params double[] nums)

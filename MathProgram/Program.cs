@@ -20,6 +20,7 @@ str = Console.ReadLine();
 num2 = Convert.ToInt32(str);
 
 double result = 0;
+const int ROUND = 2;
 switch (op)
 {
     case '+':
@@ -32,7 +33,7 @@ switch (op)
         result = num1 * num2;
         break;
     case '/':
-        result = num1 / num2;
+        result = Math.Round((double) (num1) / num2, ROUND);
         break;
 }
 

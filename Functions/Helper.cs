@@ -8,8 +8,12 @@ namespace Basic
 {
     internal class Helper
     {
-        /*
-         * TODO: Add any needed helper functions
-         */
+        public static void ManageAssignment1()
+        {
+            Console.WriteLine($"Running assignment 1...");
+            int res; 
+            Solution.Assignment1(5, 1, out res);
+            Console.WriteLine($"Result is {res}");
+        }
     }
 }

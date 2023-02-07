@@ -15,9 +15,10 @@ namespace Basic
         #region Assignment solutions
         public static void Assignment1(int low, int high, out int res)
         {
-            /*
-             * TODO: Write code here
-             */
+            res = -1;
+            Random random = new Random();
+            if (low < high)
+                res = random.Next(low, high);
         }
 
         public static void Assignment3()

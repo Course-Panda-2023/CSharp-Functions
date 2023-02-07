@@ -1,6 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using Basic;
 
-/*
- * TODO: Write functions to check your logic
- */
+Assignment1(1, 100);
+Assignment1(100, 1);

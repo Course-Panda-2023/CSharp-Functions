@@ -69,6 +69,16 @@ namespace Basic
              */
         }
         #endregion
+        void getRand(int minNum, int maxNum, out int temp)
+        {
+            if (minNum > maxNum)
+            {
+                temp = -1;
+                return;
+            };
+            Random rnd = new Random();
+            temp = rnd.Next(minNum, maxNum);
+        }
 
         #region Bonus solutions
         public static int Bonus1()

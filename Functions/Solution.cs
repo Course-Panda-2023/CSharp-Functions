@@ -78,7 +78,6 @@ namespace Basic
         public static string Assignment5(string str, char[] letters)
         {
             char[] strChars = str.ToCharArray();
-
             for (int i = 0; i < strChars.Length; i++)
             {
                 for (int j = 0; j < letters.Length; j++)
@@ -92,26 +91,39 @@ namespace Basic
             return new string(strChars);
         }
 
-        //public static bool Assignment6(string str)
-        //{
-        //    /*
-        //     * TODO: Write code here
-        //     */
-        //}
+        public static bool Assignment6(string str)
+        {
+            string newStr = str.ToLower();
+            return newStr.SequenceEqual(newStr.Reverse());
+        }
 
-        //public static int Assignment7(int[] nums)
-        //{
-        //    /*
-        //     * TODO: Write code here
-        //     */
-        //}
+        public static int Assignment7(int[] nums)
+        {
+            int i = 0;
+            foreach (int x in nums)
+            {
+                i ^= x;
+            }
+            return i;
+        }
 
-        //public static void Assignment8(bool[,] board, int rows, int cols)
-        //{
-        //    /*
-        //     * TODO: Write code here
-        //     */
-        //}
+
+        public static bool[,] Assignment8(bool[,] board, int rows, int cols)
+        {
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    if (board[i, j] == false)
+                        Console.Write(".");
+                    else
+                        Console.Write("*");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+            return GameOfLife.NextGeneration(board, rows, cols); //returns a new array
+        }
 
         //public static int Assignment9()
         //{

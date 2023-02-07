@@ -140,7 +140,17 @@ namespace Basic
 
         public static bool Assignment6(string str)
         {
+            str = new string(str.Where(Char.IsLetter).ToArray());
             
+            for (int i=0; i < str.Length / 2; i++)
+            {
+                if (str[i] != str[str.Length - i])
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         public static int Assignment7(int[] nums)

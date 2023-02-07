@@ -3,7 +3,7 @@
  */
 void calculator(double firstNum, char op, double secondNum)
 {
-    int num;
+    double num = -1;
     switch (op)
     {
         case '+':
@@ -31,7 +31,8 @@ void calculator(double firstNum, char op, double secondNum)
         case '^':
             num = Math.Pow(firstNum, secondNum);
             break;
+        default:
+            return;
     }
-    Console.WriteLine($"The result of the calculation is: {i}")
+    Console.WriteLine($"{firstNum} {op} {secondNum} = {num}");
 }
-Console.WriteLine(calculator(10,'+',12))

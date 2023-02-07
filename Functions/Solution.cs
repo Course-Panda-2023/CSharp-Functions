@@ -55,12 +55,22 @@ namespace Basic
             return nums;
         }
 
-        //    public static void Assignment5(string str, char[] letters)
-        //    {
-        //        /*
-        //         * TODO: Write code here
-        //         */
-        //    }
+        public static void Assignment5(string str, char[] letters)
+        {
+            String s = "";
+            foreach(char c in str)
+            {
+                if (letters.Contains(c))
+                {
+                    s = s + Helper.shiftLetters(c);
+                }
+                else
+                {
+                    s = s + c;
+                }
+            }
+            Console.WriteLine(s);
+        }
 
         //    public static bool Assignment6(string str)
         //    {

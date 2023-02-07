@@ -127,6 +127,22 @@ namespace Basic
             Console.WriteLine("}");
         }
         //Assignment4
+
+        //Assignment5
+        public static char shiftLetters(char c)
+        {
+            int asciValue = (int)c;
+            if (asciValue >= 113)
+            {
+                asciValue = 97 + asciValue - 113;
+            }
+            else
+            {
+                asciValue += 10;
+            }
+            return (char)asciValue;
+        }
+        //Assignment5
     }
 
 }

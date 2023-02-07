@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static Basic.Calculator;
+using static RockPaperScissors;
 
 namespace Basic
 {
@@ -63,44 +64,128 @@ namespace Basic
 
         public static void Assignment3()
         {
-            /*
-             * TODO: Write code here
-             */
+            RPS firstUserChose = RockPaperScissors.ScanUserChoose("first user");
+            RPS secondUserChose = RockPaperScissors.ScanUserChoose("first user");;
+
+            int score = RockPaperScissors.CalculateScore(firstUserChose, secondUserChose);
+
+            switch (score)
+            {
+                case 0: 
+                    Console.WriteLine("It's a tie!");
+                    break;
+                case -1:
+                    Console.WriteLine("First player wins!");
+                    break;
+                case 1:
+                    Console.WriteLine("Second player wins!");
+                    break;
+            }
         }
 
         public static double[] Assignment4(bool asc, params double[] nums)
         {
-            /*
-             * TODO: Write code here
-             */
+            if (nums.Length == 0)
+            {
+                return new double[0];
+            }
+            
+            double[] res = new double[nums.Length];
+            double[] nums_cp = new double[nums.Length];
+            int index = 0;
+            double min;
+            int minIndex;
+
+            foreach (double num in nums)
+            {
+                nums_cp[index] = num;
+                index += 1;
+            }
+
+            min = nums_cp[0];
+            minIndex = 0;
+            index = 0;
+
+            while (nums_cp.Length > 0)
+            {
+                foreach (double num in nums)
+                {
+                    if (num < min)
+                    {
+                        minIndex = 
+                    }
+
+                    index += 1;
+                }
+            }
         }
 
-        public static void Assignment5(string str, char[] letters)
+        public static string Assignment5(string str, char[] letters)
         {
-            /*
-             * TODO: Write code here
-             */
+            int index = 0, maxLowerCaseAscii = 97, minLowerCaseAscii = 26;
+            StringBuilder res = new StringBuilder(str);
+            
+            foreach (char c in str)
+            {
+                if (letters.Contains(c))
+                {
+                    res[index] = Convert.ToChar(((c - maxLowerCaseAscii) + 10) % minLowerCaseAscii + maxLowerCaseAscii);
+                }
+                index++;
+            }
+
+            return res.ToString();
         }
 
         public static bool Assignment6(string str)
         {
-            /*
-             * TODO: Write code here
-             */
+            
         }
 
         public static int Assignment7(int[] nums)
         {
-            /*
-             * TODO: Write code here
-             */
+            Dictionary<int, int> cnt = new Dictionary<int, int>();
+
+            foreach (int num in nums)
+            {
+                if (cnt.ContainsKey(num))
+                {
+                    cnt[num]++;
+                }
+                else
+                {
+                    cnt[num] = 1;
+                }
+            }
+            
+            foreach(KeyValuePair<int, int> entry in cnt)
+            {
+                if (entry.Value == 1)
+                {
+                    return entry.Key;
+                }
+            }
         }
 
         public static void Assignment8(bool[,] board, int rows, int cols)
         {
-            /*
-             * TODO: Write code here
-             */
+            bool[,] nextBoard = new bool[rows, cols];
+            
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    nextBoard[i, j] = GameOfLife.CalculateNextStateCoordinate(board, rows, cols, i, j);
+                }
+            }
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    board[i, j] = nextBoard[i, j];
+                }
+            }
         }
 
         public static int Assignment9()

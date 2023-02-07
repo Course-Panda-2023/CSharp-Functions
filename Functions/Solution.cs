@@ -146,19 +146,18 @@ namespace Basic
 
         public static int Assignment9(int num)
         {
-            bool flag = false;
-            string str = num.ToString();
-            char[] chars = str.ToCharArray();
-            chars = chars.OrderBy(c => c).ToArray();
-            string sorted = new string(chars);
-            if (str == sorted)
-                flag = true;
-            char[] c = str.ToCharArray();
-            c = c.OrderByDescending(c => c).ToArray();
-            string decSorted = new string(c);
-            if (str == decSorted)
-                flag = true;
-            return flag;
+            int starting = 1;
+            double per = 0;
+            int counter = 0;
+            while (per < 0.99)
+            {
+                if (BouncingNumbers.CheckIfNumberIsBouncing(starting))
+                    counter++;
+                per = (double)counter / (double)starting;
+                starting++;
+                Console.WriteLine("Number: " + starting + " , Per " + per);
+            }
+            return starting;
         }
         #endregion
         

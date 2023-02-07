@@ -8,6 +8,11 @@ namespace Basic
 {
     internal class Helper
     {
-        public const int ZERO = 0; 
+        public static void swap(double[] array, int i, int j)
+        {
+            double temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
     }
 }

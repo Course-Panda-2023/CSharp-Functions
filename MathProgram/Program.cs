@@ -33,6 +33,10 @@ switch (op)
         result = num1 * num2;
         break;
     case '/':
+        if (num2 == 0)
+        {
+            break;
+        }
         result = Math.Round((double) (num1) / num2, ROUND);
         break;
 }

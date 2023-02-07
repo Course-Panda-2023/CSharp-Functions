@@ -35,16 +35,93 @@ namespace Basic
         }
 
         public static void Assignment3()
-        {
-            /*
-             * TODO: Write code here
-             */
+        {            
+            Console.WriteLine("Welcome to rock paper scissors game!");
+
+            Console.WriteLine("2Players game");
+            Console.WriteLine("Player one");
+            Console.WriteLine("Enter P for papers, R for rock, S for scissors");
+
+            string p1Choice = Console.ReadLine();
+            if (p1Choice is null)
+            {
+                return;
+            }
+            
+            char charP1Choice = (char)p1Choice[0];
+
+            Console.WriteLine("Player two");
+            Console.WriteLine("Enter P for papers, R for rock, S for scissors");
+
+            string p2Choice = Console.ReadLine();
+            char charP2Choice = (char)p2Choice[0];
+            int score;
+
+            int p1 = charP1Choice == 'P' ?
+                    ((int)RockPaperScissors.RPS.PAPER) :
+                        charP1Choice == 'R' ?
+                        ((int)RockPaperScissors.RPS.ROCK) : ((int)RockPaperScissors.RPS.SCISSORS);
+
+            int p2 = charP2Choice == 'P' ?
+                    ((int)RockPaperScissors.RPS.PAPER) :
+                        charP2Choice == 'R' ?
+                        ((int)RockPaperScissors.RPS.ROCK) : ((int)RockPaperScissors.RPS.SCISSORS);
+            int difference = p1 - p2;
+            if (difference == 0)
+            {
+                Console.WriteLine("It is tie!");
+            }
+            if (difference == 1)
+            {
+                Console.WriteLine("Player one wins!");
+            }
+            if (difference == -1)
+            {
+                Console.WriteLine("Player two wins!");
+            }
+            if (difference == -2)
+            {
+                Console.WriteLine("Player one wins!");
+            }
+            if (difference == 2)
+            {
+                Console.WriteLine("Player two wins!");
+            }
+
+
         }
 
         public static double[] Assignment4(bool asc, params double[] nums)
         {
-            double[] numbers = {   3, 6, 8 };
-            return numbers;
+            double[] result = new double[nums.Length];
+            Span<double> numbersAsSpan = nums.AsSpan();
+            const int SECOND_INDEX = 1;
+            int j;
+            double key;
+           
+            for (int i = SECOND_INDEX; i < numbersAsSpan.Length; ++i)
+            {
+                key = numbersAsSpan[i];
+                j = i - 1;
+                while (j >= 0 && numbersAsSpan[j] > key)
+                {
+                    numbersAsSpan[j + 1] = numbersAsSpan[j];
+                    j = j - 1;
+                }
+                numbersAsSpan[j + 1] = key;
+            }
+            result = nums;
+            if (asc)
+            {
+                return result;
+            }
+
+            for (int i = 0; i < numbersAsSpan.Length / 2; ++i)
+            {
+                Helper.swap(result, i, numbersAsSpan.Length - i - 1);
+            }
+            
+            return result;
         }
 
         public static void Assignment5(string str, char[] letters)

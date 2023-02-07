@@ -104,7 +104,18 @@ namespace Basic
 
         public static bool Assignment6(string str)
         {
-            
+            str = Regex.Replace(str, "[^a-zA-Z0-9]", String.Empty);
+            str = str.ToLower();
+            char[] charArray = str.ToCharArray();
+            int length = charArray.Length - 1;
+            for (int i = 0; i <= length / 2; i++)
+            {
+                if (charArray[i] != charArray[length - i])
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         public static int Assignment7(int[] nums)

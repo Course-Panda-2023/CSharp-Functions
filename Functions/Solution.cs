@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//using namespace RockPaperScissors;
 
 namespace Basic
 {
@@ -15,16 +16,17 @@ namespace Basic
         #region Assignment solutions
         public static void Assignment1(int low, int high, out int res)
         {
-            /*
-             * TODO: Write code here
-             */
+            Random rand_num = new Random();
+            res = rand_num(low, high);
+            Console.WriteLine(res);
+            return;
         }
 
         public static void Assignment3()
         {
-            /*
-             * TODO: Write code here
-             */
+            //const players_num = 2;
+            //int counter = 0;
+            //Console.WriteLine
         }
 
         public static double[] Assignment4(bool asc, params double[] nums)
@@ -32,6 +34,8 @@ namespace Basic
             /*
              * TODO: Write code here
              */
+            //if (asc) { }
+            
         }
 
         public static void Assignment5(string str, char[] letters)

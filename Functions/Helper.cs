@@ -8,8 +8,6 @@ namespace Basic
 {
     internal class Helper
     {
-        /*
-         * TODO: Add any needed helper functions
-         */
+        public const int ZERO = 0; 
     }
 }

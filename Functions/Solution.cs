@@ -77,9 +77,10 @@ namespace Basic
             foreach (Char c in letters)
             {
                 int temp = c + 10;
-                temp = temp > 122 ? temp - 122 + 'a' - 1 : temp;
+                temp = temp > 122 ? temp - 122 + 'a' - 1 - 32 : temp;
                 str = str.Replace(c, (char)(temp));
             }
+            str = str.ToLower();
         }
 
         public static bool Assignment6(string str)

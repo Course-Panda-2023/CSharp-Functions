@@ -1,6 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using Basic;
 
-/*
- * TODO: Write functions to check your logic
- */
+Console.WriteLine("Assignment 1:");
+int res;
+Solution.Assignment1(10, 'a', out res);
+Console.WriteLine($"The random number is: {res}");
+Console.ReadLine();

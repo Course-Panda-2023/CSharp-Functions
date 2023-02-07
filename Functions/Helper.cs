@@ -167,6 +167,28 @@ namespace Basic
         }
         //Assignment6
 
+        //Assignment7
+        public static int sumRemoveDuplicates(int[] intArr)
+        {
+            int index = 0;
+            int sum = 0;
+            int[] newIntArr = new int[intArr.Length];
+            for (int i = 0; i < intArr.Length; i++)
+            {
+                newIntArr[i] = 0;
+            }
+            foreach (int integer in intArr)
+            {
+                if (!newIntArr.Contains(integer))
+                {
+                    newIntArr[index] = integer;
+                    sum = sum + index;
+                    index++;
+                }
+            }
+            return sum;
+        }
+        //Assignment7
     }
 
 }

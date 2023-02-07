@@ -92,12 +92,16 @@ namespace Basic
             return true;
         }
 
-        //    public static int Assignment7(int[] nums)
-        //    {
-        //        /*
-        //         * TODO: Write code here
-        //         */
-        //    }
+        public static int Assignment7(int[] nums)
+        {
+            int sumWithoutDuplicates = Helper.sumRemoveDuplicates(nums);
+            int sum = 0;
+            foreach(int num in nums)
+            {
+                sum += num;
+            }
+            return -2 * sumWithoutDuplicates + sum;
+        }
 
         //    public static void Assignment8(bool[,] board, int rows, int cols)
         //    {

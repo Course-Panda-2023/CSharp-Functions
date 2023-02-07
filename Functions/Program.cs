@@ -42,6 +42,12 @@ namespace MyApp // Note: actual namespace depends on the project name.
             Console.WriteLine(Solution.Assignment6("abbA----"));
             Console.ReadLine();
             //Assignment6
+
+            //Assignment7
+            int[] arr = { 1, 2, 1, 2, 4, 3, 3 };
+            Console.WriteLine(Solution.Assignment7(arr));
+            Console.ReadLine() ;
+            //Assignment7
         }
     }
 }

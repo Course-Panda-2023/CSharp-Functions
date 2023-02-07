@@ -87,19 +87,32 @@ namespace Basic
             return -1;
         }
 
-        #endregion
+        
         /*
         public static void Assignment8(bool[,] board, int rows, int cols)
         {
             
         }
+        */
 
         public static int Assignment9()
         {
-            
+            int bouncNumCount = 0;
+            int num = 0;
+            double percent = 0;
+            while(percent < 0.99)
+            {
+                num++;
+                if (BouncingNumbers.IfBouncNum(num))
+                {
+                    bouncNumCount++;
+                }
+                percent = bouncNumCount / (double)num;
+            }
+            return num;
         }
         #endregion
-
+        /*
         #region Bonus solutions
         public static int Bonus1()
         {

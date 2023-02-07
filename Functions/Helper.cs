@@ -38,5 +38,13 @@ namespace Basic
             string str = "apple";
             Solution.Assignment5(str, letters);
         }
+
+        public static void ManageAssignment6()
+        {
+            // string str = "A man, a plan, a canal: Panama";
+            string str = "race a car";
+            bool isPalindrome = Solution.Assignment6(str);            
+            Console.WriteLine(isPalindrome);
+        }     
     }
 }

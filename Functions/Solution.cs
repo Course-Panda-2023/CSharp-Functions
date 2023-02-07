@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Basic
@@ -121,12 +122,25 @@ namespace Basic
             Console.WriteLine(changedStr);
         }
 
-        // public static bool Assignment6(string str)
-        // {
-        //     /*
-        //      * TODO: Write code here
-        //      */
-        // }
+        public static bool Assignment6(string str)
+        {   
+            Regex rgx = new Regex("[^a-zA-Z]");
+            str = rgx.Replace(str, "");
+            string sentence = str.ToLower();
+            int n = sentence.Length - 1;
+            bool isPalindrome = true;
+            int i = 0;
+            while(i < n-i)
+            {
+                if (sentence[i] != sentence[n-i])
+                {
+                    isPalindrome = false;
+                    break;
+                }
+                i++;
+            }
+            return isPalindrome;
+        }
 
         // public static int Assignment7(int[] nums)
         // {

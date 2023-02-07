@@ -47,5 +47,41 @@ namespace Basic
                 return "Second player wins!";
             }
         }
+
+        public static double[] SortArray(double[] array) 
+        {
+            double temp; 
+            for (int i = 0; i < array.Length - 1; i++)
+
+                for (int j = i + 1; j < array.Length; j++)
+
+                    if (array[i] > array[j])
+                    {
+
+                        temp = array[i];
+
+                        array[i] = array[j];
+
+                        array[j] = temp;
+
+                    }
+            return array;
+        }
+
+        public static double[] ReverseArray(double[] array)
+        {
+            double[] reverseArray = new double[array.Length];
+            for (int i = 0; i < array.Length ; i++)
+                reverseArray[array.Length-1-i] = array[i];
+            return reverseArray;
+        }
+
+        public static void PrintArray(double[] array)
+        {
+            foreach ( double value in array) 
+            {
+                Console.WriteLine(value);
+            }
+        }
     }
 }

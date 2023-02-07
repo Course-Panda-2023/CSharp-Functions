@@ -36,13 +36,22 @@ namespace Basic
 
             Console.WriteLine(Helper.Winner(player1, player2));
         }
-        #endregion
-        /*
+        
         public static double[] Assignment4(bool asc, params double[] nums)
         {
-            
+            double[] sortedNums = Helper.SortArray(nums);
+            if (asc) 
+            {
+                return sortedNums;
+            }
+            else 
+            {
+                return Helper.ReverseArray(sortedNums);
+            }
         }
 
+        #endregion
+        /*
         public static void Assignment5(string str, char[] letters)
         {
             

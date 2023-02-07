@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Basic
@@ -64,18 +65,30 @@ namespace Basic
             Console.WriteLine(str);
         }
 
-        #endregion
-        /*
         public static bool Assignment6(string str)
         {
-            
+            str = Regex.Replace(str, "[^a-zA-Z]", String.Empty);
+            str = str.ToLower();
+            char[] letters = str.ToCharArray(); 
+            Array.Reverse(letters);
+            string reversedStr = new string(letters);
+            return str.Equals(reversedStr);
         }
 
         public static int Assignment7(int[] nums)
         {
-            
+            foreach (int num in nums)
+            {
+                if (nums.Count(tempNum => tempNum == num) == 1)
+                {
+                    return num;
+                }
+            }
+            return -1;
         }
 
+        #endregion
+        /*
         public static void Assignment8(bool[,] board, int rows, int cols)
         {
             

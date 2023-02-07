@@ -15,9 +15,49 @@ namespace Basic
         #region Assignment solutions
         public static void Assignment1(int low, int high, out int res)
         {
-            /*
-             * TODO: Write code here
-             */
+            // assuming that low, high are non negative
+            
+            if (high < low)
+            {
+                
+                res = -1;
+                return;
+            }
+            Random r = new Random();
+            res = r.Next(low, high + 1);
+        }
+        
+        public static int Assignment2(double num1, double num2, Operation op)
+        {
+            double res = 0;  // initialization only needed for compilation
+
+            switch (op)
+            {
+                case Operation.PLUS:
+                    res = num1 + num2;
+                    break;
+                case Operation.MINUS:
+                    res = num1 - num2;
+                    break;
+                case Operation.MULTIPLACTION:
+                    res = num1 * num2;
+                    break;
+                case Operation.DIVISION:
+                    if (num2 == 0)
+                    {
+                        return -1;
+                    }
+
+                    res = num1 / num2;
+                    break;
+                case Operation.POWER:
+                    res = Math.Pow(num1, num2);
+                    break;
+            }
+
+            Console.WriteLine($"Result is: {res}");
+            
+            return 0;
         }
 
         public static void Assignment3()

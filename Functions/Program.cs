@@ -16,15 +16,15 @@ Console.WriteLine("Checking your solutions...");
 
 
 /*********Assignment5********/
-char[] letters = { 'i', 'o' };
+/*char[] letters = { 'i', 'o' };
 string str = Console.ReadLine();
-Solution.Assignment5(str, letters);
+Solution.Assignment5(str, letters);*/
 /****************************/
 
-/*********Assignment5********/
-/*char[] letters = { 'a', 'b' }
-string str = "hello, world!";
-Solution.Assignment5();*/
+/*********Assignment6********/
+string str = Console.ReadLine();
+//Solution.Assignment6(str);
+Console.WriteLine($"{Solution.Assignment6(str)}");
 /****************************/
 
 

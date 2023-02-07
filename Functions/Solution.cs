@@ -70,10 +70,7 @@ namespace Basic
         }    
 
         public static void Assignment5(string str, char[] letters)
-        {
-            /*
-             * TODO: Write code here
-             */
+        {            
             Helper.ShiftLetters(ref str, letters);
         }
 
@@ -82,6 +79,17 @@ namespace Basic
             /*
              * TODO: Write code here
              */
+            for(int i = 0; i < str.Length / 2; i++)
+            {
+                if(str[i] == str[str.Length - 1 - i])
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
             return true;
         }
 

@@ -33,7 +33,7 @@ namespace Basic
             RPS move1 = (RPS)Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Enter player2's move (0 for rock, 1 for paper, 2 for scissors): ");
             RPS move2 = (RPS)Convert.ToInt32(Console.ReadLine());
-            int result = winner(move1, move2);
+            int result = Winner(move1, move2);
             switch(result)
             {
                 case 0:
@@ -87,14 +87,24 @@ namespace Basic
 
         public static void Assignment5(string str, char[] letters)
         {
-
+            char[] charList = new char[str.Length];
+            char[] updatedList = new char[str.Length];
+            int i = 0;
+            foreach (char c in letters)
+            {
+                if ((!charList.Contains(c)) && (str.Contains(c)))
+                {
+                    charList[i] = c;
+                    i++;
+                    str = str.Replace(c, (char)(((int)c) + 10));
+                }
+            }
+            Console.WriteLine(str);
         }
 
         public static bool Assignment6(string str)
         {
-            /*
-             * TODO: Write code here
-             */
+            
         }
 
         public static int Assignment7(int[] nums)

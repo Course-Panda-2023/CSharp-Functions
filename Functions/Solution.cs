@@ -12,120 +12,95 @@ namespace Basic
          * Notice: Write helper functions in `Helper` class unless there is a special class for it
          */
 
-        #region Assignment solutions
+        //#region Assignment solutions
         public static void Assignment1(int low, int high, out int res)
         {
-            /*
-             * TODO: Write code here
-             */
-        }
-
-        public static void Assignment3()
-        {
-            /*
-             * TODO: Write code here
-             */
-        }
-
-        public static double[] Assignment4(bool asc, params double[] nums)
-        {
-            /*
-             * TODO: Write code here
-             */
-        }
-
-        public static void Assignment5(string str, char[] letters)
-        {
-            /*
-             * TODO: Write code here
-             */
-        }
-
-        public static bool Assignment6(string str)
-        {
-            /*
-             * TODO: Write code here
-             */
-        }
-
-        public static int Assignment7(int[] nums)
-        {
-            /*
-             * TODO: Write code here
-             */
-        }
-
-        public static void Assignment8(bool[,] board, int rows, int cols)
-        {
-            /*
-             * TODO: Write code here
-             */
-        }
-
-        public static int Assignment9()
-        {
-            /*
-             * TODO: Write code here
-             */
-        }
-        #endregion
-        //ex1
-        void getRand(int minNum, int maxNum, out int temp)
-        {
-            if (minNum > maxNum)
+            if (low > high)
             {
-                temp = -1;
+                res = -1;
                 return;
             };
             Random rnd = new Random();
-            temp = rnd.Next(minNum, maxNum);
+            res = rnd.Next(low, high);
         }
 
-        //ex2
-        void calculator(double firstNum, char op, double secondNum)
-        {
-            switch (op)
-            {
-                case '+':
-                    Console.WriteLine(firstNum + secondNum);
-                    break;
+        //public static void Assignment3()
+        //{
+        //    /*
+        //     * TODO: Write code here
+        //     */
+        //}
 
-                case '-':
-                    Console.WriteLine(firstNum - secondNum);
-                    break;
+        //public static double[] Assignment4(bool asc, params double[] nums)
+        //{
+        //    /*
+        //     * TODO: Write code here
+        //     */
+        //}
 
-                case '*':
-                    Console.WriteLine(firstNum * secondNum);
-                    break;
+        //public static void Assignment5(string str, char[] letters)
+        //{
+        //    /*
+        //     * TODO: Write code here
+        //     */
+        //}
 
-                case '/':
-                    if (secondNum == 0)
-                    {
-                        Console.WriteLine("error"); 
-                    }
-                    else 
-                        Console.WriteLine(firstNum / secondNum);
-                    break;
+        //public static bool Assignment6(string str)
+        //{
+        //    /*
+        //     * TODO: Write code here
+        //     */
+        //}
 
-                case '^':
-                    Console.WriteLine(Math.Pow(firstNum, secondNum));
-                    break;
-            }
-        }
-        #region Bonus solutions
-        public static int Bonus1()
-        {
-            /*
-             * TODO: Write code here
-             */
-        }
+        //public static int Assignment7(int[] nums)
+        //{
+        //    /*
+        //     * TODO: Write code here
+        //     */
+        //}
 
-        public static int Bonus2(uint[] hightMap)
-        {
-            /*
-             * TODO: Write code here
-             */
-        }
-        #endregion
+        //public static void Assignment8(bool[,] board, int rows, int cols)
+        //{
+        //    /*
+        //     * TODO: Write code here
+        //     */
+        //}
+
+        //public static int Assignment9()
+        //{
+        //    /*
+        //     * TODO: Write code here
+        //     */
+        //}
+        //#endregion
+        ////ex1
+        //void getRand(int minNum, int maxNum, out int temp)
+        //{
+        //    if (minNum > maxNum)
+        //    {
+        //        temp = -1;
+        //        return;
+        //    };
+        //    Random rnd = new Random();
+        //    temp = rnd.Next(minNum, maxNum);
+        //}
+
+        
+
+        //#region Bonus solutions
+        //public static int Bonus1()
+        //{
+        //    /*
+        //     * TODO: Write code here
+        //     */
+        //}
+
+        //public static int Bonus2(uint[] hightMap)
+        //{
+        //    /*
+        //     * TODO: Write code here
+        //     */
+        //}
+        //#endregion
     }
 }

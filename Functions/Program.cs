@@ -26,8 +26,9 @@ namespace MyApp // Note: actual namespace depends on the project name.
             //Assignment3
 
             //Assignment4
-            Solution.Assignment4(false, [1, 10, 6, 90, 34, 2 ,25, 7, 8, 9]);
-            Solution.Assignment4(true, [1, 10, 6, 90, 34, 2, 25, 7, 8, 9]);
+            double[] arr = { 1, 10, 6, 90, 34, 2, 25, 7, 8, 9 };
+            Solution.Assignment4(false, arr);
+            Solution.Assignment4(true, arr);
             //Assignment4
         }
     }

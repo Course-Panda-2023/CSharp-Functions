@@ -79,7 +79,7 @@ namespace Basic
     //Assignment 2
 
     //Assignment4
-    public static sortTopToBottom(params double[] arr)
+    public static void sortTopToBottom(params double[] arr)
     {
         double temp;
         int len = arr.Length;
@@ -95,8 +95,9 @@ namespace Basic
                 }
             }
         }
+        Console.WriteLine(arr);
     }
-    public static sortBottomToTop(params double[] arr)
+    public static void sortBottomToTop(params double[] arr)
     {
         double temp;
         int len = arr.Length;
@@ -112,6 +113,7 @@ namespace Basic
                 }
             }
         }
+        Console.WriteLine(arr);
     }
     //Assignment4
 }

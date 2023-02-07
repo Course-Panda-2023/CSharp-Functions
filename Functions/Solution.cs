@@ -69,6 +69,7 @@ namespace Basic
              */
         }
         #endregion
+        //ex1
         void getRand(int minNum, int maxNum, out int temp)
         {
             if (minNum > maxNum)
@@ -80,6 +81,37 @@ namespace Basic
             temp = rnd.Next(minNum, maxNum);
         }
 
+        //ex2
+        void calculator(double firstNum, char op, double secondNum)
+        {
+            switch (op)
+            {
+                case '+':
+                    Console.WriteLine(firstNum + secondNum);
+                    break;
+
+                case '-':
+                    Console.WriteLine(firstNum - secondNum);
+                    break;
+
+                case '*':
+                    Console.WriteLine(firstNum * secondNum);
+                    break;
+
+                case '/':
+                    if (secondNum == 0)
+                    {
+                        Console.WriteLine("error"); 
+                    }
+                    else 
+                        Console.WriteLine(firstNum / secondNum);
+                    break;
+
+                case '^':
+                    Console.WriteLine(Math.Pow(firstNum, secondNum));
+                    break;
+            }
+        }
         #region Bonus solutions
         public static int Bonus1()
         {

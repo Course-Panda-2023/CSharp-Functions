@@ -43,16 +43,61 @@ namespace Basic
 
         public static double[] Assignment4(bool asc, params double[] nums)
         {
-            /*
-             * TODO: Write code here
-             */
+            double temp = 0;
+            for (int write = 0; write < nums.Length; write++)
+            {
+                for (int sort = 0; sort < nums.Length - 1; sort++)
+                {
+                    if (nums[sort] > nums[sort + 1])
+                    {
+                        temp = nums[sort + 1];
+                        nums[sort + 1] = nums[sort];
+                        nums[sort] = temp;
+                    }
+                }
+            }
+            if (asc == false)
+            {
+                int startInd = 0;
+                int endInd = nums.Length - 1;
+                while (startInd < endInd)
+                {
+                    temp = nums[startInd];
+                    nums[startInd] = nums[endInd];
+                    nums[endInd] = temp;
+                    startInd++;
+                    endInd--;
+                }
+            }
+
+            return nums;
         }
 
         public static void Assignment5(string str, char[] letters)
         {
-            /*
-             * TODO: Write code here
-             */
+            int len = str.Length;
+            char[] newString = new char[len];
+            int plusValue = 10;
+            for (int i = 0; i < len; i++)
+            {
+
+                if (letters.Contains(str[i]))
+                {
+                    if (Convert.ToInt32(str[i]) + plusValue > 'z')
+                    {
+                        newString[i] = Convert.ToChar(Convert.ToInt32(plusValue - 1 - ('z' - str[i]) + 'a'));
+                    }
+                    else
+                    {
+                        newString[i] = Convert.ToChar(Convert.ToInt32(str[i]) + plusValue);
+                    }
+                }
+                else
+                {
+                    newString[i] = str[i];
+                }
+            }
+            Console.WriteLine(newString);
         }
 
         public static bool Assignment6(string str)

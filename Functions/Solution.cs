@@ -141,9 +141,25 @@ namespace Basic
 
         public static int Assignment7(int[] nums)
         {
-            /*
-             * TODO: Write code here
-             */
+            int lonelyNum = 0;
+            if (nums.Length == 0)
+            {
+                return 0;
+            }
+            int indicatorForValidInput = 0;
+            foreach (int num in nums)
+            {
+                if (Occurences(num, nums) == 1)
+                {
+                    lonelyNum = num;
+                    indicatorForValidInput++;
+                }
+            }
+            if (indicatorForValidInput == 1)
+            {
+                return lonelyNum;
+            }
+            return 0;
         }
 
         public static void Assignment8(bool[,] board, int rows, int cols)

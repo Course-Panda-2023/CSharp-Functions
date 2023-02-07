@@ -14,7 +14,7 @@ public class GameOfLife
 				if ((j1 < 0) | (j1 > cols)) { continue; }
 				if ((i1 == i) & (j1 == j)) { continue; }
 
-				cnt += Convert.ToInt32(board[i1, j1]));
+				cnt += Convert.ToInt32(board[i1, j1]);
 			}
 		}
 
@@ -30,6 +30,9 @@ public class GameOfLife
 			if (numAliveNeighbors < 2) { return false; }
 			if ((numAliveNeighbors == 2) | (numAliveNeighbors == 3)) { return true; }
 			if (numAliveNeighbors > 3) { return false; }
+
+			// only for compilation
+			return true;
 		}
 		else
 		{

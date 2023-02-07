@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static Basic.Calculator;
 using static RockPaperScissors;
+using static BouncingNumbers;
 
 namespace Basic
 {
@@ -190,9 +191,16 @@ namespace Basic
 
         public static int Assignment9()
         {
-            /*
-             * TODO: Write code here
-             */
+            int specialCnt = 0, currNumber = 0;
+            double targetPct = 99;
+
+            while ((Convert.ToDouble(specialCnt) / Convert.ToDouble(currNumber)) * 100 != targetPct)
+            {
+                specialCnt += Convert.ToInt32(BouncingNumbers.IsNumberBouncing(currNumber));
+                currNumber++;
+            }
+
+            return currNumber;
         }
         #endregion
 

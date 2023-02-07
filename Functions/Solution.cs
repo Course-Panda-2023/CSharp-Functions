@@ -80,9 +80,25 @@ namespace Basic
 
         public static void Assignment5(string str, char[] letters)
         {
-            /*
-             * TODO: Write code here
-             */
+            string siftedStr = "";
+            for(int j = 0; j < str.Length; j++)
+            {
+                bool sifted = false;
+                for(int i = 0; i < letters.Length; i++)
+                {
+                    if (str[j] == letters[i])
+                    {
+                        siftedStr += Helper.SiftLetter(str[j]);
+                        sifted= true;
+                    }
+                }
+                if (!sifted)
+                {
+                    siftedStr += str[j];
+                }
+                
+            }
+            Console.WriteLine(siftedStr);
         }
 
         public static bool Assignment6(string str)
@@ -121,11 +137,17 @@ namespace Basic
         #endregion
         public static void Main(string[] args)
         {
-            int[] arr = { 1, 5, 7, 2, 3};
-            Helper.PrintIntArray(Helper.InsertionSort(arr, arr.Length));
-            Helper.WaitForEnter();
+            //int[] arr = { 1, 5, 7, 2, 3};
+            //Helper.PrintIntArray(Helper.InsertionSort(arr, arr.Length));
+            //
             //Assignment3();
             //Assignment2();
+            string str = "hello world";
+            char[] letters = { 'i', 'o' };
+
+            Assignment5(str, letters);
+           // Console.WriteLine(Helper.SiftLetter('z'));
+            Helper.WaitForEnter();
 
         }
     }

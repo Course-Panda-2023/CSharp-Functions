@@ -59,5 +59,18 @@ namespace Basic
             }
             return arr;
         }
+
+        public static char SiftLetter(char c)
+        {
+            int shiftAmount = 10;
+            char newChar = (char)(c + shiftAmount);
+            if (newChar > 'z')
+            {
+                newChar -= (char)26;
+            }
+            char result = newChar;
+            return result;
+        }
+
     }
 }

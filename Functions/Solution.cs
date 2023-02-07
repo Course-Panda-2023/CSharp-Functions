@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Random;
 
+
 namespace Basic
 {
     internal class Solution
@@ -30,13 +31,15 @@ namespace Basic
                 res = -1;
             }
         }
+        public static void Assignment3()
+        {
+            Console.WriteLine("rock paper or scissors? (player1): ");
+            RockPaperScissors.Action p1choice = RockPaperScissors.handleActions(Console.ReadLine());
+            Console.WriteLine("rock paper or scissors? (player2): ");
+            RockPaperScissors.Action p2choice = RockPaperScissors.handleActions(Console.ReadLine());
+            RockPaperScissors.handleResults(p1choice, p2choice);
 
-        //public static void Assignment3()
-        //{
-        //    /*
-        //     * TODO: Write code here
-        //     */
-        //}
+        }
 
         //public static double[] Assignment4(bool asc, params double[] nums)
         //{

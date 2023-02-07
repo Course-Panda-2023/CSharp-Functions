@@ -335,10 +335,33 @@ namespace Basic
         #region Bonus solutions
         public static int Bonus1()
         {
-            /*
-             * TODO: Write code here
-             */
-            return 5;
+            int[] arr = { 3, 3, 5, 4, 4, 3, 5, 5, 4, 3, 6, 6, 8, 8, 7, 7, 9, 8, 8, 6, 6, 5, 5, 5, 7, 6, 6 };
+            int sum = 0;
+
+            for (int i = 1; i < 100; i++)
+            {
+                if (i <= 20)
+                {
+                    sum += arr[i - 1];
+                }
+                else
+                {
+
+                    int right = i % 10;
+                    int left = i / 10;
+                    if (right == 0)
+                    {
+                        sum += arr[left + 17];
+                    }
+                    else
+                    {
+                        sum += arr[right - 1] + arr[left + 17];
+                    }
+                }
+            }
+
+
+            return sum;
         }
 
         public static int Bonus2(uint[] hightMap)

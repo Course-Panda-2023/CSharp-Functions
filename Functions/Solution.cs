@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -49,7 +50,7 @@ namespace Basic
 
         public static double[] Assignment4(bool asc, params double[] nums)
         {
-
+            // the sort is Bubble Sort
             double temp;
             for (int j = 0; j <= nums.Length - 2; j++)
             {
@@ -69,10 +70,14 @@ namespace Basic
             }
             return nums;
         }
+        
 
         public static void assignment5(string str, char[] letters)
         {
-            
+            foreach (Char c in letters)
+            {
+                str = str.Replace(c, (char)((c + 10)));
+            }
         }
 
         //public static bool Assignment6(string str)

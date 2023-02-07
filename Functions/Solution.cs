@@ -217,19 +217,41 @@ namespace Basic
             return result;
         }
 
-        public static void Assignment8(bool[,] board, int rows, int cols)
+        public static bool[,] Assignment8(bool[,] board, int rows, int cols)
         {
-            /*
-             * TODO: Write code here
-             */
+            //double neighborhood[8] = {0};
+            const int ZERO = 0;
+            for (int i = 0; i < rows; ++i)
+            {
+                for (int j = 0; j < cols; ++j)
+                {
+
+                  // if ()
+                        
+                }
+            }
+            bool[,] boolean = new bool[1, 1];
+            return boolean;
         }
 
         public static int Assignment9()
         {
-            return 0;
-            /*
-             * TODO: Write code here
-             */
+            const int BEGIN_WITH = 21780;
+            const THE_WANTED_PERCENT = 0.99;
+
+            double numberOfBouncingNumbers = (double)(0.9 *  (double)BEGIN_WITH);
+            int result = BEGIN_WITH;
+            BouncingNumbers bouncingNumbers = new BouncingNumbers();
+            
+            while ((numberOfBouncingNumbers / result).Equals())
+            {
+                if (bouncingNumbers.IsBouncingNumber(result))
+                {
+                    ++numberOfBouncingNumbers;
+                }
+                ++result;
+            }
+            return result;
         }
         #endregion
 

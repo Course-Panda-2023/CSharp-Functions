@@ -21,6 +21,9 @@ bool r2 = Solution.Assignment6("opoo");
 int[] arr = new int[] { 4, 1, 1, 2, 2 };
 Console.WriteLine(Solution.Assignment7(arr));
 
+bool[,] board = new bool[3, 3] { { true, false, false }, { true, false, false }, { true, false, true } };
+Console.WriteLine(Solution.Assignment8(board, 3, 3));
 
+int number = Solution.Assignment9();
 
 Console.ReadLine();

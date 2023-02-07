@@ -62,24 +62,24 @@ namespace Basic
             return list;
         }
 
-        public static int numberOfLive(int[,] board, List<(int, int)> list)
+        public static int numberOfLive(bool[,] board, List<(int, int)> list)
         {
             //Count how many neighbors there are in life
             int count = 0;
             for (int i = 0; i < list.Count; i++)
             {
-                count += board[list[i].Item1, list[i].Item2];
+                count += Convert.ToInt32(board[list[i].Item1, list[i].Item2]);
             }
             return count;
         }
 
-        public static int isAlive(int[,] board, int rows, int cols)
+        public static int isAlive(bool[,] board, int rows, int cols)
         {
             // Returns whether the indexed cell (board[rows,cols]) is alive
             List<(int, int)> listOfN = Helper.indexTOCheck(rows, cols, board.GetLength(0), board.GetLength(1));
             int numOfLiveN = Helper.numberOfLive(board, listOfN);
             int isAliveTemp = 0;
-            if (board[rows, cols] == 1)
+            if (board[rows, cols])
             {
                 if (numOfLiveN < 2)
                 {

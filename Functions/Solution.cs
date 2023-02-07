@@ -34,7 +34,7 @@ namespace Basic
             Console.WriteLine("Enter player2's move (0 for rock, 1 for paper, 2 for scissors): ");
             RPS move2 = (RPS)Convert.ToInt32(Console.ReadLine());
             int result = Winner(move1, move2);
-            switch(result)
+            switch (result)
             {
                 case 0:
                     Console.WriteLine("It's a tie!");
@@ -120,9 +120,10 @@ namespace Basic
 
         public static int Assignment7(int[] nums)
         {
-            /*
-             * TODO: Write code here
-             */
+            int singleNum = nums[0];
+            for (int i = 1; i < nums.Length; i++)
+                singleNum = singleNum ^ ar[i];
+            return singleNum;
         }
 
         public static void Assignment8(bool[,] board, int rows, int cols)

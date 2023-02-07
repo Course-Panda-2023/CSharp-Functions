@@ -26,12 +26,24 @@ namespace Basic
             Console.WriteLine(RockPaperScissors.RPSFunc());
         }
 
-        //public static double[] Assignment4(bool asc, params double[] nums)
-        //{
-        //    /*
-        //     * TODO: Write code here
-        //     */
-        //}
+        public static double[] Assignment4(bool asc, params double[] nums)
+        {
+            for (int i = nums.Length - 1; i >= 0; i--)
+            {
+                for (int j = nums.Length - 1; j >= 0; j--)
+                {
+                    if (nums[i] > nums[j])
+                    {
+                        double temp = nums[j];
+                        nums[j] = nums[i];
+                        nums[i] = temp;
+                    }
+                }
+            }
+            if (!asc)
+                return nums;
+            return Helper.ReverseArr(nums);
+        }
 
         //public static void Assignment5(string str, char[] letters)
         //{
@@ -87,7 +99,7 @@ namespace Basic
 
         static void Main(string[] args)
         {
-            Assignment3();
+            Helper.PrintArr(Assignment4(false, 87, 0, 3, 67));
         }
         #endregion
     }

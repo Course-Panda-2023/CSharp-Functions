@@ -116,9 +116,24 @@ namespace Basic
 
         public static void Assignment8(bool[,] board, int rows, int cols)
         {
-            /*
-             * TODO: Write code here
-             */
+            bool[,] newMatrix = new bool[rows, cols];
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    bool changed = GameOfLife.change(board, rows, cols, i, j, board[i, j]);
+                    newMatrix[i, j] = changed;
+                }
+            }
+            for (int i = 0; i < rows; i++)
+            {
+                Console.Write("[");
+                for (int j = 0; j < cols; j++)
+                {
+                    Console.Write(newMatrix[i, j] + ", ");
+                }
+                Console.WriteLine("]");
+            }
         }
 
         public static int Assignment9()

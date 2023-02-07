@@ -65,7 +65,7 @@ namespace Basic
                 }
             } else
             {
-                Console.WriteLine("It's a tie");
+                Console.WriteLine("It's a tie!");
             }
         }    
 
@@ -74,6 +74,7 @@ namespace Basic
             /*
              * TODO: Write code here
              */
+            Helper.ShiftLetters(ref str, letters);
         }
 
         public static bool Assignment6(string str)

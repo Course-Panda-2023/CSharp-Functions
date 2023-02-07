@@ -9,6 +9,28 @@ Console.WriteLine("Checking your solutions...");
 
 //Helper.ManageAssignment(1, Solution.Assignment1(10,20,out res), "Hello panda!");
 //Solution.Assignment1(10, 20, out res);
-Solution.Assignment3();
 
+/*********Assignment3********/
+//Solution.Assignment3();
+/****************************/
+
+
+/*********Assignment5********/
+char[] letters = { 'i', 'o' };
+string str = Console.ReadLine();
+Solution.Assignment5(str, letters);
+/****************************/
+
+/*********Assignment5********/
+/*char[] letters = { 'a', 'b' }
+string str = "hello, world!";
+Solution.Assignment5();*/
+/****************************/
+
+
+/*********Assignment5********/
+/*char[] letters = { 'a', 'b' }
+string str = "hello, world!";
+Solution.Assignment5();*/
+/****************************/
 Console.ReadLine();

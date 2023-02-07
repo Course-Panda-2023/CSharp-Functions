@@ -161,12 +161,51 @@ namespace Basic
             return -1;
         }
 
-        // public static void Assignment8(bool[,] board, int rows, int cols)
-        // {
-        //     /*
-        //      * TODO: Write code here
-        //      */
-        // }
+        
+        public static void Assignment8(bool[,] board, int rows, int cols)
+        {
+            bool[,] newBoard = new bool[rows, cols];
+            for(int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    int numAliveNeighs = Helper.calcAliveNeighs(board, i, j, rows, cols);
+                    if (board[i, j])
+                    {
+                        switch(numAliveNeighs)
+                        {
+                            case 0: case 1: case 4:
+                                newBoard[i, j] = false;
+                                break;
+                            case 2: case 3:
+                                newBoard[i, j] = true;
+                                break;
+                            default:
+                                Console.WriteLine("Shouldn't get here.");
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        if (numAliveNeighs == 3)
+                            newBoard[i, j] = true;
+                        else
+                            newBoard[i, j] = false;
+                    }
+                }
+                
+            }
+            // print output matrix
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    Console.Write(string.Format("{0} ", newBoard[i, j]));
+                }
+                Console.Write(Environment.NewLine + Environment.NewLine);
+            }
+        }
+            
 
         // public static int Assignment9()
         // {

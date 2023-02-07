@@ -76,16 +76,17 @@ namespace Basic
         {
             foreach (Char c in letters)
             {
-                str = str.Replace(c, (char)((c + 10)));
+                int temp = c + 10;
+                temp = temp > 122 ? temp - 122 + 'a' - 1 : temp;
+                str = str.Replace(c, (char)(temp));
             }
         }
 
-        //public static bool Assignment6(string str)
-        //{
-        //    /*
-        //     * TODO: Write code here
-        //     */
-        //}
+        public static bool Assignment6(string str)
+        {
+            String result = str.ToLower();
+
+        }
 
         //public static int Assignment7(int[] nums)
         //{

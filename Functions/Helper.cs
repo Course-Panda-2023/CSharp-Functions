@@ -32,5 +32,17 @@ namespace Basic
             }
             return moveRe;
         }
+
+        public static void reversArray(params double[] nums) 
+        {
+
+            for (int i = 0; i < nums.Length / 2; i++)
+            {
+                double tmp = nums[i];
+                nums[i] = nums[nums.Length - i - 1];
+                nums[nums.Length - i - 1] = tmp;
+            } 
+        }
+
     }
 }

@@ -47,12 +47,30 @@ namespace Basic
             Console.WriteLine(win);
         }
 
-        //public static double[] Assignment4(bool asc, params double[] nums)
-        //{
-        //    /*
-        //     * TODO: Write code here
-        //     */
-        //}
+        public static double[] Assignment4(bool asc, params double[] nums)
+        {
+            /*
+             * TODO: Write code here
+             */
+            double temp;
+            for (int j = 0; j <= nums.Length - 2; j++)
+            {
+                for (int i = 0; i <= nums.Length - 2; i++)
+                {
+                    if (nums[i] > nums[i + 1])
+                    {
+                        temp = nums[i + 1];
+                        nums[i + 1] = nums[i];
+                        nums[i] = temp;
+                    }
+                }
+            }
+            if (!asc)
+            {
+                reversArray(nums);
+            }
+            return nums;
+        }
 
         //public static void Assignment5(string str, char[] letters)
         //{

@@ -13,76 +13,128 @@ namespace Basic
          */
 
         #region Assignment solutions
-        public static void Assignment1(int low, int high, out int res)
+        //public static void Assignment1(int low, int high, out int res)
+        //{
+        //    /*
+        //     * TODO: Write code here
+        //     */
+        //}
+
+        //public static void Assignment3()
+        //{
+        //    /*
+        //     * TODO: Write code here
+        //     */
+        //}
+
+        //public static double[] Assignment4(bool asc, params double[] nums)
+        //{
+        //    /*
+        //     * TODO: Write code here
+        //     */
+        //}
+
+        //public static void Assignment5(string str, char[] letters)
+        //{
+        //    /*
+        //     * TODO: Write code here
+        //     */
+        //}
+
+        //public static bool Assignment6(string str)
+        //{
+        //    /*
+        //     * TODO: Write code here
+        //     */
+        //}
+
+        //public static int Assignment7(int[] nums)
+        //{
+        //    /*
+        //     * TODO: Write code here
+        //     */
+        //}
+
+        //public static void Assignment8(bool[,] board, int rows, int cols)
+        //{
+        //    /*
+        //     * TODO: Write code here
+        //     */
+        //}
+
+        //public static int Assignment9()
+        //{
+        //    /*
+        //     * TODO: Write code here
+        //     */
+        //}
+        //#endregion
+
+        //#region Bonus solutions
+        //public static int Bonus1()
+        //{
+        //    /*
+        //     * TODO: Write code here
+        //     */
+        //}
+
+        public static int Bonus2(int[] hightMap)
         {
-            /*
-             * TODO: Write code here
-             */
+            int index = 0;
+            int sumWaterCubes = 0;
+            int currHight = hightMap[index];
+            int maxHight;
+
+            while (currHight == 0 && index<hightMap.Length)
+            {
+                currHight = hightMap[index];
+                index++;
+
+            }
+            maxHight = currHight;
+
+            while (index < hightMap.Length) {
+
+                currHight = hightMap[index];
+
+                if (findWall(hightMap, index, maxHight) && maxHight != 0)
+                {
+                    if (currHight <= maxHight)
+                    {
+                        sumWaterCubes += maxHight - currHight;
+                        index++;
+
+                    }
+                    else
+                    {
+                        maxHight = currHight;
+                        index++;
+                    }
+                }
+                else
+                {
+                    maxHight--;
+                    if (maxHight == 0)
+                    {
+                        break;
+                    }
+                }
+            }
+
+            return sumWaterCubes;
+
         }
 
-        public static void Assignment3()
+        public static Boolean findWall(int[] hightMap, int startIndex, int wallHight)
         {
-            /*
-             * TODO: Write code here
-             */
-        }
-
-        public static double[] Assignment4(bool asc, params double[] nums)
-        {
-            /*
-             * TODO: Write code here
-             */
-        }
-
-        public static void Assignment5(string str, char[] letters)
-        {
-            /*
-             * TODO: Write code here
-             */
-        }
-
-        public static bool Assignment6(string str)
-        {
-            /*
-             * TODO: Write code here
-             */
-        }
-
-        public static int Assignment7(int[] nums)
-        {
-            /*
-             * TODO: Write code here
-             */
-        }
-
-        public static void Assignment8(bool[,] board, int rows, int cols)
-        {
-            /*
-             * TODO: Write code here
-             */
-        }
-
-        public static int Assignment9()
-        {
-            /*
-             * TODO: Write code here
-             */
-        }
-        #endregion
-
-        #region Bonus solutions
-        public static int Bonus1()
-        {
-            /*
-             * TODO: Write code here
-             */
-        }
-
-        public static int Bonus2(uint[] hightMap)
-        {
-            /*
-             * TODO: Write code here
-             */
+            for (int currIndex=startIndex ; currIndex < hightMap.Length; currIndex++)
+            {
+                if (hightMap[currIndex] >= wallHight)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
         #endregion
     }

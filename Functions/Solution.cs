@@ -67,7 +67,28 @@ namespace Basic
             {
                 Console.WriteLine("It's a tie!");
             }
-        }    
+        }
+
+        public static double[] Assignment4(bool asc, params double[] nums)
+        {            
+            double[] sorted = new double[nums.Length];
+            sorted = Helper.MergeSort(sorted);
+            if (asc)
+            {
+                for(int i = 0; i < sorted.Length; i++)
+                {
+                    Console.WriteLine($"{sorted[i]}");
+                }
+            }
+            else
+            {
+                for (int i = sorted.Length; i > 0; i--)
+                {
+                    Console.WriteLine($"{sorted[i]}");
+                }
+            }
+            return sorted;
+        }
 
         public static void Assignment5(string str, char[] letters)
         {            

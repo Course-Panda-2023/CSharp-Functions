@@ -14,6 +14,10 @@ Console.WriteLine("Checking your solutions...");
 //Solution.Assignment3();
 /****************************/
 
+/*********Assignment4********/
+double[] nums = {1, 10, 9, 3, 100, 12 };
+Solution.Assignment4(true, nums);
+/****************************/
 
 /*********Assignment5********/
 /*char[] letters = { 'i', 'o' };
@@ -28,7 +32,9 @@ Console.WriteLine($"Assignment 6 output: {Solution.Assignment6(str)}");*/
 
 
 /*********Assignment7********/
-int[] nums = { 10, 2, 2, 3, 3, 3, 1, 200 };
-Console.WriteLine($"Assignment 7 output: {Solution.Assignment7(nums)}");
+/*int[] nums = { 10, 2, 2, 3, 3, 3, 1, 200 };
+Console.WriteLine($"Assignment 7 output: {Solution.Assignment7(nums)}");*/
 /****************************/
+
+
 Console.ReadLine();

@@ -33,5 +33,60 @@ namespace Basic
             str = string.Concat(temp_str);
             Console.Write(str);
         }
+        public static double[] MergeSort(double[] unsorted)
+        {
+            if (unsorted.Length <= 1){ 
+                return unsorted;
+            }
+            int middle = unsorted.Length / 2;
+            double[] left_buffer = new double[middle];
+            double[] right_buffer = new double[unsorted.Length - middle];
+            Array.Copy(unsorted, 0, left_buffer, 0, middle);
+            Array.Copy(unsorted, middle, right_buffer, 0, unsorted.Length - middle);
+            left_buffer = MergeSort(left_buffer);
+            right_buffer = MergeSort(right_buffer);
+            return Merge(left_buffer, right_buffer);
+        }
+        public static double[] Merge(double[] left, double[] right)
+        {
+            double[] sorted = new double[left.Length + right.Length];
+            int left_i = 0, right_i = 0, i = 0;
+            while (left_i < left.Length || right_i < right.Length)
+            {
+                if (i == left.Length + right.Length)
+                {                    
+                    return sorted;
+                    //break;
+                }
+                if (left_i < left.Length && right_i < right.Length)
+                {
+                    if (left[left_i] < right[right_i])
+                    {
+                        sorted[i] = left[left_i];
+                        i++;
+                        left_i++;
+                    }
+                    else
+                    {
+                        sorted[i] = right[right_i];
+                        i++;
+                        right_i++;
+                    }
+                }
+                else if (left_i < left.Length)
+                {
+                    sorted[i] = left[left_i];
+                    i++;
+                    left_i++;
+                }
+                else if (right_i < right.Length)
+                {
+                    sorted[i] = right[right_i];
+                    i++;
+                    right_i++;
+                }
+            }
+            return sorted;
+        }
     }
 }

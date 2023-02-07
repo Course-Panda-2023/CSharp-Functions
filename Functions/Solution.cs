@@ -24,12 +24,28 @@ namespace Basic
             res = rnd.Next(low, high);
         }
 
-        //public static void Assignment3()
-        //{
-        //    /*
-        //     * TODO: Write code here
-        //     */
-        //}
+        public static void Assignment3()
+        {
+            RockPaperScissors.RPS firstPlayer = getMove();
+            RockPaperScissors.RPS secondPlayer = getMove()
+            if (firstPlayer == secondPlayer)
+            {
+                Console.WriteLine("It's a tie!");
+                return;
+            }
+            int i = firstPlayer - secondPlayer;
+            string win;
+            if (i == -1 || i == 1)
+            {
+                win = firstPlayer > secondPlayer ? "First player wins!" : "Second player wins!";
+
+            }
+            else
+            {
+                win = firstPlayer > secondPlayer ? "Second player wins!" : "First player wins!";
+            }
+            Console.WriteLine(win);
+        }
 
         //public static double[] Assignment4(bool asc, params double[] nums)
         //{
@@ -85,7 +101,7 @@ namespace Basic
         //    temp = rnd.Next(minNum, maxNum);
         //}
 
-        
+
 
         //#region Bonus solutions
         //public static int Bonus1()

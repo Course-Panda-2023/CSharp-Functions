@@ -51,6 +51,8 @@ namespace Basic
             {
                 Helper.sortBottomToTop(nums);
             }
+            Console.ReadLine() ;
+            return nums;
         }
 
         //    public static void Assignment5(string str, char[] letters)

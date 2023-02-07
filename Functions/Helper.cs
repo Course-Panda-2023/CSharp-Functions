@@ -75,45 +75,58 @@ namespace Basic
                 return;
             }
         }
-    }
-    //Assignment 2
+        //Assignment 2
 
-    //Assignment4
-    public static void sortTopToBottom(params double[] arr)
-    {
-        double temp;
-        int len = arr.Length;
-        for (int i = 0; i < len - 1; i++)
+        //Assignment4
+        public static void sortTopToBottom(params double[] arr)
         {
-            for (int j = 0; j < len - i - 1; j++)
+            double temp;
+            int len = arr.Length;
+            for (int i = 0; i < len - 1; i++)
             {
-                if (arr[j] > arr[j + 1])
+                for (int j = 0; j < len - i - 1; j++)
                 {
-                    temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
+                    if (arr[j] > arr[j + 1])
+                    {
+                        temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
                 }
             }
-        }
-        Console.WriteLine(arr);
-    }
-    public static void sortBottomToTop(params double[] arr)
-    {
-        double temp;
-        int len = arr.Length;
-        for (int i = 0; i < len - 1; i++)
-        {
-            for (int j = 0; j < len - i - 1; j++)
+            Console.Write("{");
+            foreach (double num in arr)
             {
-                if (arr[j] < arr[j + 1])
+                Console.Write(num.ToString());
+                Console.Write(", ");
+            }
+            Console.WriteLine("}");
+        }
+        public static void sortBottomToTop(params double[] arr)
+        {
+            double temp;
+            int len = arr.Length;
+            for (int i = 0; i < len - 1; i++)
+            {
+                for (int j = 0; j < len - i - 1; j++)
                 {
-                    temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
+                    if (arr[j] < arr[j + 1])
+                    {
+                        temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
                 }
             }
+            Console.Write("{");
+            foreach (double num in arr)
+            {
+                Console.Write(num.ToString());
+                Console.Write(", ");
+            }
+            Console.WriteLine("}");
         }
-        Console.WriteLine(arr);
+        //Assignment4
     }
-    //Assignment4
+
 }

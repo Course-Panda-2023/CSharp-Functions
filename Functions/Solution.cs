@@ -188,16 +188,148 @@ namespace Basic
 
         public static void Assignment8(bool[,] board, int rows, int cols)
         {
-            /*
-             * TODO: Write code here
-             */
+            Console.WriteLine("before");
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    Console.Write($"{Convert.ToInt32(board[i, j])} ");
+                }
+                Console.Write("\n");
+            }
+            bool[,] newMat = board;
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    int leftTop = 0;
+                    int left = 0;
+                    int leftBottom = 0;
+                    int top = 0;
+                    int bottom = 0;
+                    int rightTop = 0;
+                    int right = 0;
+                    int rightBottom = 0;
+                    if (i > 0 && i < rows - 1)
+                    {
+                        if (j > 0 && j < cols - 1)
+                        {
+                            leftTop = Convert.ToInt32(board[i - 1, j - 1]);
+                            left = Convert.ToInt32(board[i, j - 1]);
+                            leftBottom = Convert.ToInt32(board[i + 1, j - 1]);
+                            top = Convert.ToInt32(board[i - 1, j]);
+                            bottom = Convert.ToInt32(board[i + 1, j]);
+                            rightTop = Convert.ToInt32(board[i - 1, j + 1]);
+                            right = Convert.ToInt32(board[i, j + 1]);
+                            rightBottom = Convert.ToInt32(board[i + 1, j + 1]);
+                        }
+                        else
+                        {
+                            if (j == 0)
+                            {
+                                top = Convert.ToInt32(board[i - 1, j]);
+                                bottom = Convert.ToInt32(board[i + 1, j]);
+                                rightTop = Convert.ToInt32(board[i - 1, j + 1]);
+                                right = Convert.ToInt32(board[i, j + 1]);
+                                rightBottom = Convert.ToInt32(board[i + 1, j + 1]);
+                            }
+                            else
+                            {
+                                leftTop = Convert.ToInt32(board[i - 1, j - 1]);
+                                left = Convert.ToInt32(board[i, j - 1]);
+                                leftBottom = Convert.ToInt32(board[i + 1, j - 1]);
+                                top = Convert.ToInt32(board[i - 1, j]);
+                                bottom = Convert.ToInt32(board[i + 1, j]);
+                            }
+                        }
+                    }
+                    else if (i == 0 && j > 0 && j < cols - 1)
+                    {
+                        left = Convert.ToInt32(board[i, j - 1]);
+                        leftBottom = Convert.ToInt32(board[i + 1, j - 1]);
+                        bottom = Convert.ToInt32(board[i + 1, j]);
+                        right = Convert.ToInt32(board[i, j + 1]);
+                        rightBottom = Convert.ToInt32(board[i + 1, j + 1]);
+                    }
+                    else if (i == rows - 1 && j > 0 && j < cols - 1)
+                    {
+                        leftTop = Convert.ToInt32(board[i - 1, j - 1]);
+                        left = Convert.ToInt32(board[i, j - 1]);
+                        top = Convert.ToInt32(board[i - 1, j]);
+                        rightTop = Convert.ToInt32(board[i - 1, j + 1]);
+                        right = Convert.ToInt32(board[i, j + 1]);
+                    }
+                    else if (j == 0 && i == rows - 1)
+                    {
+                        top = Convert.ToInt32(board[i - 1, j]);
+                        rightTop = Convert.ToInt32(board[i - 1, j + 1]);
+                        right = Convert.ToInt32(board[i, j + 1]);
+                    }
+                    else if (i == 0 && j == 0)
+                    {
+                        bottom = Convert.ToInt32(board[i + 1, j]);
+                        right = Convert.ToInt32(board[i, j + 1]);
+                        rightBottom = Convert.ToInt32(board[i + 1, j + 1]);
+                    }
+                    else if (i == 0 && j == cols - 1)
+                    {
+                        left = Convert.ToInt32(board[i, j - 1]);
+                        leftBottom = Convert.ToInt32(board[i + 1, j - 1]);
+                        bottom = Convert.ToInt32(board[i + 1, j]);
+                    }
+                    else
+                    {
+                        leftTop = Convert.ToInt32(board[i - 1, j - 1]);
+                        left = Convert.ToInt32(board[i, j - 1]);
+                        top = Convert.ToInt32(board[i - 1, j]);
+                    }
+
+
+                    int neighborsAlive = leftTop + left + leftBottom + top + bottom + rightTop + right + rightBottom;
+                    if (board[i, j] == false)
+                    {
+                        if (neighborsAlive == 3)
+                        {
+                            newMat[i, j] = true;
+                        }
+                    }
+                    else
+                    {
+                        if (neighborsAlive > 3 || neighborsAlive < 2)
+                        {
+                            newMat[i, j] = false;
+                        }
+                    }
+                }
+            }
+
+
+            Console.WriteLine("\nafter\n");
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    Console.Write($"{Convert.ToInt32(newMat[i, j])} ");
+                }
+                Console.Write("\n");
+            }
         }
 
         public static int Assignment9()
         {
-            /*
-             * TODO: Write code here
-             */
+            double density = 90;
+            int starter = 21780;
+            int bouncingNumbers = 19602; //0.9*21780
+                                         //Console.WriteLine(IsBouncing(1237456));
+            while (density < 50)
+            {
+                starter++;
+                bouncingNumbers += BouncingNumbers.IsBouncing(starter);
+                density = ((double)bouncingNumbers / (double)starter) * 100;
+            }
+            Console.WriteLine(starter);
+            return starter;
         }
         #endregion
 

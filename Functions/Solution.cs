@@ -112,16 +112,29 @@ namespace Basic
             }
         }
 
-        //public static int Assignment9()
-        //{
-        //    /*
-        //     * TODO: Write code here
-        //     */
-        //}
+        public static int Assignment9()
+        {
+            int i = 1;
+            int counter = 0;
+            while (true)
+            {
+
+                if (!BouncingNumbers.up(i) && !BouncingNumbers.down(i))
+                {
+                    counter++;
+                    if ((double)counter / i >= 0.99)
+                    {
+                        return i;
+                    }
+                }
+                i++;
+            }
+            return 1;
+        }
         //#endregion
 
 
-       
+
 
         //#region Bonus solutions
         //public static int Bonus1()

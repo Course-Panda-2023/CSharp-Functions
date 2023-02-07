@@ -7,7 +7,7 @@ public class BouncingNumbers
 	 */
 	public static bool up(int num)
     {
-
+        //check if the number is up
         string str = num.ToString();
         for (int i = str.Length - 1; i > 0; i--)
         {
@@ -21,6 +21,7 @@ public class BouncingNumbers
     }
     public static bool down(int num)
     {
+        //check if the number is down
         string str = num.ToString();
         for (int i = 0; i < str.Length - 1; i++)
         {

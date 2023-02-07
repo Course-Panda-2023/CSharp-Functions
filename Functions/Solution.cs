@@ -50,13 +50,22 @@ namespace Basic
             }
         }
 
-        #endregion
-        /*
         public static void Assignment5(string str, char[] letters)
         {
-            
+            foreach(char c in letters) 
+            {
+                int letterInASCII = (int)c + 10;
+                if (letterInASCII > 122)
+                {
+                    letterInASCII = letterInASCII - 26;
+                }
+                str = str.Replace(c, (char)letterInASCII);
+            }  
+            Console.WriteLine(str);
         }
 
+        #endregion
+        /*
         public static bool Assignment6(string str)
         {
             

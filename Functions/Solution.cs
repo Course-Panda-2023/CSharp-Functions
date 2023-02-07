@@ -24,25 +24,26 @@ namespace Basic
         public static void Assignment3()
         {
             const int players_num = 2;
-            int counter = 0;           
-            
+            int counter = 0;
+
             string player_choice;
             RockPaperScissors.RPS[] player_choices = new RockPaperScissors.RPS[players_num];
             while (counter < players_num)
             {
-                player_choice = Console.ReadLine();    
-                if (Enum.IsDefined(typeof(RockPaperScissors.RPS), player_choice)){
-                    player_choices[counter] = Enum.Parse<RockPaperScissors.RPS>(player_choice);                    
+                player_choice = Console.ReadLine();
+                if (Enum.IsDefined(typeof(RockPaperScissors.RPS), player_choice)) {
+                    player_choices[counter] = Enum.Parse<RockPaperScissors.RPS>(player_choice);
                 }
                 else
                 {
                     Console.WriteLine("Wrong choice!");
                     return;
-                }   
+                }
                 counter++;
-            }            
-            if (Math.Abs(player_choices[0] - player_choices[1]) == 2) { 
-                
+            }
+
+            if (Math.Abs(player_choices[0] - player_choices[1]) == 2) {
+
                 if (player_choices[0] < player_choices[1])
                 {
                     Console.WriteLine("First player wins!");
@@ -52,7 +53,7 @@ namespace Basic
                     Console.WriteLine("Second player wins!");
                 }
             }
-            else if(Math.Abs(player_choices[0] - player_choices[1]) == 1)
+            else if (Math.Abs(player_choices[0] - player_choices[1]) == 1)
             {
                 if (player_choices[0] > player_choices[1])
                 {
@@ -62,11 +63,11 @@ namespace Basic
                 {
                     Console.WriteLine("Second player wins!");
                 }
-            }else
+            } else
             {
-                Console.WriteLine("It's a tie")
+                Console.WriteLine("It's a tie");
             }
-            
+        }    
 
         public static void Assignment5(string str, char[] letters)
         {

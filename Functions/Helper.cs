@@ -45,6 +45,13 @@ namespace Basic
             string str = "race a car";
             bool isPalindrome = Solution.Assignment6(str);            
             Console.WriteLine(isPalindrome);
+        }
+
+        public static void ManageAssignment7()
+        {
+            int[] nums = {4, 1, 2, 1, 2};
+            int numOnce = Solution.Assignment7(nums);
+            Console.WriteLine(numOnce);  
         }     
     }
 }

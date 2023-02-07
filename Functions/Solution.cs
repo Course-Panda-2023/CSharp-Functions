@@ -142,12 +142,24 @@ namespace Basic
             return isPalindrome;
         }
 
-        // public static int Assignment7(int[] nums)
-        // {
-        //     /*
-        //      * TODO: Write code here
-        //      */
-        // }
+        public static int Assignment7(int[] nums)
+        {
+            var histogram = new Dictionary<int, int>();
+            foreach(int num in nums)
+            {
+                if (histogram.ContainsKey(num))
+                    histogram[num]++;
+                else
+                    histogram[num] = 1;
+            }
+            foreach(KeyValuePair<int, int> entry in histogram)
+            {
+                if (entry.Value == 1)
+                    return entry.Key;
+            }
+            Console.WriteLine("No number in array with only 1 input");
+            return -1;
+        }
 
         // public static void Assignment8(bool[,] board, int rows, int cols)
         // {

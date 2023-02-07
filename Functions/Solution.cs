@@ -88,7 +88,6 @@ namespace Basic
         public static void Assignment5(string str, char[] letters)
         {
             char[] charList = new char[str.Length];
-            char[] updatedList = new char[str.Length];
             int i = 0;
             foreach (char c in letters)
             {
@@ -148,11 +147,21 @@ namespace Basic
             }
         }
 
-        public static int Assignment9()
+        static int Assignment9()
         {
-            /*
-             * TODO: Write code here
-             */
+            double percent = 0;
+            double bouncingCount = 0;
+            double counting = 1;
+            while (percent < 99)
+            {
+                if (BouncingNumbers.IsBouncing((int)counting))
+                {
+                    bouncingCount++;
+                }
+                percent = 100 * (bouncingCount / counting);
+                counting++;
+            }
+            return (int)counting;
         }
         #endregion
 

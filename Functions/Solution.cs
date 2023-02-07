@@ -39,10 +39,8 @@ namespace Basic
             try
             {
                 Console.WriteLine("Enter player 1 move.");
-                // string input1 = Console.ReadLine();
                 RockPaperScissors.RPS move1 = strToMove[Console.ReadLine()];
                 Console.WriteLine("Enter player 2 move.");
-                // string input2 = Console.ReadLine();
                 RockPaperScissors.RPS move2 = strToMove[Console.ReadLine()];
 
                 if (move1 == move2)
@@ -169,7 +167,7 @@ namespace Basic
             {
                 for (int j = 0; j < cols; j++)
                 {
-                    int numAliveNeighs = Helper.calcAliveNeighs(board, i, j, rows, cols);
+                    int numAliveNeighs = GameOfLife.calcAliveNeighs(board, i, j, rows, cols);
                     if (board[i, j])
                     {
                         switch(numAliveNeighs)
@@ -215,7 +213,7 @@ namespace Basic
             while (density < 0.99)
             {
                 currNum += 1;
-                if (Helper.IsJumpingNumber(currNum))
+                if (BouncingNumbers.IsJumpingNumber(currNum))
                     jumpingCount++;
                 density = (double)jumpingCount / currNum;
             }

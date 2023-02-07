@@ -8,7 +8,7 @@ using Basic;
 // Helper.ManageAssignment5();
 // Helper.ManageAssignment6();
 // Helper.ManageAssignment7();
-// Helper.ManageAssignment8();
+Helper.ManageAssignment8();
 // Helper.ManageAssignment9();
 
 

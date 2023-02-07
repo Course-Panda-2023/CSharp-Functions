@@ -33,8 +33,8 @@ namespace Basic
             str = string.Concat(temp_str);
             Console.Write(str);
         }
-        public static double[] MergeSort(double[] unsorted)
-        {
+        public static double[] MergeSort(params double[] unsorted)
+        {            
             if (unsorted.Length <= 1){ 
                 return unsorted;
             }

@@ -72,7 +72,9 @@ namespace Basic
         public static double[] Assignment4(bool asc, params double[] nums)
         {            
             double[] sorted = new double[nums.Length];
-            sorted = Helper.MergeSort(sorted);
+            
+            
+            sorted = Helper.MergeSort(nums);
             if (asc)
             {
                 for(int i = 0; i < sorted.Length; i++)
@@ -82,7 +84,7 @@ namespace Basic
             }
             else
             {
-                for (int i = sorted.Length; i > 0; i--)
+                for (int i = sorted.Length - 1; i >= 0; i--)
                 {
                     Console.WriteLine($"{sorted[i]}");
                 }

@@ -318,18 +318,17 @@ namespace Basic
 
         public static int Assignment9()
         {
-            double density = 90;
-            int starter = 21780;
-            int bouncingNumbers = 19602; //0.9*21780
-                                         //Console.WriteLine(IsBouncing(1237456));
-            while (density < 50)
-            {
-                starter++;
-                bouncingNumbers += BouncingNumbers.IsBouncing(starter);
-                density = ((double)bouncingNumbers / (double)starter) * 100;
-            }
-            Console.WriteLine(starter);
-            return starter;
+            double density = 0;//90;
+    int starter =100;//21780
+    int bouncingNumbers = 0; //0.9*21780
+    while (density < 99)
+    {
+        starter++;
+        bouncingNumbers += IsBouncing(starter);
+        density = ((double)bouncingNumbers / (double)starter) *100;
+    }
+    Console.WriteLine(starter);
+    return starter;
         }
         #endregion
 
@@ -339,6 +338,7 @@ namespace Basic
             /*
              * TODO: Write code here
              */
+            return 5;
         }
 
         public static int Bonus2(uint[] hightMap)
@@ -346,6 +346,7 @@ namespace Basic
             /*
              * TODO: Write code here
              */
+            return 5;
         }
         #endregion
     }

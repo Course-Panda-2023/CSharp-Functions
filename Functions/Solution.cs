@@ -86,39 +86,31 @@ namespace Basic
 
         public static double[] Assignment4(bool asc, params double[] nums)
         {
-            if (nums.Length == 0)
-            {
-                return new double[0];
-            }
+            // creating a copy of the array
+            double[] numsCopy = new double[nums.Length];
+            nums.CopyTo(numsCopy, 0);
+            nums = numsCopy;
             
+            // creating an array that will store the results
             double[] res = new double[nums.Length];
-            double[] nums_cp = new double[nums.Length];
-            int index = 0;
-            double min;
-            int minIndex;
 
-            foreach (double num in nums)
+            // sorting (ignoring the case where the array includes int.MaxValue element)
+            int minIndex = 0;
+            for (int cnt = 0; cnt < nums.Length; cnt++)
             {
-                nums_cp[index] = num;
-                index += 1;
-            }
-
-            min = nums_cp[0];
-            minIndex = 0;
-            index = 0;
-
-            while (nums_cp.Length > 0)
-            {
-                foreach (double num in nums)
+                for (int idx = 0; idx < nums.Length; idx++)
                 {
-                    if (num < min)
+                    if (nums[idx] < nums[minIndex])
                     {
-                        minIndex = 
+                        minIndex = idx;
                     }
-
-                    index += 1;
                 }
+
+                res[cnt] = nums[minIndex];
+                nums[minIndex] = int.MaxValue;
             }
+
+            return res;
         }
 
         public static string Assignment5(string str, char[] letters)
@@ -144,7 +136,7 @@ namespace Basic
             
             for (int i=0; i < str.Length / 2; i++)
             {
-                if (str[i] != str[str.Length - i])
+                if (str[i].ToString().ToLower() != str[str.Length - i].ToString().ToLower())
                 {
                     return false;
                 }

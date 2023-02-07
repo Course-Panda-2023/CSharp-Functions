@@ -14,6 +14,10 @@ string str = "arrayAsSpan[i]";
 Solution.Assignment5(str, letters);
 Console.WriteLine(str);
 
+bool r = Solution.Assignment6("oopoo");
+bool r2 = Solution.Assignment6("opoo");
+
+
 int[] arr = new int[] { 4, 1, 1, 2, 2 };
 Console.WriteLine(Solution.Assignment7(arr));
 

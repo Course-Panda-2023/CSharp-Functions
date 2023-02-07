@@ -169,10 +169,19 @@ namespace Basic
 
         public static bool Assignment6(string str)
         {
+            if (str is null)
+            {
+                return false;
+            }
+            int middle = str.Length / 2;
+            for (int i = 1; i < middle; ++i)
+            {
+                if (str[i] != str[str.Length - i])
+                {
+                    return false;
+                }
+            }
             return true;
-            /*
-             * TODO: Write code here
-             */
         }
 
         public static int Assignment7(int[] nums)

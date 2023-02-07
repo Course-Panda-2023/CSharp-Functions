@@ -36,9 +36,33 @@ namespace Basic
 
         public static void Assignment3()
         {
-            /*
-             * TODO: Write code here
-             */
+            Console.WriteLine("enter 0 for rock, 1 for paper and 2 for scissors");
+            int firstPlayerInt = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("enter 0 for rock, 1 for paper and 2 for scissors");
+            int secondPlayerInt = Convert.ToInt32(Console.ReadLine());
+            if ((firstPlayerInt < 0 || firstPlayerInt > 2) || (secondPlayerInt < 0 || secondPlayerInt > 2))
+            {
+                Console.WriteLine("not valid inputs");
+            }
+            else
+            {
+                RockPaperScissors.RPS firstPlayer = (RockPaperScissors.RPS)firstPlayerInt;
+                RockPaperScissors.RPS secondPlayer = (RockPaperScissors.RPS)secondPlayerInt;
+                if (firstPlayer == secondPlayer)
+                {
+                    Console.WriteLine("it's a tie!");
+                }
+                else if ((firstPlayer == RockPaperScissors.RPS.Paper && secondPlayer == RockPaperScissors.RPS.Rock) ||
+                    (firstPlayer == RockPaperScissors.RPS.Rock && secondPlayer == RockPaperScissors.RPS.Scissors) ||
+                        (firstPlayer == RockPaperScissors.RPS.Scissors && secondPlayer == RockPaperScissors.RPS.Paper))
+                {
+                    Console.WriteLine("First Player Wins!");
+                }
+                else
+                {
+                    Console.WriteLine("Second player wins!");
+                }
+            }
         }
 
         public static double[] Assignment4(bool asc, params double[] nums)

@@ -24,18 +24,13 @@ namespace Basic
         public static void Assignment3()
         {
             const int players_num = 2;
-            int counter = 0;
-            //Assuming that ther input is valid (not mentioned in the list)
-            //string[] player_choices_str = new string[players_num];
+            int counter = 0;           
+            
             string player_choice;
             RockPaperScissors.RPS[] player_choices = new RockPaperScissors.RPS[players_num];
             while (counter < players_num)
             {
-                player_choice = Console.ReadLine();
-                
-                 //Enum.Parse<Week>(day1);
-
-
+                player_choice = Console.ReadLine();    
                 if (Enum.IsDefined(typeof(RockPaperScissors.RPS), player_choice)){
                     player_choices[counter] = Enum.Parse<RockPaperScissors.RPS>(player_choice);                    
                 }
@@ -43,26 +38,9 @@ namespace Basic
                 {
                     Console.WriteLine("Wrong choice!");
                     return;
-                }
-
-
-                /*RockPaperScissors.RPS choice;
-                Enum.TryParse(player_choices_str[counter], out choice);
-                player_choices[counter] = choice;*/
-
-
-                /* if (Enum.IsDefined(typeof(RockPaperScissors.RPS), player_choices_str){
-                     Week week3 = Enum.Parse<Week>(day3);
-                 }
-                 else
-                 {
-                     Console.WriteLine("Wrong Week Day");
-                 }*/
-
-
+                }   
                 counter++;
-            }
-            //Console.WriteLine($"{Math.Abs(player_choices[0] - player_choices[1])}");
+            }            
             if (Math.Abs(player_choices[0] - player_choices[1]) == 2) { 
                 
                 if (player_choices[0] < player_choices[1])
@@ -84,35 +62,11 @@ namespace Basic
                 {
                     Console.WriteLine("Second player wins!");
                 }
-            }
-            /*foreach (string choice in player_choices)
+            }else
             {
-                Console.WriteLine($"{choice}");
-            }*/
-                //RockPaperScissors.RPS[] player_choices = new RockPaperScissors.RPS[players_num];
-                /*while (counter < players_num)
-                {
-                    player_choices[counter] = Console.ReadLine();
-                    counter++;
-                }*/
-                /*foreach (RockPaperScissors.RPS choice in player_choices)
-                {
-                    Console.WriteLine(choice);
-                }*/
-                //RockPaperScissors.RPS choice = RockPaperScissors.RPS.Scissors;
-                //Console.WriteLine(Enum.Parse(typeof(RockPaperScissors.RPS), "Scissors"));
-                //RockPaperScissors.RPS 
-        }
-
-       /* public static double[] Assignment4(bool asc, params double[] nums)
-        {
-            *//*
-             * TODO: Write code here
-             *//*
-            //if (asc) { }
-            return;
+                Console.WriteLine("It's a tie")
+            }
             
-        }*/
 
         public static void Assignment5(string str, char[] letters)
         {

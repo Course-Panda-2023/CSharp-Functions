@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Basic
@@ -51,20 +52,35 @@ namespace Basic
                 return Helper.ReverseArray(sortedNums);
             }
         }
+        
+        public static void Assignment5(string str, char[] letters)
+        {
+            int jump = 10;
+            foreach (char c in letters)
+            {
+                int newCASCII = (int)c + jump;
+                if (newCASCII > (int)'z')
+                {
+                    newCASCII -= 26;
+                }
+                str = str.Replace(c, (char)newCASCII);
+            }
+            Console.WriteLine(str);
+        }
+        
+        public static bool Assignment6(string str)
+        {
+            str = Regex.Replace(str, "[^a-zA-Z]", String.Empty);
+            str = str.ToLower();
+            char[] charArray = str.ToCharArray();
+            Array.Reverse(charArray);
+            string reversedStr = new string(charArray);
+            return str.Equals(reversedStr);
+        }
 
         #endregion
 
         /*
-        public static void Assignment5(string str, char[] letters)
-        {
-
-        }
-
-        public static bool Assignment6(string str)
-        {
-
-        }
-
         public static int Assignment7(int[] nums)
         {
 

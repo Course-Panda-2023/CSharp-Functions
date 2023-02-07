@@ -8,7 +8,14 @@ Console.WriteLine($"The random number is: {res}");
 
 Console.WriteLine("Assignment 3:");
 Solution.Assignment3();
-*/
+
 Console.WriteLine("Assignment 4:");
 Helper.PrintArray(Solution.Assignment4(false, 29, 39, 0, 3, 2));
 
+Console.WriteLine("Assignment 5:");
+string str = "hello and fuck my life";
+char[] chars = {'h', 'y', 'u', 'e'};
+Solution.Assignment5(str, chars);
+*/
+Console.WriteLine("Assignment 6:");
+Console.WriteLine(Solution.Assignment6("aab''cBa"));

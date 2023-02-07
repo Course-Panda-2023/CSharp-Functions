@@ -76,8 +76,8 @@ namespace Basic
         public static int isAlive(int[,] board, int rows, int cols)
         {
             // Returns whether the indexed cell (board[rows,cols]) is alive
-            List<(int, int)> listOfN = indexTOCheck(rows, cols, board.GetLength(0), board.GetLength(1));
-            int numOfLiveN = numberOfLive(board, listOfN);
+            List<(int, int)> listOfN = Helper.indexTOCheck(rows, cols, board.GetLength(0), board.GetLength(1));
+            int numOfLiveN = Helper.numberOfLive(board, listOfN);
             int isAliveTemp = 0;
             if (board[rows, cols] == 1)
             {

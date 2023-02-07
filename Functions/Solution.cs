@@ -66,7 +66,7 @@ namespace Basic
             }
             if (!asc)
             {
-                reversArray(nums);
+                Helper.reversArray(nums);
             }
             return nums;
         }
@@ -107,7 +107,7 @@ namespace Basic
             {
                 for (int col = 0; col < cols; col++)
                 {
-                    board[row, col] = isAlive(ints, row, col);
+                    board[row, col] = Helper.isAlive(ints, row, col);
                 }
             }
         }
@@ -121,7 +121,7 @@ namespace Basic
         //#endregion
 
 
-
+       
 
         //#region Bonus solutions
         //public static int Bonus1()

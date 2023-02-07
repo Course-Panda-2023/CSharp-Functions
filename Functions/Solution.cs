@@ -102,9 +102,41 @@ namespace Basic
 
         public static bool Assignment6(string str)
         {
-            /*
-             * TODO: Write code here
-             */
+            bool isPolindrom = true;
+            int startInd = 0;
+            int endInd = str.Length - 1;
+            while (startInd < endInd)
+            {
+                int asciiFirst = Convert.ToInt32(str[startInd]);
+                int asciiLast = Convert.ToInt32(str[endInd]);
+                int maxVal = Math.Max(asciiFirst, asciiLast);
+                int minVal = Math.Min(asciiFirst, asciiLast);
+                if ((asciiFirst >= 65 && asciiFirst <= 90) || (asciiFirst >= 97 && asciiFirst <= 122))
+                {
+                    if ((asciiLast >= 65 && asciiLast <= 90) || (asciiLast >= 97 && asciiLast <= 122))
+                    {
+                        if (maxVal == minVal || maxVal == minVal + 32)
+                        {
+                            startInd++;
+                            endInd--;
+                        }
+                        else
+                        {
+                            isPolindrom = false;
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        endInd--;
+                    }
+                }
+                else
+                {
+                    startInd++;
+                }
+            }
+            return isPolindrom;
         }
 
         public static int Assignment7(int[] nums)

@@ -89,12 +89,15 @@ namespace Basic
             return str.SequenceEqual(str.Reverse());
         }
 
-        //public static int Assignment7(int[] nums)
-        //{
-        //    /*
-        //     * TODO: Write code here
-        //     */
-        //}
+        public static int Assignment7(int[] nums)
+        {
+            int i = 0;
+            foreach (int x in nums)
+            {
+                i ^= x;
+            }
+            return i;
+        }
 
         //public static void Assignment8(bool[,] board, int rows, int cols)
         //{

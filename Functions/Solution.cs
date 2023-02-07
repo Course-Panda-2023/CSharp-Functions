@@ -60,12 +60,38 @@ namespace Basic
             }
         }
 
-        // public static double[] Assignment4(bool asc, params double[] nums)
-        // {
-        //     /*
-        //      * TODO: Write code here
-        //      */
-        // }
+        public static double[] Assignment4(bool asc, params double[] nums)
+        {
+            int n = nums.Length;
+            double[] arr = new double[n];
+            
+            nums.CopyTo(arr, 0);
+
+            double tmp;
+            for(int i=0; i<n; i++)
+            {
+                for(int j=i+1; j<n; j++)
+                {
+                    if(arr[j] < arr[i])
+                    {
+                        tmp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = tmp;
+                    }
+                }
+            }
+
+            // change sort direction if needed
+            if (asc == false)
+            {
+                double[] final = new double[n];
+                for(int i=0; i<n; i++)
+                    final[i] = arr[n-1-i];
+                return final;
+            }
+            else
+                return arr;
+        }
 
         // public static void Assignment5(string str, char[] letters)
         // {

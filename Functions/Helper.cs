@@ -20,5 +20,16 @@ namespace Basic
         {
             Solution.Assignment3();
         }
+
+        public static void ManageAssignment4()
+        {
+            double[] nums = {1, 6, 87, 34, 5, 11};
+            double[] sortedArr = Solution.Assignment4(false, nums);
+            // print sorted array
+            for(int i=0; i<sortedArr.Length; i++)
+            {
+                Console.Write($"{sortedArr[i]} ");
+            }
+        }
     }
 }

@@ -26,12 +26,21 @@ namespace Basic
             }
             
         }
-        #endregion
-        /*
+
+        
         public static void Assignment3()
         {
+            Console.WriteLine("Player 1, enter the your action:");
+            RockPaperScissors.RPS player1 = Helper.GetRPSType(Console.ReadLine()!);
 
+            Console.WriteLine("Player 2, enter the your action:");
+            RockPaperScissors.RPS player2 = Helper.GetRPSType(Console.ReadLine()!);
+
+            Console.WriteLine(Helper.CheckWinner(player1, player2));
         }
+        #endregion
+
+        /*
         public static double[] Assignment4(bool asc, params double[] nums)
         {
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using static Basic.Calculator;
@@ -168,6 +169,9 @@ namespace Basic
                     return entry.Key;
                 }
             }
+            
+            // for compilation (should not happen assuming that the array contains an element that appears twice)
+            return -1;
         }
 
         public static void Assignment8(bool[,] board, int rows, int cols)
@@ -198,6 +202,7 @@ namespace Basic
 
             while ((Convert.ToDouble(specialCnt) / Convert.ToDouble(currNumber)) * 100 != targetPct)
             {
+                Console.WriteLine(Convert.ToDouble(specialCnt) / Convert.ToDouble(currNumber) * 100);
                 specialCnt += Convert.ToInt32(BouncingNumbers.IsNumberBouncing(currNumber));
                 currNumber++;
             }
@@ -249,11 +254,13 @@ namespace Basic
             return cnt;
         }
 
-        public static int Bonus2(uint[] hightMap)
+        public static int Bonus2(uint[] heightMap)
         {
             /*
              * TODO: Write code here
              */
+
+            return 1;
         }
         #endregion
     }

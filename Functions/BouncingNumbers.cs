@@ -5,9 +5,12 @@ public class BouncingNumbers
     public static bool IsSpecialNumber(int num, bool rising)
     {
         bool res = true;
-        int prevDigit = -1, currDigit;
+        int prevDigit, currDigit;
         
         if (num < 0) { num = -1 * num; }
+
+        prevDigit = num % 10;
+        num = num / 10;
 
         while (num > 0)
         {
@@ -30,6 +33,8 @@ public class BouncingNumbers
                     return false;
                 }
             }
+
+            prevDigit = currDigit;
         }
 
         return true;

@@ -99,12 +99,10 @@ namespace Basic
             return i;
         }
 
-        //public static void Assignment8(bool[,] board, int rows, int cols)
-        //{
-        //    /*
-        //     * TODO: Write code here
-        //     */
-        //}
+        public static void Assignment8(bool[,] board, int rows, int cols)
+        {
+            
+        }
 
         //public static int Assignment9()
         //{
@@ -113,17 +111,7 @@ namespace Basic
         //     */
         //}
         //#endregion
-        ////ex1
-        //void getRand(int minNum, int maxNum, out int temp)
-        //{
-        //    if (minNum > maxNum)
-        //    {
-        //        temp = -1;
-        //        return;
-        //    };
-        //    Random rnd = new Random();
-        //    temp = rnd.Next(minNum, maxNum);
-        //}
+
 
 
 

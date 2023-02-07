@@ -90,5 +90,40 @@ namespace Basic
             }
             return false;
         }
+
+        public static bool IsSameLetter(char char1, char char2)
+        {
+            const int DIFFERENCE_UPPERCASE_LOWERCASE = 32;
+            if (char1 > char2 && char1 - DIFFERENCE_UPPERCASE_LOWERCASE == char2)
+            {
+                return true;
+            }
+            else
+            {
+                if (char2 > char1 && char2 - DIFFERENCE_UPPERCASE_LOWERCASE == char1)
+                {
+                    return true;
+                }
+                else
+                {
+                    if (char1 == char2)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        public static bool IsSign(char ch)
+        {
+            //numbers are according to the question and
+            //the ascci value of signs to take into account.
+            if (ch <= 64 || (ch >= 91 && ch <= 96) || ch > 123)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

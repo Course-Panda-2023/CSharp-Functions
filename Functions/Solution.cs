@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -52,13 +53,30 @@ namespace Basic
                     shiftedString += str[letterIndex];
                 }
             }
+            str = shiftedString;
         }
 
         public static bool Assignment6(string str)
         {
-            /*
-             * TODO: Write code here
-             */
+            for ( int letterIndex = 0, letterFromTheEndIndex = str.Length - 1;
+                letterIndex < str.Length || letterFromTheEndIndex >= 0; letterIndex++, letterFromTheEndIndex--)
+            {
+                while (Helper.IsSign(str[letterIndex]))
+                {
+                    letterIndex++;
+                }
+
+                while (Helper.IsSign(str[letterFromTheEndIndex]))
+                {
+                    letterFromTheEndIndex++;
+                }
+
+                if (!Helper.IsSameLetter(str[letterIndex], str[letterFromTheEndIndex]))
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         public static int Assignment7(int[] nums)

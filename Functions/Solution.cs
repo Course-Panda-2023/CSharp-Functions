@@ -49,9 +49,7 @@ namespace Basic
 
         public static double[] Assignment4(bool asc, params double[] nums)
         {
-            /*
-             * TODO: Write code here
-             */
+
             double temp;
             for (int j = 0; j <= nums.Length - 2; j++)
             {
@@ -72,12 +70,10 @@ namespace Basic
             return nums;
         }
 
-        //public static void Assignment5(string str, char[] letters)
-        //{
-        //    /*
-        //     * TODO: Write code here
-        //     */
-        //}
+        public static void assignment5(string str, char[] letters)
+        {
+            
+        }
 
         //public static bool Assignment6(string str)
         //{

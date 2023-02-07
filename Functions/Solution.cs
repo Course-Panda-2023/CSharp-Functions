@@ -23,16 +23,29 @@ namespace Basic
             }
             else
             {
-                res = -1; //Return -1 if paramaters invalid
-                Console.WriteLine(res);
+                Console.WriteLine("invalid parameters");
             }
         }
 
         public static void Assignment3()
         {
-            /*
-             * TODO: Write code here
-             */
+            Console.WriteLine("Enter player1's move (0 for rock, 1 for paper, 2 for scissors): ");
+            RPS move1 = (RPS)Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter player2's move (0 for rock, 1 for paper, 2 for scissors): ");
+            RPS move2 = (RPS)Convert.ToInt32(Console.ReadLine());
+            int result = winner(move1, move2);
+            switch(result)
+            {
+                case 0:
+                    Console.WriteLine("It's a tie!");
+                    break;
+                case 1:
+                    Console.WriteLine("First player wins!");
+                    break;
+                case 2:
+                    Console.WriteLine("Second player wins!");
+                    break;
+            }
         }
 
         public static double[] Assignment4(bool asc, params double[] nums)

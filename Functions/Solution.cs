@@ -84,8 +84,9 @@ namespace Basic
 
         public static bool Assignment6(string str)
         {
-            String result = str.ToLower();
-
+            str = str.ToLower();
+            str = Regex.Replace(str, "[^a-zA-Z0-9]", String.Empty);
+            return str.SequenceEqual(str.Reverse());
         }
 
         //public static int Assignment7(int[] nums)

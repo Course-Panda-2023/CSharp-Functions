@@ -15,5 +15,10 @@ namespace Basic
             Solution.Assignment1(5, 1, out res);
             Console.WriteLine($"Result is {res}");
         }
+
+        public static void ManageAssignment3()
+        {
+            Solution.Assignment3();
+        }
     }
 }

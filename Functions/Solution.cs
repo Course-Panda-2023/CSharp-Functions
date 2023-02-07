@@ -27,10 +27,37 @@ namespace Basic
         }
 
         public static void Assignment3()
-        {
-            /*
-             * TODO: Write code here
-             */
+        {            
+            var strToMove = new Dictionary<string, RockPaperScissors.RPS>()
+            {
+                {"Rock", RockPaperScissors.RPS.Rock},
+                {"Paper", RockPaperScissors.RPS.Paper},
+                {"Scissors", RockPaperScissors.RPS.Scissors},
+            };
+            
+            try
+            {
+                Console.WriteLine("Enter player 1 move.");
+                // string input1 = Console.ReadLine();
+                RockPaperScissors.RPS move1 = strToMove[Console.ReadLine()];
+                Console.WriteLine("Enter player 2 move.");
+                // string input2 = Console.ReadLine();
+                RockPaperScissors.RPS move2 = strToMove[Console.ReadLine()];
+
+                if (move1 == move2)
+                    Console.WriteLine("Tie.");
+                else if ((move1 == RockPaperScissors.RPS.Rock && move2 == RockPaperScissors.RPS.Paper)
+                        || move1 == RockPaperScissors.RPS.Paper && move2 == RockPaperScissors.RPS.Scissors
+                        || move1 == RockPaperScissors.RPS.Scissors && move2 == RockPaperScissors.RPS.Rock
+                        )
+                    Console.WriteLine("Player 2 wins.");
+                else
+                    Console.WriteLine("Player 1 wins.");
+            }
+            catch (System.Collections.Generic.KeyNotFoundException e)
+            {
+                Console.WriteLine("Not a legal move.");
+            }
         }
 
         // public static double[] Assignment4(bool asc, params double[] nums)

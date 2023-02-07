@@ -8,30 +8,74 @@ namespace Basic
 {
     internal class Solution
     {
-        /*
-         * Notice: Write helper functions in `Helper` class unless there is a special class for it
-         */
-
         #region Assignment solutions
         public static void Assignment1(int low, int high, out int res)
         {
-            /*
-             * TODO: Write code here
-             */
+            if (low > high || high < 0)
+            {
+                res = -1;
+            }
+            else
+            {
+                Random rnd = new Random();
+                res = rnd.Next(low, high + 1);
+            }
         }
-
+        public static void Assignment2()
+        {
+            double num1 = Helper.ReadDouble();
+            Console.WriteLine("enter operand");
+            string operand = Console.ReadLine();
+            double num2 = Helper.ReadDouble();
+            double answer = 0;
+            if (operand == "+")
+            {
+                answer = num1 + num2;
+            }
+            else if (operand == "-")
+            {
+                answer = num1 - num2;
+            }
+            else if (operand == "*")
+            {
+                answer = num1 * num2;
+            }
+            else if (operand == "/")
+            {
+                if (num2 == 0)
+                {
+                    Console.WriteLine("cant divide by zero");
+                    Helper.WaitForEnter();
+                    return;
+                }
+                answer = num1 / num2;
+            }
+            else if (operand == "^")
+            {
+                answer = Math.Pow(num1, num2);
+            }
+            else
+            {
+                Console.WriteLine("unvalid operand");
+                Helper.WaitForEnter();
+                return;
+            }
+            Console.WriteLine(answer);
+            Helper.WaitForEnter();
+        }
         public static void Assignment3()
         {
-            /*
-             * TODO: Write code here
-             */
+            RockPaperScissors.RPS player1Sign = RockPaperScissors.ReadInput();
+            int player1Num = RockPaperScissors.RPSToNumber(player1Sign);
+            RockPaperScissors.RPS player2Sign = RockPaperScissors.ReadInput();
+            int player2Num = RockPaperScissors.RPSToNumber(player2Sign);
+            RockPaperScissors.RPSOutput(player1Num, player2Num);
+            Helper.WaitForEnter();
         }
 
         public static double[] Assignment4(bool asc, params double[] nums)
         {
-            /*
-             * TODO: Write code here
-             */
+            return new double[nums.Length];
         }
 
         public static void Assignment5(string str, char[] letters)
@@ -43,16 +87,12 @@ namespace Basic
 
         public static bool Assignment6(string str)
         {
-            /*
-             * TODO: Write code here
-             */
+            return true;
         }
 
         public static int Assignment7(int[] nums)
         {
-            /*
-             * TODO: Write code here
-             */
+            return nums.Length;
         }
 
         public static void Assignment8(bool[,] board, int rows, int cols)
@@ -64,26 +104,29 @@ namespace Basic
 
         public static int Assignment9()
         {
-            /*
-             * TODO: Write code here
-             */
+            return 0;
         }
         #endregion
 
         #region Bonus solutions
         public static int Bonus1()
         {
-            /*
-             * TODO: Write code here
-             */
+            return 1;
         }
 
         public static int Bonus2(uint[] hightMap)
         {
-            /*
-             * TODO: Write code here
-             */
+            return 1;
         }
         #endregion
+        public static void Main(string[] args)
+        {
+            int[] arr = { 1, 5, 7, 2, 3};
+            Helper.PrintIntArray(Helper.InsertionSort(arr, arr.Length));
+            Helper.WaitForEnter();
+            //Assignment3();
+            //Assignment2();
+
+        }
     }
 }

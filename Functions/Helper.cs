@@ -75,6 +75,15 @@ namespace Basic
             return true;
         }
         
+        ////public static void printTwoDArray(bool[,] try)
+        ////{
+        ////    foreach (bool[] b in try){
+        ////            foreach (bool c in b)
+        ////            {
+        ////                Console.WriteLine(c);
+        ////            }
+        ////    }
+        ////}
 
     }
 }

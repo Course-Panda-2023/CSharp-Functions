@@ -7,7 +7,7 @@ using System.Diagnostics.SymbolStore;
 //Console.ReadLine();
 
 //---3
-Solution.Assignment3();
+//Solution.Assignment3();
 
 
 
@@ -19,10 +19,10 @@ Solution.Assignment3();
 
 
 ////---5
-//char[] c = { 'z', 'c' };
-//string s = "zzddcca";
-//Solution.Assignment5(s, c);
-//Console.WriteLine(s);
+char[] c = { 'z', 'c' };
+string s = "zzddcca";
+Solution.Assignment5(s, c);
+Console.WriteLine(s);
 
 
 //----6
@@ -34,6 +34,10 @@ Solution.Assignment3();
 //int[] nums = { 4, 1, 2, 1, 2,5,5,9,4 };
 //Console.WriteLine(Solution.Assignment7(nums));
 
+//--8
+//bool[,] try ={ { false , true , false },{ false , false , true },{ true , true , true },{ false , false , false } };
+//try=Solution.Assignment8(try);
+//Helper.printTwoDArray(try);
 //----9
 //Console.WriteLine("/////////////////////////");
 

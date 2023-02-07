@@ -79,23 +79,32 @@ namespace Basic
 
         }
 
-        //public static void Assignment5(string str, char[] letters)
-        //{
-        //    int len = str.Length;
-        //    const int addtoascii = 10;
-        //    const int roundAscii = 26;
-        //    for (int i = 0; i < len; i++)
-        //    {
-        //        if (letters.Contains(str[i]))
-        //        {
-        //            str[i] = (char)((int)str[i] + addtoascii);
-        //            if ((int)str[i] > 122)
-        //                str[i] = (char)((int)str[i] - roundAscii);
-        //        }
+        public static void Assignment5(string str, char[] letters)
+        {
+            int len = str.Length;
+            string ret = "";
+            char c;
+            const int addtoascii = 10;
+            const int roundAscii = 26;
+            for (int i = 0; i < len; i++)
+            {
+                if (letters.Contains(str[i]))
+                {
 
-        //    }
-        //    Console.WriteLine(str);
-        //}
+                    c = (char)((int)str[i] + addtoascii);
+                    if (c > 122)
+                        c = (char)((int)c - roundAscii);
+                    ret += c;
+                    //str[i] = (char)((int)str[i] + addtoascii);
+                    //if ((int)str[i] > 122)
+                    //    str[i] = (char)((int)str[i] - roundAscii);
+                }
+                else
+                    ret += str[i];
+
+            }
+            Console.WriteLine(ret);
+        }
 
         public static bool Assignment6(string str)
         {
@@ -137,9 +146,40 @@ namespace Basic
 
         //public static void Assignment8(bool[,] board, int rows, int cols)
         //{
-        //    /*
-        //     * TODO: Write code here
-        //     */
+        //    bool[,] ret = new bool[rows, col];
+        //    int rowBoard = board.Length, colBoard = board[0].Length;
+        //    int row, col,active=0;
+        //    Dictionary<string, int> borders;
+        //    for (int i = 0; i < rowBoard; i++)
+        //    {
+        //        for (int j = 0; j < colBoard; j++)
+        //        {
+        //            borders = GameOfLife.helpToSearch(j, i, rowBoard, colBoard);
+        //            for (int currRow = borders["yLow"]; currRow < borders["yHigh"]; currRow++)
+        //            {
+        //                for (int currCol = borders["xLow"]; currCol < borders["xHigh"]; currCol++)
+        //                {
+        //                    if (board[currRow, currCol])
+        //                        active++;
+        //                }
+        //            }
+        //            if (board[i, j])
+        //            {
+        //                active--;
+        //                if (active < 2 || active > 3)
+        //                    ret[i, j] = false;
+        //                else
+        //                    ret[i, j] = true;
+        //            }
+        //            else if (active == 3)
+        //                ret[i, j] = true;
+        //            else 
+        //                ret[i, j] = false;
+
+
+        //        }
+        //    }
+        //    return ret;
         //}
 
         public static int Assignment9()
@@ -151,7 +191,11 @@ namespace Basic
                 if (!Helper.isJumpingdes(i) && !Helper.isJumpingAsc(i))
                     numOfJump++;
                 if ((double)numOfJump / (double)i >= 0.99)
+                {
+                    Console.WriteLine((double)numOfJump / (double)i);
                     return numOfJump;
+
+                }
             }
             return 0;
         }
@@ -160,17 +204,30 @@ namespace Basic
         //#region Bonus solutions
         //public static int Bonus1()
         //{
-        //    /*
-        //     * TODO: Write code here
-        //     */
+
         //}
 
-        //public static int Bonus2(uint[] hightMap)
-        //{
-        //    /*
-        //     * TODO: Write code here
-        //     */
-        //}
+        public static int Bonus2(uint[] hightMap)
+        {
+            int height = hightMap.Max();
+            int len = hightMap.Length;
+            int curr;
+            bool[,] map = new int[len, height];
+            for(int i = 0; i < len; i++)
+            {
+                curr = hightMap[i];
+                for(int j = 0; j < height; j++)
+                {
+                    if (height - j <= hightMap[i])
+                    {
+                        hightMap[i, j] = true;
+                    }
+                    else
+                        hightMap[i, j] = false;
+
+                }
+            }
+        }
         #endregion
     }
 }

@@ -31,11 +31,11 @@ namespace Basic
             RockPaperScissors.runGame();
         }
 
-        public static double[] Assignment4(bool asc, params double[] nums)
+        public static double[] Assignment4(bool isAsc, params double[] nums)
         {
-            /*
-             * TODO: Write code here
-             */
+            double[] arr = isAsc ? Helper.MinSort(nums) : Helper.MaxSort(nums);
+            return arr;
+            
         }
 
         public static void Assignment5(string str, char[] letters)

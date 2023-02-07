@@ -107,7 +107,10 @@ namespace Basic
         {
             foreach (char l in letters)
             {
-                str.Replace(l, (char)((char)Convert.ToInt16(l) + 10));
+                int asc = (int)(l + 10);
+                if (asc > 122)
+                    asc -= 26;
+                str = str.Replace(l, (char)(asc));
             }
         }
 

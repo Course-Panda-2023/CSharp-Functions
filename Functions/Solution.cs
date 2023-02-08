@@ -104,9 +104,9 @@ namespace Basic
 
         public static int Assignment9()
         {
-            /*
-             * TODO: Write code here
-             */
+            Console.WriteLine("starting calculation....");
+            int number = BouncingNumbers.FindNumThatHasMostJumping();
+            Console.WriteLine($"calculation ended, the number is: {number}");
         }
         #endregion
 

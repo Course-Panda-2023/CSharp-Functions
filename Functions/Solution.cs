@@ -116,7 +116,7 @@ namespace Basic
         {
             string[] digits= new string[] { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
             string[] specials= new string[] { "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
-            string[] tens= new string[] { "twenty", "thirty", "fourty", "fifty", "sixty", "seventy", "eighty", "ninety"};
+            string[] tens= new string[] { "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"};
 
             int numOfLetters = 0;
 
@@ -135,6 +135,7 @@ namespace Basic
                 numOfLetters += tens[tensIndex].Length;
                 for (int digitsIndex = 0; digitsIndex < digits.Length; digitsIndex++)
                 {
+                    numOfLetters += tens[tensIndex].Length;
                     numOfLetters += digits[digitsIndex].Length;
                 }
             }

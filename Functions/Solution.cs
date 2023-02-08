@@ -224,20 +224,60 @@ namespace Basic
         }
         #endregion
 
-        // #region Bonus solutions
-        // public static int Bonus1()
-        // {
-        //     /*
-        //      * TODO: Write code here
-        //      */
-        // }
-
-        // public static int Bonus2(uint[] hightMap)
-        // {
-        //     /*
-        //      * TODO: Write code here
-        //      */
-        // }
-        // #endregion
+        #region Bonus solutions
+        public static int Bonus1()
+        {
+            int totalCount = 0;
+            string[] oneToNine = new string[]{"one", "two", "three", "four", "five", "six", "seven",
+                                                "eight", "nine"};
+            string[] tenToNineteen = new string[]{"ten", "eleven", "twelve", "thirteen", "fourteen",
+                                                    "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
+            string[] twentyToNinety = new string[]{"twenty", "thirty", "forty", "fifty", "sixty", "seventy",
+                                                    "eighty", "ninety"};
+            int oneToNineCount = 0;
+            foreach (string num in oneToNine)
+                oneToNineCount += num.Length;
+            totalCount += oneToNineCount; // 1->9 nine count
+            foreach (string num in tenToNineteen) // 10->19 count
+                totalCount += num.Length;
+            foreach (string tenth in twentyToNinety) // 20->99 count
+            {
+                totalCount += tenth.Length*10; // add the 'twenty' each time in 20,...,29 etc. (total of 10 times)
+                totalCount += oneToNineCount; // add the 'one' 'two'...'nine' in 21,..,29 etc.
+            }
+            return totalCount;
+        }
+        
+        public static int Bonus2(uint[] heightMap)
+        {
+            int totalCount = 0;
+            int n = heightMap.Length;
+            uint maxHeight = 0;
+            for (int j=0; j<n; j++)
+                maxHeight = Math.Max(maxHeight, heightMap[j]);
+            
+            for(int i=1; i<=maxHeight; i++)
+            {
+                for(int j=0; j<n; j++)
+                {
+                    if (heightMap[j] >= i) // check left wall
+                    {
+                        int intermidCount = 0; 
+                        for (int k=j+1; k<n; k++)
+                        {
+                            if (heightMap[k] >= i) // add rain blocks if trapped by some right wall
+                            {
+                                totalCount += intermidCount;
+                                j=k-1;
+                                break;
+                            }
+                            intermidCount++;
+                        }
+                    }
+                }
+            }
+            return totalCount;
+        }
+        #endregion
     }
 }

@@ -72,5 +72,19 @@ namespace Basic
             int chosesNum = Solution.Assignment9();
             Console.WriteLine(chosesNum);
         }     
+
+        public static void ManageAssignmentBonus1()
+        {
+            int totalCount = Solution.Bonus1();
+            Console.WriteLine(totalCount);
+        }
+        public static void ManageAssignmentBonus2()
+        {
+            uint[] heightMap = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+            // uint[] heightMap = {0, 3, 2, 5, 4, 1, 1, 5};
+
+            int totalCount = Solution.Bonus2(heightMap);
+            Console.WriteLine(totalCount);
+        }       
     }
 }

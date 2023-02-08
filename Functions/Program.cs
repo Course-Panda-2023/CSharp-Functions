@@ -23,6 +23,15 @@ Console.WriteLine(Solution.Assignment6("aab''cBa"));
 Console.WriteLine("Assignment 7:");
 int[] nums = { 1, 2, 3, 3, 2, 1, 10 };
 Console.WriteLine(Solution.Assignment7(nums));
-*/
+
 Console.WriteLine("Assignment 9:");
 Console.WriteLine(Solution.Assignment9());
+
+Console.WriteLine("Bonus 1:");
+Console.WriteLine(Solution.Bonus1());
+
+*/
+
+Console.WriteLine("Assignment 8:");
+bool[,] board = { { false, true, false }, { false, false, true }, { true, true, true }, { false, false, false } };
+Solution.Assignment8(board, 4, 3);

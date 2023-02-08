@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Basic
 {
@@ -85,5 +86,121 @@ namespace Basic
                 Console.WriteLine(value);
             }
         }
+
+        private static String ones(int number)
+        {
+            String numStr = "";
+            switch (number)
+            {
+                case 1:
+                    numStr = "One";
+                    break;
+                case 2:
+                    numStr = "Two";
+                    break;
+                case 3:
+                    numStr = "Three";
+                    break;
+                case 4:
+                    numStr = "Four";
+                    break;
+                case 5:
+                    numStr = "Five";
+                    break;
+                case 6:
+                    numStr = "Six";
+                    break;
+                case 7:
+                    numStr = "Seven";
+                    break;
+                case 8:
+                    numStr = "Eight";
+                    break;
+                case 9:
+                    numStr = "Nine";
+                    break;
+            }
+            return numStr;
+        }
+
+        private static String tens(int number)
+        {
+            String numStr = "";
+            switch (number)
+            {
+                case 10:
+                    numStr = "Ten";
+                    break;
+                case 11:
+                    numStr = "Eleven";
+                    break;
+                case 12:
+                    numStr = "Twelve";
+                    break;
+                case 13:
+                    numStr = "Thirteen";
+                    break;
+                case 14:
+                    numStr = "Fourteen";
+                    break;
+                case 15:
+                    numStr = "Fifteen";
+                    break;
+                case 16:
+                    numStr = "Sixteen";
+                    break;
+                case 17:
+                    numStr = "Seventeen";
+                    break;
+                case 18:
+                    numStr = "Eighteen";
+                    break;
+                case 19:
+                    numStr = "Nineteen";
+                    break;
+                case 20:
+                    numStr = "Twenty";
+                    break;
+                case 30:
+                    numStr = "Thirty";
+                    break;
+                case 40:
+                    numStr = "Fourty";
+                    break;
+                case 50:
+                    numStr = "Fifty";
+                    break;
+                case 60:
+                    numStr = "Sixty";
+                    break;
+                case 70:
+                    numStr = "Seventy";
+                    break;
+                case 80:
+                    numStr = "Eighty";
+                    break;
+                case 90:
+                    numStr = "Ninety";
+                    break;
+                default:
+                    if (number > 0)
+                    {
+                        numStr = tens(number/10) + ones(number%10);
+                    }
+                    break;
+            }
+            return numStr;
+        }
+
+        public static string[] GetNumsNames()
+        {
+            string[] numsNames= new string[99];
+            for (int num=1; num<100; num++)
+            {
+                numsNames[num-1] = tens(num);
+            }
+            return numsNames;
+        }
+   
     }
 }

@@ -90,13 +90,35 @@ namespace Basic
             }
             return -1;
         }
-
-        /*
+        
         public static void Assignment8(bool[,] board, int rows, int cols)
         {
-
+            bool[,] nextBoard = new bool[rows, cols];
+            for (int row=0; row < rows; row++)
+            {
+                for (int col=0; col < cols; col++)
+                {
+                    bool[] neighbors = GameOfLife.GetNeighbors(board, row, col, rows, cols);
+                    int numAlive = neighbors.Count(nbor => nbor == true);
+                    if (board[row,col])
+                    {
+                        if (numAlive < 2 || numAlive > 3)
+                            nextBoard[row,col] = false;
+                        else
+                            nextBoard[row, col] = true;
+                    }
+                    else
+                    {
+                        if (numAlive == 3)
+                            nextBoard[row, col] = true;
+                        else
+                            nextBoard[row, col] = false;
+                    }
+                }
+            }
+            GameOfLife.PrintBoard(nextBoard, rows, cols);
         }
-        */
+        
         public static int Assignment9()
         {
             int num = 0;
@@ -116,13 +138,20 @@ namespace Basic
         }
         #endregion
 
-        /*
+        
         #region Bonus solutions
         public static int Bonus1()
         {
-
+            int sum = 0;
+            string[] numsNames = Helper.GetNumsNames();
+            foreach (string numStr in numsNames)
+            {
+                sum += numStr.Length;
+            }
+            return sum;
         }
-
+        #endregion
+        /*
         public static int Bonus2(uint[] hightMap)
         {
         

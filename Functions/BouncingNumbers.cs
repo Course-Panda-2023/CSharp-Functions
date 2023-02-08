@@ -7,16 +7,15 @@ public class BouncingNumbers
         string bouncingString = number.ToString();
         int[] arr = bouncingString.Select(x => Convert.ToInt32(x.ToString())).ToArray();
         bool isGoingUp = IsAlwaysGoingUp(arr);
-        Array.Reverse(arr);
         bool isReverseGoingDown = IsAlwaysGoingDown(arr);
-        return !(isGoingUp && isReverseGoingDown);
+        return !(isGoingUp || isReverseGoingDown);
     }
 
     private bool IsAlwaysGoingUp(int[] arr)
     {
         for (int i = 0; i < arr.Length - 1; ++i)
         {
-            if (arr[i] < arr[i + 1])
+            if (arr[i] > arr[i + 1])
             {
                 return false;
             }
@@ -26,9 +25,9 @@ public class BouncingNumbers
 
     private bool IsAlwaysGoingDown(int[] arr)
     {
-        for (int i = arr.Length - 1; i > 0; --i)
+        for (int i = 0; i < arr.Length - 1; ++i)
         {
-            if (arr[i] < arr[i - 1])
+            if (arr[i] < arr[i + 1])
             {
                 return false;
             }

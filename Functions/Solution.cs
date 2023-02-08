@@ -237,13 +237,13 @@ namespace Basic
         public static int Assignment9()
         {
             const int BEGIN_WITH = 21780;
-            const THE_WANTED_PERCENT = 0.99;
+            const double THE_WANTED_PERCENT = 0.99;
 
             double numberOfBouncingNumbers = (double)(0.9 *  (double)BEGIN_WITH);
             int result = BEGIN_WITH;
             BouncingNumbers bouncingNumbers = new BouncingNumbers();
             
-            while ((numberOfBouncingNumbers / result).Equals())
+            while (!(numberOfBouncingNumbers).Equals(result * THE_WANTED_PERCENT))
             {
                 if (bouncingNumbers.IsBouncingNumber(result))
                 {

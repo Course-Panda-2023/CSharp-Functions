@@ -164,5 +164,16 @@ namespace Basic
             double half = (num1 + num2) / 2;
             return (int)half;
         }
+
+        public static int countLettersInRange(int first, int second, string[] vocab)
+        {
+            int result = 0;
+            for (int i = first; i < second; i++)
+            {
+                char[] letters = vocab[i].ToCharArray();
+                result += letters.Length;
+            }
+            return result;
+        }
     }
 }

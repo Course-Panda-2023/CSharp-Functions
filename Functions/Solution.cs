@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.ExceptionServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Basic
@@ -152,27 +154,40 @@ namespace Basic
             }
             return current;
         }
-        //#endregion
+        #endregion
 
-        //#region Bonus solutions
-        //public static int Bonus1()
-        //{
-        //    /*
-        //     * TODO: Write code here
-        //     
-        //}
+        #region Bonus solutions
+        public static int Bonus1()
+        {
+            string[] vocab = {"One", "two", "three", "four", "five", "six", "seven", "eight", "nine",
+                "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen",
+                "eighteen", "nineteen", "twenty", "thirty", "forty", "fifty", "sixty", "seventy",
+                "eighty", "ninety"};
+
+            int letterCount = 0;
+
+            int oneToNine = Helper.countLettersInRange(0, 9, vocab);
+            int tenToNineteen = Helper.countLettersInRange(9, 19, vocab);
+            int twentyToNinety = Helper.countLettersInRange(19, vocab.Length, vocab);
+
+            letterCount += oneToNine * 9;
+            letterCount += tenToNineteen;
+            letterCount += twentyToNinety * 10;
+            
+            return letterCount;
+        }
 
         //public static int Bonus2(uint[] hightMap)
         //{
         //    /*
         //     * TODO: Write code here
         //     */
-        //}
-        //#endregion
+            //}
+            //#endregion
 
         static void Main(string[] args)
         {
-            Console.WriteLine(Assignment9());
+            Console.WriteLine(Bonus1());
         }
         #endregion
     }

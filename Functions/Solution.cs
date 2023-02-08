@@ -150,13 +150,34 @@ namespace Basic
             }
             return sum;
         }
-        #endregion
-        /*
+
         public static int Bonus2(uint[] hightMap)
         {
-        
+            int i = 0; int j = 0;
+            uint waterSum = 0;
+            while (i < hightMap.Length)
+            {
+                j = i + 1; 
+                while (j < hightMap.Length && hightMap[i] > hightMap[j])
+                {
+                    waterSum += hightMap[i] - hightMap[j];
+                    j++;
+                }
+                if (j == hightMap.Length && hightMap[i] > hightMap[j-1])
+                {
+                    j = i + 1;
+                    while (j < hightMap.Length && hightMap[i] > hightMap[j])
+                    {
+                        waterSum -= hightMap[i] - hightMap[j];
+                        j++;
+                    }
+                    i++;
+                }
+                else
+                    i = j;
+            }
+            return (int)waterSum;
         }
         #endregion
-        */
     }
 }

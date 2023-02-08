@@ -165,7 +165,7 @@ namespace Basic
                     numStr = "Thirty";
                     break;
                 case 40:
-                    numStr = "Fourty";
+                    numStr = "Forty";
                     break;
                 case 50:
                     numStr = "Fifty";
@@ -185,7 +185,7 @@ namespace Basic
                 default:
                     if (number > 0)
                     {
-                        numStr = tens(number/10) + ones(number%10);
+                        numStr = tens(number - number%10) + ones(number%10);
                     }
                     break;
             }

@@ -1,6 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using Basic;
-/*
+
 Console.WriteLine("Assignment 1:");
 int res;
 Solution.Assignment1(10, 'a', out res);
@@ -24,14 +24,15 @@ Console.WriteLine("Assignment 7:");
 int[] nums = { 1, 2, 3, 3, 2, 1, 10 };
 Console.WriteLine(Solution.Assignment7(nums));
 
+Console.WriteLine("Assignment 8:");
+bool[,] board = { { false, true, false }, { false, false, true }, { true, true, true }, { false, false, false } };
+Solution.Assignment8(board, 4, 3);
+
 Console.WriteLine("Assignment 9:");
 Console.WriteLine(Solution.Assignment9());
 
 Console.WriteLine("Bonus 1:");
 Console.WriteLine(Solution.Bonus1());
 
-*/
-
-Console.WriteLine("Assignment 8:");
-bool[,] board = { { false, true, false }, { false, false, true }, { true, true, true }, { false, false, false } };
-Solution.Assignment8(board, 4, 3);
+Console.WriteLine("Bonus 2:");
+Console.WriteLine(Solution.Bonus2(new uint[] {3, 2, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}));

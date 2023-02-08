@@ -166,9 +166,9 @@ namespace Basic
 
             int letterCount = 0;
 
-            int oneToNine = Helper.countLettersInRange(0, 9, vocab);
-            int tenToNineteen = Helper.countLettersInRange(9, 19, vocab);
-            int twentyToNinety = Helper.countLettersInRange(19, vocab.Length, vocab);
+            int oneToNine = Helper.CountLettersInRange(0, 9, vocab);
+            int tenToNineteen = Helper.CountLettersInRange(9, 19, vocab);
+            int twentyToNinety = Helper.CountLettersInRange(19, vocab.Length, vocab);
 
             letterCount += oneToNine * 9;
             letterCount += tenToNineteen;
@@ -177,17 +177,46 @@ namespace Basic
             return letterCount;
         }
 
-        //public static int Bonus2(uint[] hightMap)
-        //{
-        //    /*
-        //     * TODO: Write code here
-        //     */
-            //}
-            //#endregion
+        public static int Bonus2(int[] hightMap)
+        {
+            int currentHeight = 0;
+            int waterCounter = 0;
+            int maxCounter = 0;
+            int maxHeightInRange = Helper.GetMaxAndDup(hightMap, 0)[0];
+            int hasDuplicate = Helper.GetMaxAndDup(hightMap, 0)[1];
+
+            for (int i = 0; i < hightMap.Length; i++)
+            {
+                if (hightMap[i] < maxHeightInRange || hasDuplicate == 1)
+                {
+                    if (hightMap[i] >= currentHeight)
+                        currentHeight = hightMap[i];
+                    else
+                        waterCounter += currentHeight - hightMap[i];
+                }
+                if (hightMap[i] == maxHeightInRange)
+                {
+                    if ((hasDuplicate == 1 && maxCounter == 1) || hasDuplicate == 0)
+                    {
+                        if (i < hightMap.Length - 1)
+                        {
+                            maxHeightInRange = Helper.GetMaxAndDup(hightMap, i + 1)[0];
+                            hasDuplicate = Helper.GetMaxAndDup(hightMap, i + 1)[1];
+                            maxCounter = 0;
+                        }
+                    }
+                    else
+                        maxCounter++;
+                }
+            }
+            return waterCounter;
+        }
+        //#endregion
 
         static void Main(string[] args)
         {
-            Console.WriteLine(Bonus1());
+            int[] map = { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 };
+            Console.WriteLine(Bonus2(map));
         }
         #endregion
     }

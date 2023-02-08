@@ -165,7 +165,7 @@ namespace Basic
             return (int)half;
         }
 
-        public static int countLettersInRange(int first, int second, string[] vocab)
+        public static int CountLettersInRange(int first, int second, string[] vocab)
         {
             int result = 0;
             for (int i = first; i < second; i++)
@@ -174,6 +174,27 @@ namespace Basic
                 result += letters.Length;
             }
             return result;
+        }
+
+        public static int[] GetMaxAndDup(int[] arr, int index)
+        {
+            int[] maxAndDouble = new int[2];
+            int max = 0;
+            int maxIndex = 0;
+            int hasDouble = 0;
+            for (int i = index; i < arr.Length; i++)
+            {
+                if (arr[i] > max)
+                {
+                    max = arr[i];
+                    maxIndex = i;
+                }
+                if (i != maxIndex && max == arr[i])
+                    hasDouble = 1;
+            }
+            maxAndDouble[0] = max;
+            maxAndDouble[1] = hasDouble;
+            return maxAndDouble;
         }
     }
 }

@@ -202,32 +202,62 @@ namespace Basic
         ///#endregion
 
         //#region Bonus solutions
-        //public static int Bonus1()
-        //{
-
-        //}
-
-        public static int Bonus2(uint[] hightMap)
+        public static int Bonus1()
         {
-            int height = hightMap.Max();
-            int len = hightMap.Length;
-            int curr;
-            bool[,] map = new int[len, height];
-            for(int i = 0; i < len; i++)
+            string bank = "One, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, nineteen, twenty, thirty, forty, fifty, sixty, seventy, eighty, ninety";
+            String[] mybank = bank.Split(", ");
+            int count = 0;
+            int startFrom = 20;
+            for(int i = 0; i < 19; i++)
             {
-                curr = hightMap[i];
-                for(int j = 0; j < height; j++)
+                count += mybank[i].Length;
+            }
+            for(int i = 0; i < 8; i++)
+            {
+                for(int j = 0; j < 9; j++)
                 {
-                    if (height - j <= hightMap[i])
+                    count += mybank[19 + i].Length;
+                    if (j != 0)
                     {
-                        hightMap[i, j] = true;
+                        count += mybank[j-1].Length;
+                        Console.WriteLine(mybank[i] + " " + mybank[j]);
                     }
-                    else
-                        hightMap[i, j] = false;
 
+                    
                 }
             }
+            return count;
         }
+
+        //public static int Bonus2(uint[] hightMap)
+        //{
+        //    int height = hightMap.Max();
+        //    int len = hightMap.Length;
+        //    int ret;
+        //    bool wall = false, isWater = false;
+        //    bool[,] map = new int[len, height];
+        //    for (int i = 0; i < height; i++)
+        //    {
+        //        curr = hightMap[i];
+        //        for (int j = 0; j < len; j++)
+        //        {
+        //            if (hightMap[j] < i)
+        //            { 
+        //                if (!wall)
+        //                {
+        //                    isWater = true;
+        //                }
+        //                else
+
+        //            }
+        //            else if (isWater)
+        //            {
+        //                    ret++;
+        //            }
+
+        //        }
+        //    }
+        //}
         #endregion
     }
 }

@@ -19,10 +19,10 @@ using System.Diagnostics.SymbolStore;
 
 
 ////---5
-char[] c = { 'z', 'c' };
-string s = "zzddcca";
-Solution.Assignment5(s, c);
-Console.WriteLine(s);
+//char[] c = { 'z', 'c' };
+//string s = "zzddcca";
+//Solution.Assignment5(s, c);
+//Console.WriteLine(s);
 
 
 //----6
@@ -43,7 +43,9 @@ Console.WriteLine(s);
 
 //Console.WriteLine(Solution.Assignment9());
 
-
+////
+int stam = Solution.Bonus1();
+Console.WriteLine(stam);
 
 
 

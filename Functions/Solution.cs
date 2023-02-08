@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -110,7 +111,31 @@ namespace Basic
 
         public static int Assignment7(int[] nums)
         {
-            return nums.Length;
+            int[] record = new int[nums.Length];
+            for(int i = 0; i < nums.Length; i++)
+            {
+                bool alreadyExists = false;
+                for(int j = 0; j < i; j++)
+                {
+                    if(nums[i] == record[j])
+                    {
+                        record[j] = 0;
+                        alreadyExists = true;
+                    }
+                }
+                if(!alreadyExists)
+                {
+                    record[i] = nums[i];
+                }
+            }
+            foreach (int num in record)
+            {
+                if(num!=0)
+                {
+                    return num;
+                }
+            }
+            return 0;
         }
 
         public static void Assignment8(bool[,] board, int rows, int cols)
@@ -122,7 +147,28 @@ namespace Basic
 
         public static int Assignment9()
         {
-            return 0;
+            int lowering = 0;
+            int uppering = 1;
+            int jumping = 0;
+            int num = 1;
+            while (jumping < 99 * (lowering + uppering))
+            {
+                string digits = Helper.GetDigits(num);
+                if (Helper.IsUppering(digits))
+                {
+                    uppering++;
+                }
+                else if(Helper.IsLowering(digits))
+                {
+                    lowering++;
+                }
+                else
+                {
+                    jumping++;
+                }
+                num++;
+            }
+            return num;
         }
         #endregion
 
@@ -146,9 +192,13 @@ namespace Basic
             //Assignment2();
             string str = "hello world";
             char[] letters = { 'i', 'o' };
+            int[] nums = { 6, 0, 6, 4, 3, 4, 3 };
+            //7 doesnt work
+            //Console.WriteLine(Helper.GetDigits(9876543));
+            //Console.WriteLine(Helper.IsUppering("21"));
+            Console.WriteLine(Assignment9());
 
-            Console.WriteLine(Assignment6("ba--aaab"));
-           // Console.WriteLine(Helper.SiftLetter('z'));
+            // Console.WriteLine(Helper.SiftLetter('z'));
             Helper.WaitForEnter();
 
         }

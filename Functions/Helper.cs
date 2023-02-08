@@ -89,6 +89,34 @@ namespace Basic
             Array.Reverse(charArray);
             return new string(charArray);
         }
+
+        public static string GetDigits(int num)
+        {
+            string digits = "";
+            while (num > 0)
+            {
+                int digit = num % 10;
+                digits = digit.ToString() + digits;
+                num /= 10;
+            }
+            return digits;
+        }
+        public static bool IsUppering(string str)
+        {
+            bool isUppering = true;
+            for(int i = 0; i < str.Length - 1; i++)
+            {
+                if (str[i] > str[i+1])
+                {
+                    isUppering = false;
+                }
+            }
+            return isUppering;
+        }
+        public static bool IsLowering(string str)
+        {
+            return IsUppering(Reverse(str));
+        }
         /*
         public static string FirstLetter(string str)
         {

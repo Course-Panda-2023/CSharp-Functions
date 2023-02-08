@@ -111,6 +111,12 @@ namespace Basic
                 nums[minIndex] = int.MaxValue;
             }
 
+            if (!asc)
+            {
+                // sort in descending order
+                Array.Reverse(res);
+            }
+
             return res;
         }
 
@@ -137,7 +143,7 @@ namespace Basic
             
             for (int i=0; i < str.Length / 2; i++)
             {
-                if (str[i].ToString().ToLower() != str[str.Length - i].ToString().ToLower())
+                if (str[i].ToString().ToLower().Equals(str[str.Length-i].ToString().ToLower()))
                 {
                     return false;
                 }
@@ -162,7 +168,7 @@ namespace Basic
                 }
             }
             
-            foreach(KeyValuePair<int, int> entry in cnt)
+            foreach (KeyValuePair<int, int> entry in cnt)
             {
                 if (entry.Value == 1)
                 {
@@ -202,7 +208,6 @@ namespace Basic
 
             while ((Convert.ToDouble(specialCnt) / Convert.ToDouble(currNumber)) * 100 != targetPct)
             {
-                Console.WriteLine(Convert.ToDouble(specialCnt) / Convert.ToDouble(currNumber) * 100);
                 specialCnt += Convert.ToInt32(BouncingNumbers.IsNumberBouncing(currNumber));
                 currNumber++;
             }

@@ -9,9 +9,9 @@
 	
 	private static Dictionary<RPS, int> opToLevel = new Dictionary<RPS, int>()
 	{
-		{RPS.ROCK, 2},
+		{RPS.ROCK, 0},
 		{RPS.SCISSORS, 1},
-		{RPS.PAPER, 0}
+		{RPS.PAPER, 2}
 	};
 	
 	public static Dictionary<string, RPS> StringToRPS = new Dictionary<string, RPS>()
@@ -47,7 +47,7 @@
 		string input = Console.ReadLine();
 		while (!StringToRPS.ContainsKey(input))
 		{
-			Console.WriteLine("Input invalid");
+			Console.WriteLine("Input invalid, try again");
 			input = Console.ReadLine();
 		}
 

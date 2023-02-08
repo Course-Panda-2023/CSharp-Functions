@@ -107,6 +107,7 @@ namespace Basic
         {
             int numNeighbors = 0;
             bool[,] tempboard = new bool[rows, cols];
+            int[,] intBoard = new int[rows, cols];
             for (int x = 0; x < cols; x++)
             {
                 for (int y = 0; y < rows; y++)
@@ -118,7 +119,21 @@ namespace Basic
             {
                 for (int y = 0; y < rows; y++)
                 {
-                    numNeighbors = Helper.numNeighbors(x, y, board, rows, cols);
+                    if (board[x, y] == false)
+                    {
+                        intBoard[x, y] = 0;
+                    }
+                    else
+                    {
+                        intBoard[x, y] = 1;
+                    }
+                }
+            }
+            for (int x = 0; x < cols; x++)
+            {
+                for (int y = 0; y < rows; y++)
+                {
+                    numNeighbors = Helper.numNeighbors(x, y, intBoard, rows, cols);
                     if (board[x, y] == true)
                     {
                         if (numNeighbors < 2)
@@ -148,12 +163,22 @@ namespace Basic
             }
         }
 
-        //    public static int Assignment9()
-        //    {
-        //        /*
-        //         * TODO: Write code here
-        //         */
-        //    }
+        public static int Assignment9()
+        {
+            int num = 1;
+            int amountOfJumpingNumbers = 0;
+            double jumpingNumsPrecentage = 0;
+            while (jumpingNumsPrecentage < 0.99)
+            {
+                if (Helper.isBouncingNumber(num))
+                {
+                    amountOfJumpingNumbers++;
+                }
+                jumpingNumsPrecentage = amountOfJumpingNumbers / num;
+                num++;
+            }
+            return num;
+        }
         //    #endregion
 
         //    #region Bonus solutions

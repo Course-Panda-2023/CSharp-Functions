@@ -191,54 +191,80 @@ namespace Basic
         //Assignment7
 
         //Assignment8
-        public static int numNeighbors(int x, int y, bool[,] board, int rows, int cols)
+        public static int numNeighbors(int x, int y, int[,] board, int rows, int cols)
         {
             if (x > 0 && x < cols - 1 && y > 0 && y < rows - 1)
             {
-                return CountTrue(board[x - 1, y - 1], board[x, y - 1], board[x + 1, y - 1], board[x + 1, y], board[x + 1, y + 1],
-                    board[x, y + 1], board[x - 1, y + 1], board[x - 1, y]);
-                //return board[x - 1, y - 1] + board[x, y - 1] + board[x + 1, y - 1] + board[x + 1, y] + board[x + 1, y + 1] +
-                //    board[x, y + 1] + board[x - 1, y + 1] + board[x - 1, y];
+                return board[x - 1, y - 1] + board[x, y - 1] + board[x + 1, y - 1] + board[x + 1, y] + board[x + 1, y + 1] +
+                    board[x, y + 1] + board[x - 1, y + 1] + board[x - 1, y];
             }
-            if (x = 0 && y > 0 && y < rows - 1)
+            if (x == 0 && y > 0 && y < rows - 1)
             {
                 return board[x, y - 1] + board[x + 1, y - 1] + board[x + 1, y] + board[x + 1, y + 1] +
                     board[x, y + 1];
             }
-            if (x > 0 && x < cols - 1 && y = 0)
+            if (x > 0 && x < cols - 1 && y == 0)
             {
                 return board[x + 1, y] + board[x + 1, y + 1] +
                     board[x, y + 1] + board[x - 1, y + 1] + board[x - 1, y];
             }
-            if (x = cols - 1 && y > 0 && y < rows - 1)
+            if (x == cols - 1 && y > 0 && y < rows - 1)
             {
                 return board[x - 1, y - 1] + board[x, y - 1] +
                     board[x, y + 1] + board[x - 1, y + 1] + board[x - 1, y];
             }
-            if (x > 0 && x < cols - 1 && y = rows - 1)
+            if (x > 0 && x < cols - 1 && y == rows - 1)
             {
                 return board[x - 1, y - 1] + board[x, y - 1] + board[x + 1, y - 1] + board[x + 1, y] + board[x - 1, y];
             }
-            if (x = 0 && y = 0)
+            if (x == 0 && y == 0)
             {
                 return board[x + 1, y] + board[x + 1, y + 1] +
                     board[x, y + 1];
             }
-            if (x = 0 && y = rows - 1)
+            if (x == 0 && y == rows - 1)
             {
                 return board[x, y - 1] + board[x + 1, y - 1] + board[x + 1, y];
             }
-            if (x = cols - 1 && y = 0)
+            if (x == cols - 1 && y == 0)
             {
                 return board[x, y + 1] + board[x - 1, y + 1] + board[x - 1, y];
             }
-            if (x = cols - 1 && y = rows - 1)
+            if (x == cols - 1 && y == rows - 1)
             {
                 return board[x - 1, y - 1] + board[x, y - 1] + board[x - 1, y];
             }
             return -1;
         }
         //Assignment8
+
+        //Assignment9
+        public static bool isBouncingNumber(int n)
+        {
+            String s = n.ToString();
+            int index = 0;
+            int len = s.Length;
+            if (len < 3)
+            {
+                return false;
+            }
+            while (index + 2 < len - 1)
+            {
+                char c1 = s[index];
+                char c2 = s[index + 1];
+                char c3 = s[index + 2];
+                int num1 = c1 - '0';
+                int num2 = c2 - '0';
+                int num3 = c3 - '0';
+                index++;
+                if ((num1 < num2 && num2 > num3) || (num1 > num2 && num2 < num3))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        //Assignment9
     }
 
 }

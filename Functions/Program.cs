@@ -50,11 +50,17 @@ namespace MyApp // Note: actual namespace depends on the project name.
             ////Assignment7
             ///
 
-            // Assignment8
-            bool[,] arr = new bool [2,2] { {false, false },{ false, false } };
-            Solution.Assignment8(arr, 2, 2);
-            Console.WriteLine(arr);
-            // Assignment8
+            ////Assignment8
+            //bool[,] arr = new bool [2,2] { {false, false },{ false, false } };
+            //Solution.Assignment8(arr, 2, 2);
+            //Console.WriteLine(arr);
+            //Console.ReadLine();
+            ////Assignment8
+            ///
+
+            //Assignment9
+            Console.WriteLine(Solution.Assignment9());
+            //Assignment9
         }
     }
 }

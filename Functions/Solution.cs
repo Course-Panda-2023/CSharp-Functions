@@ -173,11 +173,11 @@ namespace Basic
             "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty", "thirty", "forty", "fifty",
             "sixty", "seventy", "eighty", "ninety"};
             int letterSum = 0;
-            for (int i = 0; i < 19; i++)
+            for (int i = 0; i < vocab.Length; i++)
             {
                 letterSum += vocab[i].Length;
             }
-            for (int j = 19; j < 27; j++)
+            for (int j = 19; j < vocab.Length; j++)
             {
                 for (int k = 0; k < 9; k++)
                 {

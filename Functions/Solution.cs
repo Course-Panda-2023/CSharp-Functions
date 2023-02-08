@@ -115,7 +115,7 @@ namespace Basic
 
         public static void Assignment8(int[,] board, int rows, int cols)
         {
-            int[,] newBoard = Helper.GameOfLife(board, rows, cols);
+            int[,] newBoard = GameOfLife.UpdatedBoard(board, rows, cols);
             
             // Prints the output of game of life.
             Console.WriteLine('{');
@@ -139,8 +139,8 @@ namespace Basic
             // 90% density of jumping numbers.
             int min = 21780;
             int max = 10000000;
-            int current = Helper.Half(min, max);
-            double temp = Helper.AmountOfJumpingNums(current) / 0.99;
+            int current = BouncingNumbers.Half(min, max);
+            double temp = BouncingNumbers.AmountOfBouncingNums(current) / 0.99;
 
             while (temp != current)
             {
@@ -149,8 +149,8 @@ namespace Basic
                 else
                     max = current;
 
-                current = Helper.Half(min, max);
-                temp = Helper.AmountOfJumpingNums(current) / 0.99;
+                current = BouncingNumbers.Half(min, max);
+                temp = BouncingNumbers.AmountOfBouncingNums(current) / 0.99;
             }
             return current;
         }
@@ -210,13 +210,6 @@ namespace Basic
                 }
             }
             return waterCounter;
-        }
-        //#endregion
-
-        static void Main(string[] args)
-        {
-            int[] map = { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 };
-            Console.WriteLine(Bonus2(map));
         }
         #endregion
     }

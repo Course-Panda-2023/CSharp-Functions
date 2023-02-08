@@ -41,26 +41,31 @@ namespace SolutionTest // Note: actual namespace depends on the project name.
             //string newStr = Solution.Assignment5(str, chars);
             //Console.WriteLine(newStr);
 
-            //question 6
-            Console.WriteLine(Solution.Assignment6("abbA"));
+            ////question 6
+            //Console.WriteLine(Solution.Assignment6("abbA"));
 
-            //question 7
+            ////question 7
 
-            int[] arr = { 3, 2, 2 };
-            Console.WriteLine(Solution.Assignment7(arr));
+            //int[] arr = { 3, 2, 2 };
+            //Console.WriteLine(Solution.Assignment7(arr));
 
-            //questio 8
+            ////questio 8
 
-            bool[,] plot = new bool[,] { { false, true, false }, { false, false, true }, { true, true, true }, { false, false, false } };
-            bool[,] newPlot = Solution.Assignment8(plot, 4, 3);
-            for (int i = 0; i < 3; i++)
-            {
-                for (int j = 0; j < 3; j++)
-                {
-                    Console.Write(newPlot[i, j] ? "*" : ".");
-                }
-                Console.WriteLine();
-            }
+            //bool[,] plot = new bool[,] { { false, true, false }, { false, false, true }, { true, true, true }, { false, false, false } };
+            //bool[,] newPlot = Solution.Assignment8(plot, 4, 3);
+            //for (int i = 0; i < 4; i++)
+            //{
+            //    for (int j = 0; j < 3; j++)
+            //    {
+            //        Console.Write(newPlot[i, j] ? "*" : ".");
+            //    }
+            //    Console.WriteLine();
+            //}
+
+            //question 9
+
+            Console.WriteLine(Solution.Assignment9());
+
         }
     }
 }

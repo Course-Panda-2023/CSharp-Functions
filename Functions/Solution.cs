@@ -110,6 +110,7 @@ namespace Basic
 
         public static bool[,] Assignment8(bool[,] board, int rows, int cols)
         {
+            Console.WriteLine("----");
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < cols; j++)
@@ -121,17 +122,29 @@ namespace Basic
                 }
                 Console.WriteLine();
             }
-            Console.WriteLine();
+            Console.WriteLine("----");
             return GameOfLife.NextGeneration(board, rows, cols); //returns a new array
         }
+        public static int Assignment9()
+        {
+            int num = 100;
+            int bouncyCounter = 0;
+            double density = 0.99;
+            while (true)
+            {
+                if (BouncingNumbers.isBouncy(num))
+                {
+                    bouncyCounter++;
+                }
 
-        //public static int Assignment9()
-        //{
-        //    /*
-        //     * TODO: Write code here
-        //     */
-        //}
-        //#endregion
+                if ((double)bouncyCounter / num == density)
+                {
+                    return num;
+                }
+                num++;
+            }
+        }
+        #endregion
 
         //#region Bonus solutions
         //public static int Bonus1()
@@ -147,6 +160,6 @@ namespace Basic
         //     * TODO: Write code here
         //     */
         //}
-        #endregion
+        //#endregion
     }
 }

@@ -2,12 +2,12 @@
 
 public class GameOfLife
 {
-    public static bool[,] NextGeneration(bool[,] grid, int M, int N)
+    public static bool[,] NextGeneration(bool[,] grid, int rows, int cols)
     {
-            bool[,] future = new bool[M, N];
-            for (int l = 1; l < M - 1; l++)
+            bool[,] future = new bool[rows, cols];
+            for (int l = 1; l < rows - 1; l++)
             {
-                for (int m = 1; m < N - 1; m++)
+                for (int m = 1; m < cols - 1; m++)
                 {
                     int aliveNeighbours = 0;
                     for (int i = -1; i <= 1; i++)

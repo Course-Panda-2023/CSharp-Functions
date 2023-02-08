@@ -256,7 +256,7 @@ namespace Basic
                         }
                         else
                         {
-                            Console.WriteLine(hightMap[i] - hightMap[j]);
+                            //Console.WriteLine(hightMap[i] - hightMap[j]);
                             count+= hightMap[i]  - hightMap[j] ;
                         }
                     }

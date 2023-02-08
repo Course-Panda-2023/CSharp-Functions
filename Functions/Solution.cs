@@ -138,11 +138,33 @@ namespace Basic
             return 0;
         }
 
-        public static void Assignment8(bool[,] board, int rows, int cols)
+        public static bool[,] Assignment8(bool[,] board, int rows, int cols)
         {
-            /*
-             * TODO: Write code here
-             */
+            bool[,] nextBoard = new bool[rows, cols];
+            for(int iRow = 0; iRow < rows; iRow++)
+            {
+                for(int iCol = 0; iCol < cols; iCol ++)
+                {
+                    int numlivingAdjacents = Helper.NumLivingAdjacents(iRow, iCol, rows, cols, board);
+                    if (numlivingAdjacents <= 1) 
+                    {
+                        nextBoard[iRow, iCol] = false;
+                    }
+                    else if(numlivingAdjacents == 2) 
+                    {
+                        nextBoard[iRow, iCol] = board[iRow, iCol];
+                    }
+                    else if(numlivingAdjacents == 3)
+                    {
+                        nextBoard[iRow, iCol] = true;
+                    }
+                    else
+                    {
+                        nextBoard[iRow, iCol] = false;
+                    }
+                }
+            }
+            return nextBoard;
         }
 
         public static int Assignment9()
@@ -193,12 +215,17 @@ namespace Basic
             string str = "hello world";
             char[] letters = { 'i', 'o' };
             int[] nums = { 6, 0, 6, 4, 3, 4, 3 };
-            //7 doesnt work
-            //Console.WriteLine(Helper.GetDigits(9876543));
-            //Console.WriteLine(Helper.IsUppering("21"));
-            Console.WriteLine(Assignment9());
-
+            bool[,] board = { { false, true, false }, { false, false, true }, { true, true, true }, { false, false, false } };
+            bool[,] board2 = { { true, false, false, false, true, false, false, true, true, false }, { false, true, true, false, false, true, false, false, true, false }, { true, true, false, true, true, false, true, false, false, true }, { false,  true, false, true, false, true, false, false, true, false } };
+            bool[,] board3 = { { false, true },{ true, true} };
+            Helper.PrintIntArrayArray(Helper.TurnBoolMatrixToIntArrayArray(board));
+            Console.WriteLine("--------");
+            bool[,] next = Assignment8(board, board.GetLength(0), board.GetLength(1));
+            Helper.PrintIntArrayArray(Helper.TurnBoolMatrixToIntArrayArray(next));
             // Console.WriteLine(Helper.SiftLetter('z'));
+            //Console.WriteLine(board.GetLength(0) + ", " + board.GetLength(1));
+            //Console.WriteLine(Helper.NumLivingAdjacents(0, 0, 2, 2, board3));
+            //Console.WriteLine(Helper.NumLivingAdjacents(0, 0, board.GetLength(0), board.GetLength(1), board));
             Helper.WaitForEnter();
 
         }

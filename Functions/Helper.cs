@@ -31,8 +31,30 @@ namespace Basic
         {
             foreach (int num in arr)
             {
-                Console.WriteLine(num);
+                Console.Write(num + ", ");
             }
+        }
+        public static void PrintIntArrayArray(int[][] arrArr)
+        {
+            foreach (int[] arr in arrArr)
+            {
+                PrintIntArray(arr);
+                Console.WriteLine();
+            }
+        }
+        
+        public static int[][] TurnBoolMatrixToIntArrayArray(bool[,] mat)
+        {
+            int[][] answer = new int[mat.GetLength(0)][];
+            for(int i = 0; i<mat.GetLength(0); i++)
+            {
+                answer[i] = new int[mat.GetLength(1)];
+                for(int j = 0; j < mat.GetLength(1); j++)
+                {
+                    answer[i][j] = Convert.ToInt32(mat[i, j]);
+                }
+            }
+            return answer;
         }
         public static int[] CopyArray(int[] original)
         {
@@ -88,6 +110,49 @@ namespace Basic
             char[] charArray = s.ToCharArray();
             Array.Reverse(charArray);
             return new string(charArray);
+        }
+
+        public static bool IsInBoard(int row, int col, int m, int n)
+        {
+            return (0 <= row && row < m && 0 <= col && col < n);
+        }
+
+        public static int[][] GetAdjacents(int row, int col)
+        {
+            int[][] result = new int[8][];
+            int[] temp0 = { row - 1, col - 1 };
+            result[0] = temp0;
+            int[] temp1 = { row - 1, col };
+            result[1] = temp1;
+            int[] temp2 = { row - 1, col + 1};
+            result[2] = temp2;
+            int[] temp3 = { row, col - 1 };
+            result[3] = temp3;
+            int[] temp4 = { row, col + 1};
+            result[4] = temp4;
+            int[] temp5 = { row + 1, col - 1 };
+            result[5] = temp5;
+            int[] temp6 = { row + 1, col };
+            result[6] = temp6;
+            int[] temp7 = { row + 1, col + 1 };
+            result[7] = temp7;
+            return result;
+        }
+
+        public static int NumLivingAdjacents(int row, int col, int m, int n, bool[,] board)
+        {
+            int numLivingAdjacents = 0;
+            foreach (int[] adjacent in GetAdjacents(row, col))
+            {
+                if (IsInBoard(adjacent[0], adjacent[1], m, n))
+                {
+                    if (board[adjacent[0], adjacent[1]])
+                    {
+                        numLivingAdjacents++;
+                    }
+                }
+            }
+            return numLivingAdjacents;
         }
 
         public static string GetDigits(int num)

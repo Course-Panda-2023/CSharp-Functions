@@ -132,12 +132,26 @@ namespace Basic
             Console.WriteLine('}');
         }
 
-        //public static int Assignment9()
-        //{
-        //    /*
-        //     * TODO: Write code here
-        //     */
-        //}
+        public static int Assignment9()
+        {
+            // 90% density of jumping numbers.
+            int min = 21780;
+            int max = 10000000;
+            int current = Helper.Half(min, max);
+            double temp = Helper.AmountOfJumpingNums(current) / 0.99;
+
+            while (temp != current)
+            {
+                if (temp < current)
+                    min = current;
+                else
+                    max = current;
+
+                current = Helper.Half(min, max);
+                temp = Helper.AmountOfJumpingNums(current) / 0.99;
+            }
+            return current;
+        }
         //#endregion
 
         //#region Bonus solutions
@@ -145,7 +159,7 @@ namespace Basic
         //{
         //    /*
         //     * TODO: Write code here
-        //     */
+        //     
         //}
 
         //public static int Bonus2(uint[] hightMap)
@@ -158,13 +172,7 @@ namespace Basic
 
         static void Main(string[] args)
         {
-            int[,] board = {
-                {0,1,0},
-                {0,0,1},
-                {1,1,1},
-                {0,0,0}
-            };
-            Assignment8(board, 4, 3);
+            Console.WriteLine(Assignment9());
         }
         #endregion
     }

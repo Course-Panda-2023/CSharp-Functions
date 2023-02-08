@@ -41,7 +41,7 @@ public class GameOfLife
             }
             if (aliveCounter > 3)
             {
-                return 0
+                return 0;
             }
         }
         if (board[rowIndex,colIndex] == 0 && aliveCounter == 3)
@@ -50,4 +50,32 @@ public class GameOfLife
         }
         return 0;
     }
+
+    public static int[,] CalcNextBoard(int[,] oldBoard)
+    {
+        int[,] newBoard = new int[oldBoard.GetLength(0), oldBoard.GetLength(1)];
+
+        for (int rowIndex = 0; rowIndex < oldBoard.GetLength(0); rowIndex++)
+        {
+            for (int colIndex = 0; colIndex < oldBoard.GetLength(1); colIndex++)
+            {
+                newBoard[rowIndex,colIndex] = CellNewState(oldBoard,rowIndex, colIndex);
+            }
+        }
+
+        return newBoard;
+    }
+
+    public static void PrintBoard(int[,] board)
+    {
+        for (int rowIndex = 0; rowIndex < board.GetLength(0); rowIndex++)
+        {
+            for (int colIndex = 0; colIndex < board.GetLength(1); colIndex++)
+            {
+                Console.WriteLine(board[rowIndex, colIndex]);
+            }
+            Console.WriteLine();
+        }
+    }
 }
+

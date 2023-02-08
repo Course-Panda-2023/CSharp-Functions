@@ -185,26 +185,5 @@ namespace Basic
         {
             return IsUppering(Reverse(str));
         }
-        /*
-        public static string FirstLetter(string str)
-        {
-            foreach (char c in str) 
-            {
-                if (Char.IsLetter(c))
-                {
-                    return c.ToString().ToLower()
-                }
-            }
-            return null;
-        }
-        public static string LastLetter(string str)
-        {
-            str = Reverse(str);
-            return FirstLetter(str);
-        }
-        */
-
-
-
     }
 }

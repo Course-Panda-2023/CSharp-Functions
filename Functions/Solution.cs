@@ -214,12 +214,6 @@ namespace Basic
         #endregion
         public static void Main(string[] args)
         {
-            //int[] arr = { 1, 5, 7, 2, 3};
-            int[] nums = { 6, 0, 6, 4, 3, 4, 3 };
-            Helper.PrintIntArray(nums);
-            Console.WriteLine();
-            Helper.BubbleSort(nums);
-            Helper.PrintIntArray(nums);
 
             Helper.WaitForEnter();
 

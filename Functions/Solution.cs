@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ExceptionServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -73,12 +74,19 @@ namespace Basic
             str = new string(c);
         }
 
-        //public static bool Assignment6(string str)
-        //{
-        //    /*
-        //     * TODO: Write code here
-        //     */
-        //}
+        public static bool Assignment6(string str)
+        {
+            Helper.GetRidOfPunctuation(ref str);
+            str = str.Replace(" ", string.Empty);
+
+            char[] c = str.ToCharArray();
+            for (int i = 0; i < c.Length / 2; i++)
+            {
+                if (!(c[i] == c[c.Length - 1 - i]))
+                    return false;
+            }
+            return true;
+        }
 
         //public static int Assignment7(int[] nums)
         //{
@@ -120,12 +128,9 @@ namespace Basic
 
         static void Main(string[] args)
         {
-            char[] c = { 'a', 'p' };
-            string str = "apple";
-            Console.WriteLine(str);
-            Assignment5(ref str, c);
-            Console.WriteLine(str);
-
+            string str = "A man, a plan, a canal: Panama";
+            string str1 = "lan, a canal";
+            Console.WriteLine(Assignment6(str));
         }
         #endregion
     }

@@ -34,5 +34,32 @@ namespace Basic
             }
             Console.WriteLine('}');
         }
+
+        public static void GetRidOfPunctuation(ref string str)
+        {
+            const int UpperCaseA = 65;
+            const int UpperCaseZ = 90;
+            const int DiffBetweenUpperCaseAndLowerCase = 32;
+            const int LowerCaseA = 97;
+            const int LowerCaseZ = 122;
+
+            char[] c = str.ToCharArray();
+            for (int i = 0; i < c.Length; i++)
+            {
+                // Convert all uppercase letters to lowercase.
+                int temp = Convert.ToInt32(c[i]);
+                if (temp >= UpperCaseA && temp <= UpperCaseZ)
+                {
+                    temp += DiffBetweenUpperCaseAndLowerCase;
+                    c[i] = Convert.ToChar(temp);
+                }
+                // Anything that is not a letter, convert to ' '.
+                if (!(temp >= LowerCaseA && temp <= LowerCaseZ))
+                {
+                    c[i] = ' ';
+                }
+            }
+            str = new string(c);
+        }
     }
 }

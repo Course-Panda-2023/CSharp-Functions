@@ -5,7 +5,7 @@ String temp = Console.ReadLine()!;
 char oper = Convert.ToChar(temp);
 double num2 = Convert.ToDouble(Console.ReadLine());
 double solution = 0;
-switch(oper)
+switch (oper)
 {
     case '+':
         solution = num1 + num2;

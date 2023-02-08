@@ -112,13 +112,21 @@ namespace Basic
             return num;
         }
         #endregion
-        /*
+
         #region Bonus solutions
         public static int Bonus1()
         {
-            
+            int sum = 0;
+            string[] numsName = Helper.GetNumName();
+            foreach (string numStr in numsName)
+            {
+                sum += numStr.Length;
+            }
+            return sum;
         }
-
+        #endregion
+        
+        /*
         public static int Bonus2(uint[] hightMap)
         {
             

@@ -114,9 +114,34 @@ namespace Basic
         #region Bonus solutions
         public static int Bonus1()
         {
-            /*
-             * TODO: Write code here
-             */
+            string[] digits= new string[] { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+            string[] specials= new string[] { "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
+            string[] tens= new string[] { "twenty", "thirty", "fourty", "fifty", "sixty", "seventy", "eighty", "ninety"};
+
+            int numOfLetters = 0;
+
+            foreach (string word in digits)
+            {
+                numOfLetters += word.Length;
+            }
+
+            foreach (string word in specials)
+            {
+                numOfLetters += word.Length;
+            }
+
+            for (int tensIndex = 0; tensIndex < tens.Length; tensIndex++)
+            {
+                numOfLetters += tens[tensIndex].Length;
+                for (int digitsIndex = 0; digitsIndex < digits.Length; digitsIndex++)
+                {
+                    numOfLetters += digits[digitsIndex].Length;
+                }
+            }
+            Console.WriteLine($"num of letters between one to 100 is: {numOfLetters}");
+            return numOfLetters;
+
+
         }
 
         public static int Bonus2(int[] hightMap)

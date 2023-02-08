@@ -2,7 +2,7 @@
 
 public class GameOfLife
 {
-    public static int CountNeighbors(int[,] board, int cellIndexRow, int cellIndexCol)
+    public static int CountNeighbors(bool[,] board, int cellIndexRow, int cellIndexCol)
     {
         int aliveCounter = 0;
         for (int rowIndex = cellIndexRow - 1; rowIndex <= cellIndexRow + 1; rowIndex++)
@@ -17,7 +17,7 @@ public class GameOfLife
                 {
                     continue;
                 }
-                if (board[rowIndex,colIndex] == 1 && (rowIndex != cellIndexRow || cellIndexCol != colIndex))
+                if (board[rowIndex,colIndex] == true && (rowIndex != cellIndexRow || cellIndexCol != colIndex))
                 {
                     aliveCounter++;
                 }
@@ -26,53 +26,61 @@ public class GameOfLife
         return aliveCounter;
     }
 
-    public static int CellNewState(int[,] board, int rowIndex, int colIndex)
+    public static bool CellNewState(bool[,] board, int rowIndex, int colIndex)
     {
         int aliveCounter = CountNeighbors(board, rowIndex, colIndex);
-        if (board[rowIndex,colIndex] == 1)
+        if (board[rowIndex,colIndex] == true)
         {
             if (aliveCounter <2)
             {
-                return 0;
+                return false;
             }
             if ( aliveCounter == 2 || aliveCounter == 3)
             {
-                return 1;
+                return true;
             }
             if (aliveCounter > 3)
             {
-                return 0;
+                return false;
             }
         }
-        if (board[rowIndex,colIndex] == 0 && aliveCounter == 3)
+        if (board[rowIndex,colIndex] == false && aliveCounter == 3)
         {
-            return 1;
+            return true;
         }
-        return 0;
+        return false;
     }
 
-    public static int[,] CalcNextBoard(int[,] oldBoard)
+    public static bool[,] CalcNextBoard(bool[,] oldBoard)
     {
-        int[,] newBoard = new int[oldBoard.GetLength(0), oldBoard.GetLength(1)];
+        bool[,] newBoard = new bool[oldBoard.GetLength(0), oldBoard.GetLength(1)];
 
         for (int rowIndex = 0; rowIndex < oldBoard.GetLength(0); rowIndex++)
         {
             for (int colIndex = 0; colIndex < oldBoard.GetLength(1); colIndex++)
             {
-                newBoard[rowIndex,colIndex] = CellNewState(oldBoard,rowIndex, colIndex);
+                newBoard[rowIndex, colIndex] = CellNewState(oldBoard, rowIndex, colIndex);
             }
         }
 
         return newBoard;
     }
 
-    public static void PrintBoard(int[,] board)
+    public static void PrintBoard(bool[,] board)
     {
         for (int rowIndex = 0; rowIndex < board.GetLength(0); rowIndex++)
         {
             for (int colIndex = 0; colIndex < board.GetLength(1); colIndex++)
             {
                 Console.WriteLine(board[rowIndex, colIndex]);
+                if (board[rowIndex, colIndex]) 
+                { 
+                    Console.WriteLine("1");
+                }
+                else
+                {
+                    Console.WriteLine("0");
+                }
             }
             Console.WriteLine();
         }

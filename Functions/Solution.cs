@@ -91,7 +91,7 @@ namespace Basic
             return singleNumber;
         }
 
-        public static void Assignment8(int[,] board, int rows, int cols)
+        public static void Assignment8(bool[,] board, int rows, int cols)
         {
             while (true)
             {

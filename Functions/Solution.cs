@@ -247,20 +247,20 @@ namespace Basic
                         neighboors[index] = false;
                     }
                     liveCount = diedCount = 0;
-                    if (i + FORMER_CELL_IN_ROW > ZERO && j + FORMER_CELL_IN_CLOUMN > ZERO)
+                    if (i + FORMER_CELL_IN_ROW >= ZERO && j + FORMER_CELL_IN_CLOUMN >= ZERO)
                     {
                         neighboors[0] = board[i + FORMER_CELL_IN_ROW, j + FORMER_CELL_IN_CLOUMN];
                     }
                     // I know j + THE_SAME_COLUMN is reduandant but for code to be readable
-                    if (i + FORMER_CELL_IN_ROW > ZERO && j + THE_SAME_COLUMN > ZERO)
+                    if (i + FORMER_CELL_IN_ROW >= ZERO && j + THE_SAME_COLUMN >= ZERO)
                     {
                         neighboors[1] = board[i + FORMER_CELL_IN_ROW, j];
                     }
-                    if (i + FORMER_CELL_IN_ROW > ZERO && j + NEXT_CELL_IN_COLUMN < cols)
+                    if (i + FORMER_CELL_IN_ROW >= ZERO && j + NEXT_CELL_IN_COLUMN < cols)
                     {
                         neighboors[2] = board[i + FORMER_CELL_IN_ROW, j + NEXT_CELL_IN_COLUMN];
                     }
-                    if (i + THE_SAME_ROW > ZERO && j + NEXT_CELL_IN_COLUMN < cols)
+                    if (i + THE_SAME_ROW >= ZERO && j + NEXT_CELL_IN_COLUMN < cols)
                     {
                         neighboors[3] = board[i, j + NEXT_CELL_IN_COLUMN];
                     }
@@ -272,11 +272,11 @@ namespace Basic
                     {
                         neighboors[5] = board[i + NEXT_CELL_IN_ROW, j];
                     }
-                    if (i + NEXT_CELL_IN_ROW < rows && j + FORMER_CELL_IN_CLOUMN > ZERO)
+                    if (i + NEXT_CELL_IN_ROW < rows && j + FORMER_CELL_IN_CLOUMN >= ZERO)
                     {
                         neighboors[6] = board[i + NEXT_CELL_IN_ROW, j + FORMER_CELL_IN_CLOUMN];
                     }
-                    if (i + THE_SAME_ROW > ZERO && j + FORMER_CELL_IN_CLOUMN > ZERO)
+                    if (i + THE_SAME_ROW >= ZERO && j + FORMER_CELL_IN_CLOUMN >= ZERO)
                     {
                         neighboors[7] = board[i, j + FORMER_CELL_IN_CLOUMN];
                     }
@@ -284,13 +284,10 @@ namespace Basic
                     neighboors.Select(cell => cell ? ++liveCount : ++diedCount).ToArray();
 
                     currentState = board[i, j];
+                    result[i, j] = currentState;
                     if (currentState && liveCount < TWO_CELL_LIVES)
                     {
                         result[i, j] = DIED;
-                    }
-                    else if (currentState && (liveCount == TWO_CELL_LIVES || liveCount == THREE_CELL_LIVES))
-                    {
-                        result[i, j] = LIVE;
                     }
                     else if (currentState && (liveCount > THREE_CELL_LIVES))
                     {
@@ -299,6 +296,14 @@ namespace Basic
                     else if (!currentState && (liveCount == THREE_CELL_LIVES))
                     {
                         result[i, j] = LIVE;
+                    }
+                    else if (currentState && (liveCount == TWO_CELL_LIVES || liveCount == THREE_CELL_LIVES))
+                    {
+                        result[i, j] = LIVE;
+                    }
+                    else
+                    {
+                        result[i, j] = DIED;
                     }
                 }
             }

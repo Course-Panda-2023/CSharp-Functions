@@ -147,7 +147,7 @@ namespace Basic
             }
         }
 
-        static int Assignment9()
+        public static int Assignment9()
         {
             double percent = 0;
             double bouncingCount = 0;
@@ -161,6 +161,7 @@ namespace Basic
                 percent = 100 * (bouncingCount / counting);
                 counting++;
             }
+            counting--; //Counting will go up one extra before exiting.
             return (int)counting;
         }
         #endregion
@@ -168,9 +169,22 @@ namespace Basic
         #region Bonus solutions
         public static int Bonus1()
         {
-            /*
-             * TODO: Write code here
-             */
+            String[] vocab = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve",
+            "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty", "thirty", "forty", "fifty",
+            "sixty", "seventy", "eighty", "ninety"};
+            int letterSum = 0;
+            for (int i = 0; i < 19; i++)
+            {
+                letterSum += vocab[i].Length;
+            }
+            for (int j = 19; j < 27; j++)
+            {
+                for (int k = 0; k < 9; k++)
+                {
+                    letterSum = letterSum + vocab[j].Length + vocab[k].Length;
+                }
+            }
+            return letterSum;
         }
 
         public static int Bonus2(uint[] hightMap)

@@ -107,6 +107,7 @@ namespace Basic
             Console.WriteLine("starting calculation....");
             int number = BouncingNumbers.FindNumThatHasMostJumping();
             Console.WriteLine($"calculation ended, the number is: {number}");
+            return number;
         }
         #endregion
 

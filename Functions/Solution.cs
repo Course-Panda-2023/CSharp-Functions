@@ -88,12 +88,28 @@ namespace Basic
             return true;
         }
 
-        //public static int Assignment7(int[] nums)
-        //{
-        //    /*
-        //     * TODO: Write code here
-        //     */
-        //}
+        public static int Assignment7(int[] nums)
+        {
+            int appearseOnceCounter = 0;
+            int appearsOnce = 0;
+
+            if(nums.Length == 0)
+                return -1;
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (!Helper.AppearsTwice(nums[i],i , nums))
+                {
+                    appearsOnce = nums[i];
+                    appearseOnceCounter++;
+                }
+            }
+
+            if (appearseOnceCounter == 1)
+                return appearsOnce;
+
+            return -1;
+        }
 
         //public static void Assignment8(bool[,] board, int rows, int cols)
         //{
@@ -128,9 +144,9 @@ namespace Basic
 
         static void Main(string[] args)
         {
-            string str = "A man, a plan, a canal: Panama";
-            string str1 = "lan, a canal";
-            Console.WriteLine(Assignment6(str));
+            int[] arr = { 4, 1, 2, 1, 2 };
+            int[] arr2 = { 2, 2, 1};
+            Console.WriteLine(Assignment7(arr2));
         }
         #endregion
     }

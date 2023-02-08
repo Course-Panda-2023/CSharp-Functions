@@ -61,5 +61,17 @@ namespace Basic
             }
             str = new string(c);
         }
+
+        public static bool AppearsTwice(int num, int index, int[] numArr)
+        {
+            for (int i = 0; i < numArr.Length; i++)
+            {
+                if (num == numArr[i] && index != i)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

@@ -211,16 +211,21 @@ namespace Basic
             for(int i = 0; i < 19; i++)
             {
                 count += mybank[i].Length;
+                Console.WriteLine(mybank[i]);
             }
             for(int i = 0; i < 8; i++)
             {
-                for(int j = 0; j < 9; j++)
+                for(int j = 0; j < 10; j++)
                 {
                     count += mybank[19 + i].Length;
                     if (j != 0)
                     {
                         count += mybank[j-1].Length;
-                        Console.WriteLine(mybank[i] + " " + mybank[j]);
+                        Console.WriteLine(mybank[19+i] + " " + mybank[j-1]);
+                    }
+                    else
+                    {
+                        Console.WriteLine(mybank[19+i]);
                     }
 
                     
@@ -229,35 +234,77 @@ namespace Basic
             return count;
         }
 
-        //public static int Bonus2(uint[] hightMap)
-        //{
-        //    int height = hightMap.Max();
+        public static int Bonus2(uint[] hightMap)
+        {
+            uint count = 0;
+            uint ret = 0;
+
+            for(int i=0;i<hightMap.Length;i++)
+            {
+                count = 0;
+                if (hightMap[i] > 0)
+                {
+                    for(int j=i+1;j<hightMap.Length;j++)
+                    {
+                        if (hightMap[j] >= hightMap[i])
+                        {
+                            ret += count;
+                            i = j-1;
+                            //Console.WriteLine("[" + j + "," + i + "]");
+
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine(hightMap[i] - hightMap[j]);
+                            count+= hightMap[i]  - hightMap[j] ;
+                        }
+                    }
+                }
+            }
+
+            return (int)ret;
+        //    uint height = hightMap.Max();
         //    int len = hightMap.Length;
-        //    int ret;
+        //    int ret=0;
         //    bool wall = false, isWater = false;
-        //    bool[,] map = new int[len, height];
-        //    for (int i = 0; i < height; i++)
+        //    for (uint i = 0; i < height; i++)
         //    {
-        //        curr = hightMap[i];
         //        for (int j = 0; j < len; j++)
         //        {
-        //            if (hightMap[j] < i)
-        //            { 
+        //            Console.Write("[" + i + "," + j + "]");
+
+        //            if (i<hightMap[j])
+        //            {
         //                if (!wall)
         //                {
+        //                    wall = true;
         //                    isWater = true;
         //                }
         //                else
+        //                    isWater = false;
 
         //            }
         //            else if (isWater)
         //            {
+        //                ret++;
+        //                Console.WriteLine(" 1 ");
+
+        //            }
+        //            else
+        //            {
+        //                if (wall)
+        //                {
+        //                    Console.WriteLine(" 1 ");
+        //                    isWater = true;
         //                    ret++;
+        //                }
         //            }
 
         //        }
         //    }
-        //}
+        //    return ret;
+        }
         #endregion
     }
 }

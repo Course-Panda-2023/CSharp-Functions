@@ -43,9 +43,16 @@ using System.Diagnostics.SymbolStore;
 
 //Console.WriteLine(Solution.Assignment9());
 
-////
-int stam = Solution.Bonus1();
+////Bonus1
+//int stam = Solution.Bonus1();
+//Console.WriteLine(stam);
+
+
+////Bonus2
+uint[] set = { 0, 2, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 };
+int stam = Solution.Bonus2(set);
 Console.WriteLine(stam);
+
 
 
 

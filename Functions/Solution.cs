@@ -94,6 +94,7 @@ namespace Basic
 
         public static void Assignment5(string str, char[] letters)
         {
+            const int letterOffset = 10;
             var newStr = new StringBuilder();
             foreach (char c in str)
             {
@@ -104,13 +105,13 @@ namespace Basic
                     if (c == letter)
                     {
                         charInLetters = true;
-                        if (c + 10 > 'z')
+                        if (c + letterOffset > 'z')
                             {
                                 newStr.Append((char)('a' + 'z' - c));
                                 break;
                             }
                         else
-                            newStr.Append((char)(c+10));
+                            newStr.Append((char)(c+letterOffset));
                     }
                 }
                 if (!charInLetters)
@@ -161,7 +162,7 @@ namespace Basic
 
         
         public static void Assignment8(bool[,] board, int rows, int cols)
-        {
+        {            
             bool[,] newBoard = new bool[rows, cols];
             for(int i = 0; i < rows; i++)
             {
@@ -207,10 +208,11 @@ namespace Basic
 
         public static int Assignment9()
         {
+            const double densityThresh = 0.99;
             double density = 0;
             int currNum = 0;
             int jumpingCount = 0;
-            while (density < 0.99)
+            while (density < densityThresh)
             {
                 currNum += 1;
                 if (BouncingNumbers.IsJumpingNumber(currNum))

@@ -22,11 +22,9 @@ namespace Basic
                 num2 = Convert.ToDouble(Console.ReadLine());
                 Solution.Assignment2(num1, num2, mathOp);
             }
-            catch(FormatException e)
+            catch(FormatException)
             {
-                Console.WriteLine($"Number entered is invalid.");
-                Console.WriteLine($"Exception is {e}.");
-                
+                Console.WriteLine($"Number entered is invalid.");                
             }
             
         }

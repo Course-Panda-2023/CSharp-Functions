@@ -139,7 +139,7 @@ namespace Basic
 
                 if ((double)bouncyCounter / num == density)
                 {
-                    return num;
+                    return num; //returns 1587000
                 }
                 num++;
             }
@@ -147,19 +147,54 @@ namespace Basic
         #endregion
 
         //#region Bonus solutions
-        //public static int Bonus1()
-        //{
-        //    /*
-        //     * TODO: Write code here
-        //     */
-        //}
+        public static int Bonus1()
+        {
+            int finalSum = 0;
+            for (int i = 1; i < 100; i++)
+            {
+                Console.WriteLine(Helper.NumberToWords(i));
+                finalSum += (Helper.NumberToWords(i).Length);
+            }
+            return finalSum;
+        }
 
-        //public static int Bonus2(uint[] hightMap)
-        //{
-        //    /*
-        //     * TODO: Write code here
-        //     */
-        //}
+        public static int Bonus2(int[] heightMap)
+        {
+            int trapped = 0;
+            int leftMax = 0;
+            int rightMax = 0;
+
+            int left = 0;
+            int right = heightMap.Length - 1;
+            while (left <= right)
+            {
+                if (heightMap[left] <= heightMap[right])
+                {
+                    if (heightMap[left] > leftMax)
+                    {
+                        leftMax = heightMap[left];
+                    }
+                    else
+                    {
+                        trapped += leftMax - heightMap[left];
+                    }
+                    left++;
+                }
+                else
+                {
+                    if (heightMap[right] > rightMax)
+                    {
+                        rightMax = heightMap[right];
+                    }
+                    else
+                    {
+                        trapped += rightMax - heightMap[right];
+                    }
+                    right--;
+                }
+            }
+            return trapped;
+        }
         //#endregion
     }
 }

@@ -250,6 +250,7 @@ namespace Basic
 
             foreach (string dozen in dozens)
             {
+                cnt += dozen.Length;
                 foreach (string digit in digits)
                 {
                     cnt += dozen.Length + digit.Length;

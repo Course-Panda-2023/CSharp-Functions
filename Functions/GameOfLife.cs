@@ -6,12 +6,12 @@ public class GameOfLife
 	{
 		int cnt = 0;
 
-		for (int i1 = i-1; i1 < i+1; i1++)
+		for (int i1 = i-1; i1 <= i+1; i1++)
 		{
-			if ((i1 < 0) | (i1 > rows)) { continue; } 
-			for (int j1 = j-1; j1 < j+1; j++)
+			if ((i1 < 0) | (i1 >= rows)) { continue; } 
+			for (int j1 = j-1; j1 <= j+1; j1++)
 			{
-				if ((j1 < 0) | (j1 > cols)) { continue; }
+				if ((j1 < 0) | (j1 >= cols)) { continue; }
 				if ((i1 == i) & (j1 == j)) { continue; }
 
 				cnt += Convert.ToInt32(board[i1, j1]);
@@ -36,7 +36,7 @@ public class GameOfLife
 		}
 		else
 		{
-			// cell died
+			// cell isn't living
 			if (numAliveNeighbors == 3) { return true; }
 			return false;
 		}

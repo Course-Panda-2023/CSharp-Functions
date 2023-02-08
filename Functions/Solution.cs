@@ -67,7 +67,7 @@ namespace Basic
         public static void Assignment3()
         {
             RPS firstUserChose = RockPaperScissors.ScanUserChoose("first user");
-            RPS secondUserChose = RockPaperScissors.ScanUserChoose("first user");;
+            RPS secondUserChose = RockPaperScissors.ScanUserChoose("second user");;
 
             int score = RockPaperScissors.CalculateScore(firstUserChose, secondUserChose);
 
@@ -139,11 +139,13 @@ namespace Basic
 
         public static bool Assignment6(string str)
         {
-            str = new string(str.Where(Char.IsLetter).ToArray());
+            str = new string(
+                str.Where(c => char.IsLetter(c)).ToArray()
+            );
             
             for (int i=0; i < str.Length / 2; i++)
             {
-                if (str[i].ToString().ToLower().Equals(str[str.Length-i].ToString().ToLower()))
+                if (!str[i].ToString().ToLower().Equals(str[str.Length - 1 -i].ToString().ToLower()))
                 {
                     return false;
                 }

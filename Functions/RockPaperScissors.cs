@@ -47,7 +47,7 @@
 		string input = Console.ReadLine();
 		while (!StringToRPS.ContainsKey(input))
 		{
-			Console.WriteLine("Input invalid, try again");
+			Console.WriteLine("Invalid input, try again");
 			input = Console.ReadLine();
 		}
 

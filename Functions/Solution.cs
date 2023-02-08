@@ -153,8 +153,18 @@ namespace Basic
             /*
              * TODO: Write code here
              */
-        }
+            bool[,] updated_board = new bool[rows, cols];
+            updated_board = GameOfLife.PerformPass(board, rows, cols);
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    Console.Write($"{Convert.ToInt32(updated_board[i, j])} ");
 
+                }
+                Console.WriteLine();
+            }
+        }
         public static int Assignment9()
         {
             /*

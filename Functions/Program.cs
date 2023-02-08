@@ -15,8 +15,8 @@ Console.WriteLine("Checking your solutions...");
 /****************************/
 
 /*********Assignment4********/
-double[] nums = {1, 10, 9, 3, 100, 12 };
-Solution.Assignment4(true, nums);
+/*double[] nums = {1, 10, 9, 3, 100, 12 };
+Solution.Assignment4(true, nums);*/
 /****************************/
 
 /*********Assignment5********/
@@ -34,6 +34,17 @@ Console.WriteLine($"Assignment 6 output: {Solution.Assignment6(str)}");*/
 /*********Assignment7********/
 /*int[] nums = { 10, 2, 2, 3, 3, 3, 1, 200 };
 Console.WriteLine($"Assignment 7 output: {Solution.Assignment7(nums)}");*/
+/****************************/
+
+/*********Assignment7********/
+/*int[] nums = { 10, 2, 2, 3, 3, 3, 1, 200 };
+Console.WriteLine($"Assignment 7 output: {Solution.Assignment7(nums)}");*/
+/****************************/
+
+/*********Assignment8********/
+bool[,] array2Da = new bool[4, 3] { { false, true, false }, { false, false, true }, { true, true, true}, { false, false, false } };
+
+Solution.Assignment8(array2Da, 4, 3);
 /****************************/
 
 

@@ -103,12 +103,50 @@ namespace Basic
             return -2 * sumWithoutDuplicates + sum;
         }
 
-        //    public static void Assignment8(bool[,] board, int rows, int cols)
-        //    {
-        //        /*
-        //         * TODO: Write code here
-        //         */
-        //    }
+        public static void Assignment8(bool[,] board, int rows, int cols)
+        {
+            int numNeighbors = 0;
+            bool[,] tempboard = new bool[rows, cols];
+            for (int x = 0; x < cols; x++)
+            {
+                for (int y = 0; y < rows; y++)
+                {
+                    tempboard[x, y] = false;
+                }
+            }
+            for (int x = 0; x < cols; x++)
+            {
+                for (int y = 0; y < rows; y++)
+                {
+                    numNeighbors = Helper.numNeighbors(x, y, board, rows, cols);
+                    if (board[x, y] == true)
+                    {
+                        if (numNeighbors < 2)
+                        {
+                            tempboard[x, y] = false;
+                        } else if (numNeighbors == 3 || numNeighbors == 2)
+                        {
+                            tempboard[x, y] = true;
+                        }
+                        else
+                        {
+                            tempboard[x, y] = false;
+                        }
+                    }
+                    else if (numNeighbors == 3)
+                    {
+                        tempboard[x, y] = true;
+                    }
+                }
+            }
+            for (int x = 0; x < cols; x++)
+            {
+                for (int y = 0; y < rows; y++)
+                {
+                    board[x, y] = tempboard[x, y];
+                }
+            }
+        }
 
         //    public static int Assignment9()
         //    {

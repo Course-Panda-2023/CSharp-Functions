@@ -38,16 +38,23 @@ namespace MyApp // Note: actual namespace depends on the project name.
             ////Assignment5
             ///
 
-            //Assignment6
-            Console.WriteLine(Solution.Assignment6("abbA----"));
-            Console.ReadLine();
-            //Assignment6
+            ////Assignment6
+            //Console.WriteLine(Solution.Assignment6("abbA----"));
+            //Console.ReadLine();
+            ////Assignment6
 
-            //Assignment7
-            int[] arr = { 1, 2, 1, 2, 4, 3, 3 };
-            Console.WriteLine(Solution.Assignment7(arr));
-            Console.ReadLine() ;
-            //Assignment7
+            ////Assignment7
+            //int[] arr = { 1, 2, 1, 2, 4, 3, 3 };
+            //Console.WriteLine(Solution.Assignment7(arr));
+            //Console.ReadLine() ;
+            ////Assignment7
+            ///
+
+            // Assignment8
+            bool[,] arr = new bool [2,2] { {false, false },{ false, false } };
+            Solution.Assignment8(arr, 2, 2);
+            Console.WriteLine(arr);
+            // Assignment8
         }
     }
 }

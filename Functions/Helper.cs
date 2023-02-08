@@ -189,6 +189,56 @@ namespace Basic
             return sum;
         }
         //Assignment7
+
+        //Assignment8
+        public static int numNeighbors(int x, int y, bool[,] board, int rows, int cols)
+        {
+            if (x > 0 && x < cols - 1 && y > 0 && y < rows - 1)
+            {
+                return CountTrue(board[x - 1, y - 1], board[x, y - 1], board[x + 1, y - 1], board[x + 1, y], board[x + 1, y + 1],
+                    board[x, y + 1], board[x - 1, y + 1], board[x - 1, y]);
+                //return board[x - 1, y - 1] + board[x, y - 1] + board[x + 1, y - 1] + board[x + 1, y] + board[x + 1, y + 1] +
+                //    board[x, y + 1] + board[x - 1, y + 1] + board[x - 1, y];
+            }
+            if (x = 0 && y > 0 && y < rows - 1)
+            {
+                return board[x, y - 1] + board[x + 1, y - 1] + board[x + 1, y] + board[x + 1, y + 1] +
+                    board[x, y + 1];
+            }
+            if (x > 0 && x < cols - 1 && y = 0)
+            {
+                return board[x + 1, y] + board[x + 1, y + 1] +
+                    board[x, y + 1] + board[x - 1, y + 1] + board[x - 1, y];
+            }
+            if (x = cols - 1 && y > 0 && y < rows - 1)
+            {
+                return board[x - 1, y - 1] + board[x, y - 1] +
+                    board[x, y + 1] + board[x - 1, y + 1] + board[x - 1, y];
+            }
+            if (x > 0 && x < cols - 1 && y = rows - 1)
+            {
+                return board[x - 1, y - 1] + board[x, y - 1] + board[x + 1, y - 1] + board[x + 1, y] + board[x - 1, y];
+            }
+            if (x = 0 && y = 0)
+            {
+                return board[x + 1, y] + board[x + 1, y + 1] +
+                    board[x, y + 1];
+            }
+            if (x = 0 && y = rows - 1)
+            {
+                return board[x, y - 1] + board[x + 1, y - 1] + board[x + 1, y];
+            }
+            if (x = cols - 1 && y = 0)
+            {
+                return board[x, y + 1] + board[x - 1, y + 1] + board[x - 1, y];
+            }
+            if (x = cols - 1 && y = rows - 1)
+            {
+                return board[x - 1, y - 1] + board[x, y - 1] + board[x - 1, y];
+            }
+            return -1;
+        }
+        //Assignment8
     }
 
 }

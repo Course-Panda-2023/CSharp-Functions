@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -219,19 +220,89 @@ namespace Basic
 
         public static bool[,] Assignment8(bool[,] board, int rows, int cols)
         {
-            //double neighborhood[8] = {0};
+            bool[,] result = new bool[rows, cols];
+            const bool LIVE = true;
+            const bool DIED = false;
             const int ZERO = 0;
+            const int FORMER_CELL_IN_CLOUMN = -1;
+            const int FORMER_CELL_IN_ROW = -1;
+            const int NEXT_CELL_IN_COLUMN = 1;
+            const int NEXT_CELL_IN_ROW = 1;
+            const int THE_SAME_ROW = 0;
+            const int THE_SAME_COLUMN = 0;
+            const int MAXIMUM_NEIGHBORS_COUNT = 8;
+            const int TWO_CELL_LIVES = 2;
+            const int THREE_CELL_LIVES = 3;
+            const int TWO_CELL_DIED = 2;
+            int liveCount = 0, diedCount = 0;
+            bool[] neighboors = new bool[MAXIMUM_NEIGHBORS_COUNT];
+            bool currentState;
             for (int i = 0; i < rows; ++i)
             {
                 for (int j = 0; j < cols; ++j)
                 {
+                    // false neighboors
+                    for (int index = 0; index < MAXIMUM_NEIGHBORS_COUNT; ++index)
+                    {
+                        neighboors[index] = false;
+                    }
+                    liveCount = diedCount = 0;
+                    if (i + FORMER_CELL_IN_ROW > ZERO && j + FORMER_CELL_IN_CLOUMN > ZERO)
+                    {
+                        neighboors[0] = board[i + FORMER_CELL_IN_ROW, j + FORMER_CELL_IN_CLOUMN];
+                    }
+                    // I know j + THE_SAME_COLUMN is reduandant but for code to be readable
+                    if (i + FORMER_CELL_IN_ROW > ZERO && j + THE_SAME_COLUMN > ZERO)
+                    {
+                        neighboors[1] = board[i + FORMER_CELL_IN_ROW, j];
+                    }
+                    if (i + FORMER_CELL_IN_ROW > ZERO && j + NEXT_CELL_IN_COLUMN < cols)
+                    {
+                        neighboors[2] = board[i + FORMER_CELL_IN_ROW, j + NEXT_CELL_IN_COLUMN];
+                    }
+                    if (i + THE_SAME_ROW > ZERO && j + NEXT_CELL_IN_COLUMN < cols)
+                    {
+                        neighboors[3] = board[i, j + NEXT_CELL_IN_COLUMN];
+                    }
+                    if (i + NEXT_CELL_IN_ROW < rows && j + NEXT_CELL_IN_COLUMN < cols)
+                    {
+                        neighboors[4] = board[i + NEXT_CELL_IN_ROW, j + NEXT_CELL_IN_COLUMN];
+                    }
+                    if (i + NEXT_CELL_IN_ROW < rows && j + THE_SAME_COLUMN < cols)
+                    {
+                        neighboors[5] = board[i + NEXT_CELL_IN_ROW, j];
+                    }
+                    if (i + NEXT_CELL_IN_ROW < rows && j + FORMER_CELL_IN_CLOUMN > ZERO)
+                    {
+                        neighboors[6] = board[i + NEXT_CELL_IN_ROW, j + FORMER_CELL_IN_CLOUMN];
+                    }
+                    if (i + THE_SAME_ROW > ZERO && j + FORMER_CELL_IN_CLOUMN > ZERO)
+                    {
+                        neighboors[7] = board[i, j + FORMER_CELL_IN_CLOUMN];
+                    }
 
-                  // if ()
-                        
+                    neighboors.Select(cell => cell ? ++liveCount : ++diedCount).ToArray();
+
+                    currentState = board[i, j];
+                    if (currentState && liveCount < TWO_CELL_LIVES)
+                    {
+                        result[i, j] = DIED;
+                    }
+                    else if (currentState && (liveCount == TWO_CELL_LIVES || liveCount == THREE_CELL_LIVES))
+                    {
+                        result[i, j] = LIVE;
+                    }
+                    else if (currentState && (liveCount > THREE_CELL_LIVES))
+                    {
+                        result[i, j] = DIED;
+                    }
+                    else if (!currentState && (liveCount == THREE_CELL_LIVES))
+                    {
+                        result[i, j] = LIVE;
+                    }
                 }
             }
-            bool[,] boolean = new bool[1, 1];
-            return boolean;
+            return result;
         }
 
         public static int Assignment9()

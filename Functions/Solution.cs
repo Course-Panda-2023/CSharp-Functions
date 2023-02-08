@@ -187,11 +187,42 @@ namespace Basic
             return letterSum;
         }
 
-        public static int Bonus2(uint[] hightMap)
+        static int Bonus2(uint[] hightMap)
         {
-            /*
-             * TODO: Write code here
-             */
+            int index = 0;
+            int capturedWater = 0;
+            //Moving to the first none-zero index
+            while (hightMap[index] == 0)
+            {
+                index++;
+            }
+            //Making sure there's room for atleast one water reserve
+            if (index > hightMap.Length - 3)
+            {
+                return 0;
+            }
+            int i = index;
+            while (i < hightMap.Length)
+            {
+                int checkIndex = i + 1;
+                uint potentialAdd = 0;
+                while ((checkIndex < hightMap.Length) && (hightMap[checkIndex] < hightMap[i]))
+                {
+                    potentialAdd += hightMap[i] - hightMap[checkIndex];
+                    checkIndex++;
+                    if (checkIndex == hightMap.Length)
+                    {
+                        potentialAdd = 0;
+                    }
+                }
+                capturedWater += (int)potentialAdd;
+                if (checkIndex == hightMap.Length)
+                {
+                    checkIndex = i + 1;
+                }
+                i = checkIndex;
+            }
+            return capturedWater;
         }
         #endregion
     }

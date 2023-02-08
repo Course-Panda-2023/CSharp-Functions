@@ -111,12 +111,26 @@ namespace Basic
             return -1;
         }
 
-        //public static void Assignment8(bool[,] board, int rows, int cols)
-        //{
-        //    /*
-        //     * TODO: Write code here
-        //     */
-        //}
+        public static void Assignment8(int[,] board, int rows, int cols)
+        {
+            int[,] newBoard = Helper.GameOfLife(board, rows, cols);
+            
+            // Prints the output of game of life.
+            Console.WriteLine('{');
+            for (int row = 0; row < rows; row++)
+            {
+                Console.Write('{');
+                for (int col = 0; col < cols; col++)
+                {
+                    if (col == cols - 1)
+                        Console.Write(newBoard[row, col]);
+                    else
+                        Console.Write(newBoard[row, col] + ", ");
+                }
+                Console.WriteLine('}');
+            }
+            Console.WriteLine('}');
+        }
 
         //public static int Assignment9()
         //{
@@ -144,9 +158,13 @@ namespace Basic
 
         static void Main(string[] args)
         {
-            int[] arr = { 4, 1, 2, 1, 2 };
-            int[] arr2 = { 2, 2, 1};
-            Console.WriteLine(Assignment7(arr2));
+            int[,] board = {
+                {0,1,0},
+                {0,0,1},
+                {1,1,1},
+                {0,0,0}
+            };
+            Assignment8(board, 4, 3);
         }
         #endregion
     }

@@ -77,7 +77,14 @@ namespace Basic
 
         public static double[] Assignment4(bool asc, params double[] nums)
         {
-            return new double[nums.Length];
+            if(asc) 
+            {
+                return Helper.BubbleSort(nums);
+            }
+            else
+            {
+                return Helper.Reverse(Helper.BubbleSort(nums);
+            }
         }
 
         public static void Assignment5(string str, char[] letters)
@@ -208,24 +215,12 @@ namespace Basic
         public static void Main(string[] args)
         {
             //int[] arr = { 1, 5, 7, 2, 3};
-            //Helper.PrintIntArray(Helper.InsertionSort(arr, arr.Length));
-            //
-            //Assignment3();
-            //Assignment2();
-            string str = "hello world";
-            char[] letters = { 'i', 'o' };
             int[] nums = { 6, 0, 6, 4, 3, 4, 3 };
-            bool[,] board = { { false, true, false }, { false, false, true }, { true, true, true }, { false, false, false } };
-            bool[,] board2 = { { true, false, false, false, true, false, false, true, true, false }, { false, true, true, false, false, true, false, false, true, false }, { true, true, false, true, true, false, true, false, false, true }, { false,  true, false, true, false, true, false, false, true, false } };
-            bool[,] board3 = { { false, true },{ true, true} };
-            Helper.PrintIntArrayArray(Helper.TurnBoolMatrixToIntArrayArray(board));
-            Console.WriteLine("--------");
-            bool[,] next = Assignment8(board, board.GetLength(0), board.GetLength(1));
-            Helper.PrintIntArrayArray(Helper.TurnBoolMatrixToIntArrayArray(next));
-            // Console.WriteLine(Helper.SiftLetter('z'));
-            //Console.WriteLine(board.GetLength(0) + ", " + board.GetLength(1));
-            //Console.WriteLine(Helper.NumLivingAdjacents(0, 0, 2, 2, board3));
-            //Console.WriteLine(Helper.NumLivingAdjacents(0, 0, board.GetLength(0), board.GetLength(1), board));
+            Helper.PrintIntArray(nums);
+            Console.WriteLine();
+            Helper.BubbleSort(nums);
+            Helper.PrintIntArray(nums);
+
             Helper.WaitForEnter();
 
         }

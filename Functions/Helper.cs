@@ -65,21 +65,24 @@ namespace Basic
             }
             return copy;
         }
-        public static int[] InsertionSort(int[] arr, int num)
+        
+        public static void BubbleSort(int[] arr)
         {
-            if (num > 1)
+            bool didMove = false;
+            do
             {
-                arr = CopyArray(InsertionSort(arr, num - 1));
-                int last = arr[num-1];
-                int counter = num - 2;
-                while (counter > 1 && arr[counter] > last)
+                didMove = false;
+                for (int i = 0; i < arr.Count() - 1; i++)
                 {
-                    arr[counter - 1] = arr[counter];
-                    counter--;
+                    if (arr[i] > arr[i + 1])
+                    {
+                        var lower = arr[i + 1];
+                        arr[i + 1] = arr[i];
+                        arr[i] = lower;
+                        didMove = true;
+                    }
                 }
-                arr[counter] = last;
-            }
-            return arr;
+            } while (didMove);
         }
 
         public static char SiftLetter(char c)

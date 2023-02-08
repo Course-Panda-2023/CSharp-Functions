@@ -42,10 +42,13 @@ Console.WriteLine($"Assignment 7 output: {Solution.Assignment7(nums)}");*/
 /****************************/
 
 /*********Assignment8********/
-bool[,] array2Da = new bool[4, 3] { { false, true, false }, { false, false, true }, { true, true, true}, { false, false, false } };
+/*bool[,] array2Da = new bool[4, 3] { { false, true, false }, { false, false, true }, { true, true, true}, { false, false, false } };
 
-Solution.Assignment8(array2Da, 4, 3);
+Solution.Assignment8(array2Da, 4, 3);*/
 /****************************/
 
+/*********Assignment9********/
+Solution.Assignment9();
+/****************************/
 
 Console.ReadLine();

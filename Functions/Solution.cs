@@ -170,6 +170,11 @@ namespace Basic
             /*
              * TODO: Write code here
              */
+           
+            /*num = Convert.ToInt32(Console.ReadLine());
+            bool status = BouncingNumbers.NumIsBouncing(num);*/
+            int num = BouncingNumbers.GiveNum();
+            Console.WriteLine($"{num}");
             return 0;
         }
         #endregion

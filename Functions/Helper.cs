@@ -15,7 +15,7 @@ namespace Basic
         {
             Console.WriteLine("Write a move: Rock or Paper or Scissors");
             string move = Console.ReadLine();
-            RockPaperScissors.RPS moveRe = null;
+            RockPaperScissors.RPS moveRe;
             switch (move)
             {
                 case "Rock":
@@ -29,6 +29,7 @@ namespace Basic
                     break;
                 default:
                     moveRe = getMove(); //In case of invalid selection
+                    break;
             }
             return moveRe;
         }
@@ -73,30 +74,30 @@ namespace Basic
             return count;
         }
 
-        public static int isAlive(bool[,] board, int rows, int cols)
+        public static bool isAlive(bool[,] board, int rows, int cols)
         {
             // Returns whether the indexed cell (board[rows,cols]) is alive
             List<(int, int)> listOfN = Helper.indexTOCheck(rows, cols, board.GetLength(0), board.GetLength(1));
             int numOfLiveN = Helper.numberOfLive(board, listOfN);
-            int isAliveTemp = 0;
+            bool isAliveTemp = false;
             if (board[rows, cols])
             {
                 if (numOfLiveN < 2)
                 {
-                    isAliveTemp = 0;
+                    isAliveTemp = false;
                 }
                 else if (numOfLiveN == 2 || numOfLiveN == 3)
                 {
-                    isAliveTemp = 1;
+                    isAliveTemp = true;
                 }
                 else
                 {
-                    isAliveTemp = 0;
+                    isAliveTemp = false;
                 }
             }
             else
             {
-                isAliveTemp = numOfLiveN == 3 ? 1 : 0;
+                isAliveTemp = numOfLiveN == 3 ? true : false;
             }
             return isAliveTemp;
         }

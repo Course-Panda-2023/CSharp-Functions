@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace Basic
 {
@@ -27,8 +28,8 @@ namespace Basic
 
         public static void Assignment3()
         {
-            RockPaperScissors.RPS firstPlayer = getMove();
-            RockPaperScissors.RPS secondPlayer = getMove()
+            RockPaperScissors.RPS firstPlayer = Helper.getMove();
+            RockPaperScissors.RPS secondPlayer = Helper.getMove();
             if (firstPlayer == secondPlayer)
             {
                 Console.WriteLine("It's a tie!");
@@ -77,7 +78,7 @@ namespace Basic
             foreach (Char c in letters)
             {
                 int temp = c + 10;
-                temp = temp > 122 ? temp - 122 + 'a' - 1 - 32 : temp;//Changes the letter to the appropriate capital letter
+                temp = temp > 122 ? temp - 122 + 'a' - 1 - 32 : temp;//Changes the letter to the upper capital letter
                 str = str.Replace(c, (char)(temp));
             }
             str = str.ToLower();
@@ -100,9 +101,9 @@ namespace Basic
             return i;
         }
 
-        public static void Assignment8(int[,] board, int rows, int cols)
+        public static void Assignment8(bool[,] board, int rows, int cols)
         {
-            int[,] ints = (int[,])board.Clone();
+            bool[,] ints = (bool[,])board.Clone();
             for (int row = 0; row < rows; row++)
             {
                 for (int col = 0; col < cols; col++)

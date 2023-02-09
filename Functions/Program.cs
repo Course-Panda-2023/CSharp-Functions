@@ -58,10 +58,18 @@ namespace MyApp // Note: actual namespace depends on the project name.
             ////Assignment8
             ///
 
-            //Assignment9
-            Console.WriteLine(Solution.Assignment9());
+            ////Assignment9
+            //Console.WriteLine(Solution.Assignment9());
+            //Console.ReadLine();
+            ////Assignment9
+            ///
+
+            //Bonus1
+            int num = Solution.Bonus1();
+            Console.WriteLine($"{num}");
             Console.ReadLine();
-            //Assignment9
+            //Bonus1
+
         }
     }
 }

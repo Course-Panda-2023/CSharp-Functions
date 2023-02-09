@@ -179,22 +179,39 @@ namespace Basic
             }
             return num - 1;
         }
-        //    #endregion
+            #endregion
 
-        //    #region Bonus solutions
-        //    public static int Bonus1()
-        //    {
-        //        /*
-        //         * TODO: Write code here
-        //         */
-        //    }
+        #region Bonus solutions
+        public static int Bonus1()
+        {
+            string[] firstUnits = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+            string[] secondUnits = { "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
+            string[] extras = { "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
+            int totalLetters = 0;
+            foreach(string s1 in firstUnits)
+            {
+                foreach(string s2 in secondUnits)
+                {
+                    totalLetters = totalLetters + s1.Length + s2.Length;
+                }
+            }
+            foreach(string u in extras)
+            {
+                totalLetters += u.Length;
+            }
+            foreach (string u in secondUnits)
+            {
+                totalLetters += u.Length;
+            }
+            return totalLetters;
+        }
 
-        //    public static int Bonus2(uint[] hightMap)
-        //    {
-        //        /*
-        //         * TODO: Write code here
-        //         */
-        //    }
+        //public static int Bonus2(uint[] hightMap)
+        //{
+        //    /*
+        //     * TODO: Write code here
+        //     */
+        //}
         #endregion
     }
 }

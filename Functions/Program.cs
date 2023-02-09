@@ -64,11 +64,19 @@ namespace MyApp // Note: actual namespace depends on the project name.
             ////Assignment9
             ///
 
-            //Bonus1
-            int num = Solution.Bonus1();
+            ////Bonus1
+            //int num = Solution.Bonus1();
+            //Console.WriteLine($"{num}");
+            //Console.ReadLine();
+            ////Bonus1
+            ///
+
+            //Bonus2
+            uint[] arr = { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 };
+            int num = Solution.Bonus2(arr);
             Console.WriteLine($"{num}");
             Console.ReadLine();
-            //Bonus1
+            //Bonus2
 
         }
     }

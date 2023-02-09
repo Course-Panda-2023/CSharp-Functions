@@ -206,12 +206,39 @@ namespace Basic
             return totalLetters;
         }
 
-        //public static int Bonus2(uint[] hightMap)
-        //{
-        //    /*
-        //     * TODO: Write code here
-        //     */
-        //}
+        public static int Bonus2(uint[] hightMap)
+        {
+            uint max = hightMap.Max();
+            int len = hightMap.Length;
+            int lastPositionWithGround = 0;
+            int firstPositionWithGround = 0;
+            int numOfWaterBlocks = 0;
+            for (uint height = 0; height <= max; height++)
+            {
+                for (int position = 0; position < len; position++)
+                {
+                    if (hightMap[position] > height)
+                    {
+                        lastPositionWithGround = position;
+                    }
+                }
+                for (int position = len - 1; position >= 0; position = position - 1)
+                {
+                    if (hightMap[position] > height)
+                    {
+                        firstPositionWithGround = position;
+                    }
+                }
+                for (int position = firstPositionWithGround; position <= lastPositionWithGround; position++)
+                {
+                    if (hightMap[position] <= height && position != firstPositionWithGround && position != lastPositionWithGround)
+                    {
+                        numOfWaterBlocks++;
+                    }
+                }
+            }
+            return numOfWaterBlocks;
+        }
         #endregion
     }
 }

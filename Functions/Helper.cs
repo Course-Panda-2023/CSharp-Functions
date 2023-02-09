@@ -248,7 +248,7 @@ namespace Basic
             {
                 return false;
             }
-            while (index + 2 < len - 1)
+            while (index + 2 <= len - 1)
             {
                 char c1 = s[index];
                 char c2 = s[index + 1];
@@ -256,6 +256,13 @@ namespace Basic
                 int num1 = c1 - '0';
                 int num2 = c2 - '0';
                 int num3 = c3 - '0';
+                int k = 1;
+                while (num2 == num3 && index + 2 + k <= len - 1)
+                {
+                    c3 = s[index + 2 + k];
+                    num3 = c3 - '0';
+                    k++;
+                }
                 index++;
                 if ((num1 < num2 && num2 > num3) || (num1 > num2 && num2 < num3))
                 {

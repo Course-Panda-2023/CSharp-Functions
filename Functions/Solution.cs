@@ -174,10 +174,10 @@ namespace Basic
                 {
                     amountOfJumpingNumbers++;
                 }
-                jumpingNumsPrecentage = amountOfJumpingNumbers / num;
+                jumpingNumsPrecentage = (double)amountOfJumpingNumbers / num;
                 num++;
             }
-            return num;
+            return num - 1;
         }
         //    #endregion
 

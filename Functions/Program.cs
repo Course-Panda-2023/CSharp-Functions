@@ -60,6 +60,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
 
             //Assignment9
             Console.WriteLine(Solution.Assignment9());
+            Console.ReadLine();
             //Assignment9
         }
     }

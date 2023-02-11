@@ -55,7 +55,7 @@ namespace Basic
              */
         }
 
-        public static void Assignment8(bool[,] board, int rows, int cols)
+        public static bool[,] Assignment8(bool[,] board, int rows, int cols)
         {
             /*
              * TODO: Write code here

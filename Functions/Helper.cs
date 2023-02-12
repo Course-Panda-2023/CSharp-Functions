@@ -71,7 +71,7 @@ namespace Basic
             return sortedArr;
         }
 
-        public static void printArr(double[] arr)
+        public static void PrintArray(double[] arr)
         {
             foreach (double number in arr)
             {
@@ -79,7 +79,7 @@ namespace Basic
             }
         }
 
-        public static bool DoesCharExistInArr(char ch, char[] letters)
+        public static bool IsCharInLetterArray(char ch, char[] letters)
         {
             foreach (char letter in letters)
             {
@@ -93,37 +93,19 @@ namespace Basic
 
         public static bool IsSameLetter(char char1, char char2)
         {
-            const int DIFFERENCE_UPPERCASE_LOWERCASE = 32;
-            if (char1 > char2 && char1 - DIFFERENCE_UPPERCASE_LOWERCASE == char2)
-            {
-                return true;
-            }
-            else
-            {
-                if (char2 > char1 && char2 - DIFFERENCE_UPPERCASE_LOWERCASE == char1)
-                {
-                    return true;
-                }
-                else
-                {
-                    if (char1 == char2)
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
+            return char.ToUpperInvariant(char1) == char.ToUpperInvariant(char2);
         }
 
         public static bool IsSign(char ch)
         {
-            //numbers are according to the question and
-            //the ascci value of signs to take into account (spaces and so).
-            if (ch <= 64 || (ch >= 91 && ch <= 96) || ch > 123)
-            {
-                return true;
-            }
-            return false;
+            int MAX_SIGN_VALUE_LOW_BOUND = 64;
+            int MAX_SIGN_VALUE_HIGH_BOUND = 123;
+            int SIGN_RANGE_LOW_BOUND = 91;
+            int SIGN_RANGE_HIGH_BOUND = 96;
+
+            return ch <= MAX_SIGN_VALUE_LOW_BOUND ||
+                (ch >= SIGN_RANGE_LOW_BOUND && ch <= SIGN_RANGE_HIGH_BOUND) ||
+                ch > MAX_SIGN_VALUE_HIGH_BOUND;
         }
     }
 }

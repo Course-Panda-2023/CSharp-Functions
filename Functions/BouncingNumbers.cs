@@ -5,10 +5,12 @@ public class BouncingNumbers
     public static bool IsAcending(int num)
     {
         int digit;
+        int tens;
         while (num != 0)
         {
             digit = num % 10;
-            if (num % 100 /10 < digit)
+            tens = num % 100 / 10;
+            if (tens < digit)
             {
                 return false;
             }
@@ -33,15 +35,15 @@ public class BouncingNumbers
 
     public static bool IsJumping(int num)
     {
-        return (!(IsAcending(num) || IsDesending(num)));
+        return !(IsAcending(num) || IsDesending(num));
 
     }
 
-    public static int FindNumThatHasMostJumping()
+    public static int NumWithMostJumping()
     {
         double precent = 90;
-        int amountOfJumping = 19602; //declered in question
-        int currNumber = 21781; //declered in question
+        int amountOfJumping = 19602; //declared in question
+        int currNumber = 21781; //declared in question
 
         while (precent  != 99)
         {

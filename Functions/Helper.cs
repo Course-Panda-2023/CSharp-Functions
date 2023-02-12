@@ -8,8 +8,11 @@ namespace Basic
 {
     internal class Helper
     {
-        /*
-         * TODO: Add any needed helper functions
-         */
+        public static void swap(double[] array, int i, int j)
+        {
+            double temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
     }
 }

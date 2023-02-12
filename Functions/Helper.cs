@@ -9,6 +9,78 @@ namespace Basic
 {
     internal class Helper
     {
+        public static void PrintMenu()
+        {
+            Console.WriteLine("Choose an assignment to run:");
+            Console.WriteLine("1. Assignment 1");
+            Console.WriteLine("2. Assignment 2 Please run from MathProgram");
+            Console.WriteLine("3. Assignment 3");
+            Console.WriteLine("4. Assignment 4");
+            Console.WriteLine("5. Assignment 5");
+            Console.WriteLine("6. Assignment 6");
+            Console.WriteLine("7. Assignment 7");
+            Console.WriteLine("8. Assignment 8");
+            Console.WriteLine("9. Assignment 9");
+            Console.WriteLine("10. Bonus 1");
+            Console.WriteLine("11. Bonus 2");
+            Console.WriteLine("12. Exit");            
+        }
+        public static void Menu() {
+            {
+            int choice = 0;
+            while (choice != 12)
+                {
+                PrintMenu();
+                choice = Convert.ToInt32(Console.ReadLine());
+                switch (choice)
+                    {
+                    case 1:
+                        Solution.Assignment1(10, 20, out res);
+                        break;
+                    case 2:
+                        Console.WriteLine("Please run from MathProgram!");
+                        break;
+                    case 3:
+                        Solution.Assignment3();
+                        break;
+                    case 4:
+                        double[] nums = {1, 10, 9, 3, 100, 12 };
+                        Solution.Assignment4(true, nums);
+                        break;
+                    case 5:
+                        char[] letters = { 'i', 'o' };
+                        string str = Console.ReadLine();
+                        Solution.Assignment5(str, letters);
+                        break;
+                    case 6:
+                        string str = Console.ReadLine();
+                        Console.WriteLine($"Assignment 6 output: {Solution.Assignment6(str)}");
+                            break;
+                    case 7:
+                        int[] nums = { 10, 2, 2, 3, 3, 3, 1, 200 };
+                        Console.WriteLine($"Assignment 7 output: {Solution.Assignment7(nums)}");
+                        break;
+                    case 8:
+                        bool[,] array2Da = new bool[4, 3] { { false, true, false }, { false, false, true }, { true, true, true }, { false, false, false } };
+                        Solution.Assignment8(array2Da, 4, 3);
+                        break;
+                    case 9:
+                        Solution.Assignment9();
+                        break;
+                    case 10:
+                        Console.WriteLine($"The solution of bonus 1 is {Solution.Bonus1()}");
+                        break;
+                    case 11:
+                        uint[] highMap = new uint[] { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 };
+                        Console.WriteLine($"The solution of bonus 2 is {Solution.Bonus2(highMap)}");
+                        case 12:                       
+                        return;
+                    default:
+                        Console.WriteLine("Wrong choice!");
+                        break;
+                }
+            }
+        } }
         public static void ManageAssignment(int assignmentNum, Action assignment, string correctRes)
         {
             Console.WriteLine("Running assignment 1...");

@@ -25,16 +25,16 @@ string str = Console.ReadLine();
 Solution.Assignment5(str, letters);*/
 /****************************/
 
-/*********Assignment6********/
-/*string str = Console.ReadLine();
-Console.WriteLine($"Assignment 6 output: {Solution.Assignment6(str)}");*/
-/****************************/
+/*********Assignment6 * ******
+string str = Console.ReadLine();
+Console.WriteLine($"Assignment 6 output: {Solution.Assignment6(str)}");
+***************************/
 
 
-/*********Assignment7********/
-/*int[] nums = { 10, 2, 2, 3, 3, 3, 1, 200 };
-Console.WriteLine($"Assignment 7 output: {Solution.Assignment7(nums)}");*/
-/****************************/
+/*********Assignment7 * ******
+int[] nums = { 10, 2, 2, 3, 3, 3, 1, 200 };
+Console.WriteLine($"Assignment 7 output: {Solution.Assignment7(nums)}");
+***************************/
 
 /*********Assignment7********/
 /*int[] nums = { 10, 2, 2, 3, 3, 3, 1, 200 };
@@ -42,7 +42,7 @@ Console.WriteLine($"Assignment 7 output: {Solution.Assignment7(nums)}");*/
 /****************************/
 
 /*********Assignment8********/
-/*bool[,] array2Da = new bool[4, 3] { { false, true, false }, { false, false, true }, { true, true, true}, { false, false, false } };
+/*bool[,] array2Da = new bool[4, 3] { { false, true, false }, { false, false, true }, { true, true, true }, { false, false, false } };
 
 Solution.Assignment8(array2Da, 4, 3);*/
 /****************************/
@@ -51,8 +51,12 @@ Solution.Assignment8(array2Da, 4, 3);*/
 //Solution.Assignment9();
 /****************************/
 
-/*********Assignment9********/
+/*********Bonus1********/
 Console.WriteLine($"The solution of bonus 1 is {Solution.Bonus1()}");
 /****************************/
+
+/*********Bonus2********/
+uint[] highMap = new uint[] { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 };
+Console.WriteLine($"The solution of bonus 2 is {Solution.Bonus2(highMap)}");
 
 Console.ReadLine();

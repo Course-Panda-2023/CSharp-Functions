@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -44,7 +43,7 @@ namespace Basic
             string shiftedString = "";
             for (int letterIndex = 0; letterIndex < str.Length; letterIndex++)
             {
-                if (Helper.DoesCharExistInArr(str[letterIndex], letters))
+                if (Helper.IsCharInLetterArray(str[letterIndex], letters))
                 {
                     shiftedString += (char) str[letterIndex]+10;
                 }
@@ -105,7 +104,7 @@ namespace Basic
         public static int Assignment9()
         {
             Console.WriteLine("starting calculation....");
-            int number = BouncingNumbers.FindNumThatHasMostJumping();
+            int number = BouncingNumbers.NumWithMostJumping();
             Console.WriteLine($"calculation ended, the number is: {number}");
             return number;
         }

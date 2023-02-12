@@ -1,4 +1,6 @@
-﻿public class RockPaperScissors
+﻿using System.Security.Cryptography.X509Certificates;
+
+public class RockPaperScissors
 {
 	public enum Action
 	{
@@ -9,32 +11,20 @@
 
 	public static Boolean validateAction(string input)
 	{
-		return (input == "rock" || input == "Rock"
-			|| input == "paper" || input == "Paper"
-			|| input == "scissors" || input == "Scissors");
+		input = input.ToLower();
+		return (input == "rock" || input == "paper" || input == "scissors");
 	}
 
 	public static Action strToActionConverter(string str)
 	{
-		switch (str)
+		switch (str.ToLower())
 		{
 			case "rock":
 				return Action.Rock;
-				break;
-			case "Rock":
-				return Action.Rock;
-				break;
-			case "Paper":
-				return Action.Paper;
 			case "paper":
 				return Action.Paper;
-				break;
-			case "Scissors":
-				return Action.Scissors;
-				break;
 			case "scissors":
 				return Action.Scissors;
-				break;
 		}
 		return new Action();
 	}
@@ -54,23 +44,19 @@
 		return strToActionConverter(playerInput);
 	}
 
-	public static int runARound()
+	public static int RunARound()
 	{
 		Action firstPlayerAction = getValidAction();
 		Action secondPlayerAction = getValidAction();
 
-		if ((firstPlayerAction == Action.Rock && secondPlayerAction == Action.Scissors) ||
-			(firstPlayerAction == Action.Paper && secondPlayerAction == Action.Rock) ||
-			(firstPlayerAction == Action.Scissors && secondPlayerAction == Action.Paper))
+		if (IsWinner(firstPlayerAction, secondPlayerAction))
 		{
 			Console.WriteLine("First player wins!");
 			return 1;
 		}
 		else
 		{
-			if ((secondPlayerAction == Action.Rock && firstPlayerAction == Action.Scissors) ||
-				(secondPlayerAction == Action.Paper && firstPlayerAction == Action.Rock) ||
-				(secondPlayerAction == Action.Scissors && firstPlayerAction == Action.Paper))
+			if (IsWinner(secondPlayerAction,firstPlayerAction))
 			{
 				Console.WriteLine("Second player wins!");
 				return 2;
@@ -83,6 +69,13 @@
 		}
 	}
 
+	public static bool IsWinner(Action checkIfWinner, Action secondPlayerAction)
+	{
+		return (checkIfWinner == Action.Rock && secondPlayerAction == Action.Scissors) ||
+			(checkIfWinner == Action.Paper && secondPlayerAction == Action.Rock) ||
+			(checkIfWinner == Action.Scissors && secondPlayerAction == Action.Paper);
+        }
+
 	public static void runGame()
 	{
 		Console.WriteLine("Welcome to Rock Paper Scissors!!!");
@@ -93,7 +86,7 @@
 
 		while (gameRunFlag)
 		{
-			roundResult = runARound();
+			roundResult = RunARound();
 			if (roundResult == 1)
 			{
 				firstPlayerPoints++;

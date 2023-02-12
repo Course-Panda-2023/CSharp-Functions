@@ -166,13 +166,9 @@ namespace Basic
             }
         }
         public static int Assignment9()
-        {
-            /*
-             * TODO: Write code here
-             */
-           
-            /*num = Convert.ToInt32(Console.ReadLine());
-            bool status = BouncingNumbers.NumIsBouncing(num);*/
+        {         
+
+
             int num = BouncingNumbers.GiveNum();
             Console.WriteLine($"{num}");
             return 0;
@@ -182,10 +178,33 @@ namespace Basic
         #region Bonus solutions
         public static int Bonus1()
         {
-            /*
-             * TODO: Write code here
-             */
-            return 0;
+            Dictionary<int, string> dic = new Dictionary<int, string>()
+            {
+                {1, "one" },
+                {2, "two"},
+                {3, "three"},
+                {4, "four"},
+                {5, "five" }, {6, "six"}, {7, "seven"}, {8, "eight"}, {9, "nine"}, {10, "ten"},
+                {11, "eleven" }, {12, "twelve"}, {13, "thirteen"}, {14, "fourteen"}, {15, "fifteen"},
+                {16, "sixteen" }, {17, "seventeen"}, {18, "eighteen"}, {19, "ninteen"}, {20, "twenty"},
+                {30, "thirty" }, {40, "forty"}, {50, "fifty"}, {60, "sixty"}, {70, "seventy"}, {80, "eighty"}, {90, "ninety"}
+            };
+            
+            const int MAX_NUMBER = 100;
+            int counter = 0, letterCounter = 0;
+            for(int i = 1; i < MAX_NUMBER; i++)
+            {                
+                if (dic.ContainsKey(i))
+                {
+                    letterCounter += dic[i].Length;
+                }
+                else
+                {
+                    letterCounter += dic[i - i % 10].Length + dic[i % 10].Length;
+                }
+                
+            }
+            return letterCounter;
         }
 
         public static int Bonus2(uint[] hightMap)

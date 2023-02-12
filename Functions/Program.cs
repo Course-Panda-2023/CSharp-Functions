@@ -48,7 +48,11 @@ Solution.Assignment8(array2Da, 4, 3);*/
 /****************************/
 
 /*********Assignment9********/
-Solution.Assignment9();
+//Solution.Assignment9();
+/****************************/
+
+/*********Assignment9********/
+Console.WriteLine($"The solution of bonus 1 is {Solution.Bonus1()}");
 /****************************/
 
 Console.ReadLine();

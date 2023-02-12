@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Reflection.Metadata.Ecma335;
-
+/*
+             * Very stupid and inefficient solution
+             * Very very sorry for that!!!
+*/
 public class BouncingNumbers
 {
 	public static int GiveNum()

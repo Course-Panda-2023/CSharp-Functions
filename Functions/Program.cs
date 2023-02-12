@@ -52,11 +52,12 @@ Solution.Assignment8(array2Da, 4, 3);*/
 /****************************/
 
 /*********Bonus1********/
-Console.WriteLine($"The solution of bonus 1 is {Solution.Bonus1()}");
+//Console.WriteLine($"The solution of bonus 1 is {Solution.Bonus1()}");
 /****************************/
 
 /*********Bonus2********/
-uint[] highMap = new uint[] { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 };
-Console.WriteLine($"The solution of bonus 2 is {Solution.Bonus2(highMap)}");
-
-Console.ReadLine();
+/*uint[] highMap = new uint[] { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 };
+Console.WriteLine($"The solution of bonus 2 is {Solution.Bonus2(highMap)}");*/
+//Helper.PrintMenu();
+Helper.Menu();
+//Console.ReadLine();

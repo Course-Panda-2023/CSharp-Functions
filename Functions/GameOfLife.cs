@@ -11,7 +11,7 @@ public class GameOfLife
             {
                 continue;
             }
-            for (int colIndex = cellIndexCol - 1; colIndex <= cellIndexCol; colIndex++)
+            for (int colIndex = cellIndexCol - 1; colIndex <= cellIndexCol + 1; colIndex++)
             {
                 if (colIndex > board.GetLength(1) - 1 || colIndex == -1)
                 {
@@ -29,19 +29,15 @@ public class GameOfLife
     public static bool CellNewState(bool[,] board, int rowIndex, int colIndex)
     {
         int aliveCounter = CountNeighbors(board, rowIndex, colIndex);
-        if (board[rowIndex,colIndex] == true)
+        if (board[rowIndex,colIndex])
         {
-            if (aliveCounter <2)
+            if (aliveCounter <2 || aliveCounter > 3)
             {
                 return false;
             }
             if ( aliveCounter == 2 || aliveCounter == 3)
             {
                 return true;
-            }
-            if (aliveCounter > 3)
-            {
-                return false;
             }
         }
         if (board[rowIndex,colIndex] == false && aliveCounter == 3)

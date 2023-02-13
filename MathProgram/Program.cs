@@ -1,21 +1,21 @@
 ﻿static int Addition(int x, int y)
 {
-return(x + y);
+    return x + y;
 }
 
 static int Subtraction(int x, int y)
 {
-    return(x - y);
+    return x - y;
 }
 
 static double Division(double x, double y)
 {
-    return(x / y);
+    return x / y;
 }
 
 static int Multiplication(int x, int y)
 {
-    return(x * y);
+    return x * y;
 }
 
 static void Calc(int x, int y, string sign)

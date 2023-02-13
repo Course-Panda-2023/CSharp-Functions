@@ -8,6 +8,17 @@ namespace Basic
 {
     internal class Helper
     {
+        public static Boolean findWall(int[] hightMap, int startIndex, int wallHight)
+        {
+            for (int currIndex = startIndex; currIndex < hightMap.Length; currIndex++)
+            {
+                if (hightMap[currIndex] >= wallHight)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         public static int findIndexOfMax(double[] arr)
         {
             int maxIndex = 0;

@@ -1,6 +1,4 @@
-﻿using System.Security.Cryptography.X509Certificates;
-
-public class RockPaperScissors
+﻿public class RockPaperScissors
 {
 	public enum Action
 	{
@@ -61,11 +59,8 @@ public class RockPaperScissors
 				Console.WriteLine("Second player wins!");
 				return 2;
 			}
-			else
-			{
 				Console.WriteLine("It's a tie!");
 				return 0;
-			}
 		}
 	}
 

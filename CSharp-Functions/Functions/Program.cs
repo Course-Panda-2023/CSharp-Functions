@@ -25,8 +25,8 @@ using Basic;
 //Console.WriteLine(Solution.Assignment6(str1));
 
 
-int[] arr = { 4, 1, 2, 1, 2 };
-Console.WriteLine(Solution.Assignment7(arr));
+//int[] arr = { 4, 1, 2, 1, 2 };
+//Console.WriteLine(Solution.Assignment7(arr));
 
 
 //int[,] board = {
@@ -41,7 +41,7 @@ Console.WriteLine(Solution.Assignment7(arr));
 //Console.WriteLine(Solution.Assignment9());
 
 
-//Console.WriteLine(Solution.Bonus1());
+Console.WriteLine(Solution.Bonus1());
 
 
 //int[] map = { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 };

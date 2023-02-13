@@ -75,22 +75,10 @@ namespace Basic
             return (c1 == c2 || c1 - c2 == Difference || c2 - c1 == Difference);
         }
 
-        public static bool AppearsTwice(int num, int index, int[] numArr)
-        {
-            for (int i = 0; i < numArr.Length; i++)
-            {
-                if (num == numArr[i] && index != i)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        public static int CountLettersInRange(int first, int second, string[] vocab)
+        public static int LettersInRangeCounter(List<string> vocab)
         {
             int result = 0;
-            for (int i = first; i < second; i++)
+            for (int i = 0; i < vocab.Count; i++)
             {
                 char[] letters = vocab[i].ToCharArray();
                 result += letters.Length;

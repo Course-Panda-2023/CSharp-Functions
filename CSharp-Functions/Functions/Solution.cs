@@ -83,17 +83,20 @@ namespace Basic
 
         public static int Assignment7(int[] nums)
         {
-            int appearsOnce = 0;
-
-            if(nums.Length == 0)
-                return -1;
-
-            for (int i = 0; i < nums.Length; i++)
+            Dictionary<int, int> numDict = new Dictionary<int, int>();
+            foreach(int num in nums)
             {
-                if (!Helper.AppearsTwice(nums[i], i, nums))
-                    appearsOnce = nums[i];
+                if (numDict.ContainsKey(num))
+                    numDict[num]++;
+                else
+                    numDict.Add(num, 1);
             }
-            return appearsOnce;
+            foreach(KeyValuePair<int, int> entry in numDict)
+            {
+                if (entry.Value == 1)
+                    return entry.Key;
+            }
+            return -1;
         }
 
         public static void Assignment8(int[,] board, int rows, int cols)
@@ -147,11 +150,11 @@ namespace Basic
                 "eighteen", "nineteen", "twenty", "thirty", "forty", "fifty", "sixty", "seventy",
                 "eighty", "ninety"};
 
+            List<string> stringList = vocab.ToList();
             int letterCount = 0;
-
-            int oneToNine = Helper.CountLettersInRange(0, 9, vocab);
-            int tenToNineteen = Helper.CountLettersInRange(9, 19, vocab);
-            int twentyToNinety = Helper.CountLettersInRange(19, vocab.Length, vocab);
+            int oneToNine = Helper.LettersInRangeCounter(stringList.GetRange(0, 9));
+            int tenToNineteen = Helper.LettersInRangeCounter(stringList.GetRange(9, 10));
+            int twentyToNinety = Helper.LettersInRangeCounter(stringList.GetRange(19, 8));
 
             letterCount += oneToNine * 9;
             letterCount += tenToNineteen;
@@ -165,8 +168,9 @@ namespace Basic
             int currentHeight = 0;
             int waterCounter = 0;
             int maxCounter = 0;
-            int maxHeightInRange = Helper.GetMaxAndDouble(hightMap, 0)[0];
-            int hasDuplicate = Helper.GetMaxAndDouble(hightMap, 0)[1];
+            int[] temp = Helper.GetMaxAndDouble(hightMap, 0);
+            int maxHeightInRange = temp[0];
+            int hasDuplicate = temp[1];
 
             for (int i = 0; i < hightMap.Length; i++)
             {
@@ -183,8 +187,9 @@ namespace Basic
                     {
                         if (i < hightMap.Length - 1)
                         {
-                            maxHeightInRange = Helper.GetMaxAndDouble(hightMap, i + 1)[0];
-                            hasDuplicate = Helper.GetMaxAndDouble(hightMap, i + 1)[1];
+                            temp = Helper.GetMaxAndDouble(hightMap, i + 1);
+                            maxHeightInRange = temp[0];
+                            hasDuplicate = temp[1];
                             maxCounter = 0;
                         }
                     }
@@ -197,4 +202,3 @@ namespace Basic
         #endregion
     }
 }
-    

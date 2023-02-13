@@ -115,28 +115,28 @@ namespace Basic
             string[] digits= new string[] { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
             string[] specials= new string[] { "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
             string[] tens= new string[] { "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"};
-            int numOfLetters = 0;
+            int numLetters = 0;
 
             foreach (string word in digits)
             {
-                numOfLetters += word.Length;
+                numLetters += word.Length;
             }
             foreach (string word in specials)
             {
-                numOfLetters += word.Length;
+                numLetters += word.Length;
             }
             for (int tensIndex = 0; tensIndex < tens.Length; tensIndex++)
             {
-                numOfLetters += tens[tensIndex].Length;
+                numLetters += tens[tensIndex].Length;
                 for (int digitsIndex = 0; digitsIndex < digits.Length; digitsIndex++)
                 {
-                    numOfLetters += tens[tensIndex].Length;
-                    numOfLetters += digits[digitsIndex].Length;
+                    numLetters += tens[tensIndex].Length;
+                    numLetters += digits[digitsIndex].Length;
                 }
             }
 
-            Console.WriteLine($"num of letters between one to 100 is: {numOfLetters}");
-            return numOfLetters;
+            Console.WriteLine($"num of letters between one to 100 is: {numLetters}");
+            return numLetters;
         }
 
         public static int Bonus2(int[] hightMap)

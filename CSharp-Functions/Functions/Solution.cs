@@ -108,14 +108,11 @@ namespace Basic
             for (int row = 0; row < rows; row++)
             {
                 Console.Write('{');
-                for (int col = 0; col < cols; col++)
+                for (int col = 0; col < cols - 1; col++)
                 {
-                    if (col == cols - 1)
-                        Console.Write(newBoard[row, col]);
-                    else
-                        Console.Write(newBoard[row, col] + ", ");
+                    Console.Write(newBoard[row, col] + ", ");
                 }
-                Console.WriteLine('}');
+                Console.WriteLine(newBoard[row, cols - 1] + "}");
             }
             Console.WriteLine('}');
         }
@@ -163,41 +160,25 @@ namespace Basic
             return letterCount;
         }
 
-        public static int Bonus2(int[] hightMap)
+        public static int Bonus2(uint[] hightMap)
         {
-            int currentHeight = 0;
-            int waterCounter = 0;
-            int maxCounter = 0;
-            int[] temp = Helper.GetMaxAndDouble(hightMap, 0);
-            int maxHeightInRange = temp[0];
-            int hasDuplicate = temp[1];
+            uint currentHeight = 0;
+            uint waterCounter = 0;
+            uint maxHeightInRange = Helper.GetMaxInRange(hightMap, 0);
 
-            for (int i = 0; i < hightMap.Length; i++)
+            for (uint i = 0; i < hightMap.Length; i++)
             {
-                if (hightMap[i] < maxHeightInRange || hasDuplicate == 1)
+                if (hightMap[i] < maxHeightInRange)
                 { 
                     if (hightMap[i] >= currentHeight)
                         currentHeight = hightMap[i];
                     else
                         waterCounter += currentHeight - hightMap[i];
                 }
-                if (hightMap[i] == maxHeightInRange)
-                {
-                    if ((hasDuplicate == 1 && maxCounter == 1) || hasDuplicate == 0)
-                    {
-                        if (i < hightMap.Length - 1)
-                        {
-                            temp = Helper.GetMaxAndDouble(hightMap, i + 1);
-                            maxHeightInRange = temp[0];
-                            hasDuplicate = temp[1];
-                            maxCounter = 0;
-                        }
-                    }
-                    else
-                        maxCounter++;
-                }
+                else if (hightMap[i] == maxHeightInRange && i < hightMap.Length - 1)
+                    maxHeightInRange = Helper.GetMaxInRange(hightMap, i + 1);
             }
-            return waterCounter;
+            return (int)waterCounter;
         }
         #endregion
     }

@@ -86,25 +86,15 @@ namespace Basic
             return result;
         }
 
-        public static int[] GetMaxAndDouble(int[] arr, int index)
+        public static uint GetMaxInRange(uint[] arr, uint index)
         {
-            int[] maxAndDouble = new int[2];
-            int max = 0;
-            int maxIndex = 0;
-            int hasDouble = 0;
-            for (int i = index; i < arr.Length; i++)
+            uint max = 0;
+            for (uint i = index; i < arr.Length; i++)
             {
                 if (arr[i] > max)
-                {
                     max = arr[i];
-                    maxIndex = i;
-                }
-                if (i != maxIndex && max == arr[i])
-                    hasDouble = 1;
             }
-            maxAndDouble[0] = max;
-            maxAndDouble[1] = hasDouble;
-            return maxAndDouble;
+            return max;
         }
     }
 }

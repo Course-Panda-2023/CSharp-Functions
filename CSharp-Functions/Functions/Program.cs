@@ -41,8 +41,8 @@ using Basic;
 //Console.WriteLine(Solution.Assignment9());
 
 
-Console.WriteLine(Solution.Bonus1());
+//Console.WriteLine(Solution.Bonus1());
 
 
-//int[] map = { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 };
-//Console.WriteLine(Solution.Bonus2(map));
+uint[] map = { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 };
+Console.WriteLine(Solution.Bonus2(map));

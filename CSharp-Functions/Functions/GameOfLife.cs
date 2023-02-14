@@ -40,9 +40,8 @@ public class GameOfLife
         {
             for (int j = 0; j < currentCol.Length; j++)
             {
-                if (!(i == 2 && j == 2))
-                    if (currentRow[i] != -1 && currentCol[j] != -1)
-                        neighborCounter += board[currentRow[i], currentCol[j]];
+                if (!(i == 2 && j == 2) && currentRow[i] != -1 && currentCol[j] != -1)
+                    neighborCounter += board[currentRow[i], currentCol[j]];
             }
         }
         return neighborCounter;

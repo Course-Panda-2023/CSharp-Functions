@@ -2,17 +2,6 @@
 
 public class BouncingNumbers
 {
-    public static int AmountOfBouncingNums(int num)
-    {
-        int counter = 0;
-        for (int i = 0; i <= num; i++)
-        {
-            if (IsJumpingNumber(i))
-                counter++;
-        }
-        return counter;
-    }
-
     public static bool IsJumpingNumber(int num)
     {
         bool IsAscending = true;

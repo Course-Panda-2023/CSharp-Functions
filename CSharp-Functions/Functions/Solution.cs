@@ -99,9 +99,10 @@ namespace Basic
             return -1;
         }
 
-        public static void Assignment8(int[,] board, int rows, int cols)
+        public static void Assignment8(bool[,] board, int rows, int cols)
         {
-            int[,] newBoard = GameOfLife.UpdatedBoard(board, rows, cols);
+            int[,] newBoard = GameOfLife.ConvertBoardToInt(board, rows, cols);
+            newBoard = GameOfLife.UpdatedBoard(newBoard, rows, cols);
             
             // Prints the output of game of life.
             Console.WriteLine('{');
@@ -119,21 +120,20 @@ namespace Basic
 
         public static int Assignment9()
         {
-            // 90% density of jumping numbers.
-            int min = 21780;
-            int max = 10000000;
-            int current = (min + max) / 2;
-            double temp = BouncingNumbers.AmountOfBouncingNums(current) / 0.99;
-
-            while (temp != current)
+            const double WantedPercentage = 0.99;
+            // 90% density of bouncing numbers.
+            int current = 21780;
+            int amountOfBouncingNums = 19602;
+            double density = 0;
+            
+            while (density < WantedPercentage)
             {
-                if (temp < current)
-                    min = current;
-                else
-                    max = current;
-
-                current = (min + max) / 2;
-                temp = BouncingNumbers.AmountOfBouncingNums(current) / 0.99;
+                current++;
+                if (BouncingNumbers.IsJumpingNumber(current))
+                {
+                    amountOfBouncingNums++;
+                }
+                density = (double)amountOfBouncingNums / current;
             }
             return current;
         }

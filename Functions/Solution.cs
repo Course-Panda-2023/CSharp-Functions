@@ -8,6 +8,7 @@ namespace Basic
 {
     internal class Solution
     {
+        
         private static int p2=0;
         private static int p1=0;
 
@@ -72,9 +73,32 @@ namespace Basic
 
         public static double[] Assignment4(bool asc, params double[] nums)
         {
-            /*
-             * TODO: Write code here
-             */
+            
+        double temp;
+ 
+        // traverse 0 to array length
+        for (int i = 0; i < nums.Length - 1; i++)
+ 
+            // traverse i+1 to array length
+            for (int j = i + 1; j < nums.Length; j++)
+            {
+ 
+                // compare array element with
+                // all next element
+                if ((asc == false)&&(nums[i] < nums[j]))
+                {
+                    temp = nums[i];
+                    nums[i] = nums[j];
+                    nums[j] = temp;
+                }
+                if ((asc == true)&&(nums[j] < nums[i]))
+                {
+                    temp = nums[i];
+                    nums[i] = nums[j];
+                    nums[j] = temp;
+                }
+            }
+        return nums;
         }
 
         public static void Assignment5(ref string str, char[] letters)

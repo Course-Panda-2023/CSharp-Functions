@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions.Regex;
 
 namespace Basic
 {
@@ -11,6 +12,8 @@ namespace Basic
         
         private static int p2=0;
         private static int p1=0;
+        private static char current;
+        private static char newChar;
 
         /*
 * Notice: Write helper functions in `Helper` class unless there is a special class for it
@@ -103,16 +106,37 @@ namespace Basic
 
         public static void Assignment5(ref string str, char[] letters)
         {
-            /*
-             * TODO: Write code here
-             */
+            char[] strAsChars = str.ToCharArray();
+            for (int i = 0; i < strAsChars.Length; i++)
+            current=strAsChars[i];
+            {
+                for (int j = 0; j < letters.Length; j++)
+                {
+                    if (current==letters[j])
+                    {
+                        var n = Encoding.ASCII.GetByteCount(current.ToString())+10;
+                        newChar = Convert.ToChar(n);
+                        current = newChar;
+                    }
+                }
+            }
+            str = new string(strAsChars);
         }
 
         public static bool Assignment6(string str)
+        
         {
-            /*
-             * TODO: Write code here
-             */
+            bool CouldBePal = true;
+            str = str.ToLower();
+            str = System.Text.RegularExpressions.Regex.Replace(str, @"[^a-z]", "");
+            for (int i=0 ; i<(str.Length/2)-0.5; i++)
+            {
+                if (str[i] != str[-i-1])
+                {
+                    CouldBePal = false;
+                }
+            }
+            return CouldBePal;
         }
 
         public static int Assignment7(int[] nums)

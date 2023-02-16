@@ -4,12 +4,10 @@ public class BouncingNumbers
 {
     public static bool IsAcending(int num)
     {
-        int digit;
-        int tens;
         while (num != 0)
         {
-            digit = num % 10;
-            tens = num % 100 / 10;
+            int digit = num % 10;
+            int tens = num % 100 / 10;
             if (tens < digit)
             {
                 return false;

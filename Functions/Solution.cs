@@ -203,11 +203,34 @@ namespace Basic
             }
             return letterCounter;
         }
+        
 
         public static int Bonus2(uint[] hightMap)
         {
-            
-            return 0;
+            int n = hightMap.Length;
+            uint[] leftMax = new uint[n];
+            uint[] rightMax = new uint[n];
+
+            leftMax[0] = hightMap[0];
+            for (int i = 1; i < n; i++)
+            {
+                leftMax[i] = Math.Max(leftMax[i - 1], hightMap[i]);
+            }
+
+            rightMax[n - 1] = hightMap[n - 1];
+            for (int i = n - 2; i >= 0; i--)
+            {
+                rightMax[i] = Math.Max(rightMax[i + 1], hightMap[i]);
+            }
+
+            uint waterAmount = 0;
+            for (int i = 0; i < n; i++)
+            {
+                waterAmount += Math.Min(leftMax[i], rightMax[i]) - hightMap[i];
+            }
+
+            return (int)waterAmount;
+
         }
         #endregion
     }

@@ -8,67 +8,61 @@ public class BouncingNumbers
 {
 	public static int GiveNum()
 	{
-		int number = 0, num_counter = 0;
+		int number = 0, numCounter = 0;
 		double density = 0;
 		while(true) 
 		{
-			if (number > 21780 && density >= 99)
+            const Int32 minNum = 21780;
+            const int minDensity = 99;
+            if (number > minNum && density >= minDensity)
 			{
 				return number;
 			}
 			if (NumIsBouncing(number))
 			{
-				num_counter++;
+				numCounter++;
             }
 			number++;
-			density= num_counter/number + 1;
+			density= numCounter/number + 1;
 		}
 	}
 	public static bool NumIsBouncing(in int num)
 	{
 		if(num < 10) { return true; }
-		int temp_num = num;
-		List<int> temp_list = new List<int>();        
+		int tempNum = num;
+		List<int> tempList = new List<int>();        
 		bool status = false;		
 		bool incr = false;
         while (true)
 		{
-			if(temp_num < 10)
+			if(tempNum < 10)
 			{
-                temp_list.Add(temp_num);
+                tempList.Add(tempNum);
 				break;
             }
-			temp_list.Add(temp_num % 10);
-			temp_num= temp_num / 10;
+			tempList.Add(tempNum % 10);
+			tempNum= tempNum / 10;
 		}
-		/*foreach(int i in temp_list)
+		
+		int incrCounter = 0, descrCounter = 0;
+        for (int i = 0; i<tempList.Count - 1; i++)
 		{
-			Console.WriteLine(i);
-		}*/
-        //Console.WriteLine();
-		int incr_counter = 0, descr_counter = 0;
-        for (int i = 0; i<temp_list.Count - 1; i++)
-		{
-			if (temp_list[i+1] >= temp_list[i])
+			if (tempList[i+1] >= tempList[i])
 			{
-                //Console.WriteLine($"{incr_counter},{temp_list[i + 1]}, {temp_list[i]}");
-                incr_counter++;
+                
+                incrCounter++;
 			}
         }
-        for (int i = 0; i < temp_list.Count - 1; i++)
+        for (int i = 0; i < tempList.Count - 1; i++)
         {
-			//console.WriteLine($"{temp_list[i+1]},{temp_list[i]}");
+			
 
-            if (temp_list[i+1] <= temp_list[i])
+            if (tempList[i+1] <= tempList[i])
             {
-                //Console.WriteLine("HERE!!!");
-                
-                //Console.WriteLine($"{descr_counter},{temp_list[i + 1]}, {temp_list[i]}");
-                descr_counter++;
+                descrCounter++;
             }
         }
-        //Console.WriteLine($"{descr_counter},{incr_counter},{temp_list.Count}");
-        if (incr_counter == temp_list.Count - 1 || descr_counter == temp_list.Count - 1) { status = true; }
+        if (incrCounter == tempList.Count - 1 || descrCounter == tempList.Count - 1) { status = true; }
         return status;
     }
 	

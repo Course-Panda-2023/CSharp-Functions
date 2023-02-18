@@ -23,16 +23,16 @@ namespace Basic
 
         public static void Assignment3()
         {
-            const int players_num = 2;
+            const int playersNum = 2;
             int counter = 0;
 
-            string player_choice;
-            RockPaperScissors.RPS[] player_choices = new RockPaperScissors.RPS[players_num];
-            while (counter < players_num)
+            string playerChoice;
+            RockPaperScissors.RPS[] playerChoices = new RockPaperScissors.RPS[playersNum];
+            while (counter < playersNum)
             {
-                player_choice = Console.ReadLine();
-                if (Enum.IsDefined(typeof(RockPaperScissors.RPS), player_choice)) {
-                    player_choices[counter] = Enum.Parse<RockPaperScissors.RPS>(player_choice);
+                playerChoice = Console.ReadLine();
+                if (Enum.IsDefined(typeof(RockPaperScissors.RPS), playerChoice)) {
+                    playerChoices[counter] = Enum.Parse<RockPaperScissors.RPS>(playerChoice);
                 }
                 else
                 {
@@ -42,9 +42,9 @@ namespace Basic
                 counter++;
             }
 
-            if (Math.Abs(player_choices[0] - player_choices[1]) == 2) {
+            if (Math.Abs(playerChoices[0] - playerChoices[1]) == playersNum) {
 
-                if (player_choices[0] < player_choices[1])
+                if (playerChoices[0] < playerChoices[1])
                 {
                     Console.WriteLine("First player wins!");
                 }
@@ -53,9 +53,9 @@ namespace Basic
                     Console.WriteLine("Second player wins!");
                 }
             }
-            else if (Math.Abs(player_choices[0] - player_choices[1]) == 1)
+            else if (Math.Abs(playerChoices[0] - playerChoices[1]) == 1)
             {
-                if (player_choices[0] > player_choices[1])
+                if (playerChoices[0] > playerChoices[1])
                 {
                     Console.WriteLine("First player wins!");
                 }
@@ -123,7 +123,7 @@ namespace Basic
                 Console.WriteLine($"The input array is empty!");
                 return -1;
             }
-            //A little bit shooting a cannon at sparrows:)
+            
             Dictionary<int, int> hist = new Dictionary<int, int>();
             foreach(int i in nums)
             {
@@ -141,7 +141,6 @@ namespace Basic
                 
                 if (entry.Value == 1)
                 {
-                    //Console.WriteLine($"{entry.Key}");
                     return entry.Key;
                 }
             }
@@ -150,16 +149,14 @@ namespace Basic
 
         public static void Assignment8(bool[,] board, int rows, int cols)
         {
-            /*
-             * TODO: Write code here
-             */
-            bool[,] updated_board = new bool[rows, cols];
-            updated_board = GameOfLife.PerformPass(board, rows, cols);
+            
+            bool[,] updatedBoard = new bool[rows, cols];
+            updatedBoard = GameOfLife.PerformPass(board, rows, cols);
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < cols; j++)
                 {
-                    Console.Write($"{Convert.ToInt32(updated_board[i, j])} ");
+                    Console.Write($"{Convert.ToInt32(updatedBoard[i, j])} ");
 
                 }
                 Console.WriteLine();
@@ -178,7 +175,7 @@ namespace Basic
         #region Bonus solutions
         public static int Bonus1()
         {
-            Dictionary<int, string> dic = new Dictionary<int, string>()
+            Dictionary<int, string> numbersDict = new Dictionary<int, string>()
             {
                 {1, "one" },
                 {2, "two"},
@@ -194,13 +191,13 @@ namespace Basic
             int counter = 0, letterCounter = 0;
             for(int i = 1; i < MAX_NUMBER; i++)
             {                
-                if (dic.ContainsKey(i))
+                if (numbersDict.ContainsKey(i))
                 {
-                    letterCounter += dic[i].Length;
+                    letterCounter += numbersDict[i].Length;
                 }
                 else
                 {
-                    letterCounter += dic[i - i % 10].Length + dic[i % 10].Length;
+                    letterCounter += numbersDict[i - i % 10].Length + numbersDict[i % 10].Length;
                 }
                 
             }
@@ -209,11 +206,10 @@ namespace Basic
 
         public static int Bonus2(uint[] hightMap)
         {
-            /*
-             * TODO: Write code here
-             */
+            
             return 0;
         }
         #endregion
     }
 }
+

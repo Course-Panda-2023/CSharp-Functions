@@ -68,46 +68,58 @@ namespace Basic
             Console.WriteLine($"The solution of bonus 2 is {Solution.Bonus2(highMap)}");
 
         }
-        public static void Menu() {
-            {
+        public static void ActivateAssignmentsMenu() {
+        {
+            const int EXIT = 12; 
             int choice = 0;
-            while (choice != 12)
+            while (choice != EXIT)
                 {
                 PrintMenu();
                 choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                     {
                     case 1:
+                        Console.WriteLine($"Running assignment {choice}: ");
                         RunAssignment1();
                         break;
                     case 2:
+                        //Console.WriteLine($"Running assignment {choice}: ");
                         Console.WriteLine("Please run from MathProgram!");
                         break;
                     case 3:
+                        Console.WriteLine($"Running assignment {choice}: ");
                         Solution.Assignment3();
                         break;
                     case 4:
+                        Console.WriteLine($"Running assignment {choice}: ");
                         RunAssignment4();
                         break;
                     case 5:
-                        RunAssignment5();
+                        Console.WriteLine($"Running assignment {choice}: ");
+                            RunAssignment5();
                         break;
                     case 6:
+                        Console.WriteLine($"Running assignment {choice}: ");
                         RunAssignment6();   
                         break;
                     case 7:
-                            RunAssignment7();
+                        Console.WriteLine($"Running assignment {choice}: ");
+                        RunAssignment7();
                         break;
                     case 8:
+                        Console.WriteLine($"Running assignment {choice}: ");
                         RunAssignment8();
                         break;
                     case 9:
+                        Console.WriteLine($"Running assignment {choice}: ");
                         Solution.Assignment9();
                         break;
                     case 10:
+                        Console.WriteLine($"Running bonus 2: ");
                         Console.WriteLine($"The solution of bonus 1 is {Solution.Bonus1()}");
                         break;
                     case 11:
+                        Console.WriteLine($"Running bonus 2: ");
                         RunBonus2();    
                         break;
                     case 12:                       
@@ -148,13 +160,13 @@ namespace Basic
                 return unsorted;
             }
             int middle = unsorted.Length / 2;
-            double[] left_buffer = new double[middle];
-            double[] right_buffer = new double[unsorted.Length - middle];
-            Array.Copy(unsorted, 0, left_buffer, 0, middle);
-            Array.Copy(unsorted, middle, right_buffer, 0, unsorted.Length - middle);
-            left_buffer = MergeSort(left_buffer);
-            right_buffer = MergeSort(right_buffer);
-            return Merge(left_buffer, right_buffer);
+            double[] leftBuffer = new double[middle];
+            double[] rightBuffer = new double[unsorted.Length - middle];
+            Array.Copy(unsorted, 0, leftBuffer, 0, middle);
+            Array.Copy(unsorted, middle, rightBuffer, 0, unsorted.Length - middle);
+            leftBuffer = MergeSort(leftBuffer);
+            rightBuffer = MergeSort(rightBuffer);
+            return Merge(leftBuffer, rightBuffer);
         }
         public static double[] Merge(double[] left, double[] right)
         {

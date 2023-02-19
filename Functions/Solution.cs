@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Text.RegularExpressions.Regex;
+using static System.Text.RegularExpressions.Regex;
+
 
 namespace Basic
 {
@@ -141,16 +142,68 @@ namespace Basic
 
         public static int Assignment7(int[] nums)
         {
-            /*
-             * TODO: Write code here
-             */
+            
+            for (int i=0; i<nums.Length; i++)
+            {
+                bool HasPair=false;
+                for (int j=0; j<nums.Length; j++)
+                {
+                    if (i==j)
+                    {
+                        continue;
+                    }
+                    if (nums[i]==nums[j])
+                    {
+                        HasPair=true;
+                        break;
+                    }
+                }
+                if (!HasPair)
+                {
+                    return nums[i];
+                }
+                
+            }
+            Console.WriteLine("non found, please check input paramaters");
+            return -1;
         }
 
         public static bool[,] Assignment8(bool[,] board, int rows, int cols)
         {
-            /*
-             * TODO: Write code here
-             */
+            int liveNeighbors(bool[,] board, int rowIndex, int colIndex)
+            {
+                int liveCounter = 0;
+                for (int i=Math.Max(0,colIndex-1); i<Math.Min(colIndex+1, board.GetLength(0)-1); i++)
+                {
+                    for (int j=Math.Max(0,rowIndex-1); j<Math.Min(rowIndex+1, board.GetLength(1)-1); j++)
+                    {
+                        if (((i,j)!=(colIndex,rowIndex))&&(board[i,j]==true))
+                        {
+                            liveCounter+=1;
+                        }
+                    }
+                }
+                return liveCounter;
+            }
+
+            bool[,] newBoard = board;
+
+            for (int i=0; i<rows; i++)
+            {
+                for (int j=0; j<cols; j++)
+                {
+                    int live_Neighbors=liveNeighbors(board,i,j);
+                    if ((board[i,j]&&((live_Neighbors<2)||(live_Neighbors>3)))||(!board[i,j]&&(live_Neighbors!=3)))
+                    {
+                        newBoard[i,j]=false;
+                    }
+                    else
+                    {
+                        newBoard[i,j]=true;
+                    }
+                }
+            }
+            return newBoard;
         }
 
         public static int Assignment9()

@@ -173,9 +173,9 @@ namespace Basic
             int liveNeighbors(bool[,] board, int rowIndex, int colIndex)
             {
                 int liveCounter = 0;
-                for (int i=Math.Max(0,colIndex-1); i<Math.Min(colIndex+1, board.GetLength(0)-1); i++)
+                for (int i=Math.Max(0,colIndex-1); i<Math.Min(colIndex+1, board.GetLength(0)); i++)
                 {
-                    for (int j=Math.Max(0,rowIndex-1); j<Math.Min(rowIndex+1, board.GetLength(1)-1); j++)
+                    for (int j=Math.Max(0,rowIndex-1); j<Math.Min(rowIndex+1, board.GetLength(1)); j++)
                     {
                         if (((i,j)!=(colIndex,rowIndex))&&(board[i,j]==true))
                         {
@@ -208,13 +208,54 @@ namespace Basic
 
         public static int Assignment9()
         {
-            /*
-             * TODO: Write code here
-             */
+            bool isJump(int num)
+            {
+                string str_n=num.ToString();
+                char[] charArr=str_n.ToCharArray();
+                bool isCouldGrow=true;
+                bool isCouldShrink=true;
+                for (int i=1; i<charArr.Length; i++)
+                {
+                    /* TODO: compare charArr[i-1] and charArr[i]: done
+                    and see if (!couldGrow&&!couldShrink): done and returned */
+                    if (charArr[i]<charArr[i-1])
+                    {
+                        if (!isCouldShrink)
+                        {
+                            return true;
+                        }
+                        isCouldGrow=false;
+                    }
+                    else if (charArr[i]>charArr[i-1])
+                    {
+                        if (!isCouldGrow)
+                        {
+                            return true;
+                        }
+                        isCouldShrink=false;
+                    }
+                }
+                return false;
+            }
+
+
+            for (int num=1;true;num++)
+            {int jumpCount=0;
+                if (isJump(num))
+                {
+                    /* TODO: add counter: done
+                    check if 99% and return num (outside the if()): done */
+                jumpCount+=1;
+                }
+                if (jumpCount/num==0.99)
+                {
+                    return num;
+                }
+            }
         }
         #endregion
 
-        #region Bonus solutions
+        #region Bonus solutionsnum
         public static int Bonus1()
         {
             /*
